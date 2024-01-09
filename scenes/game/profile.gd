@@ -1,7 +1,8 @@
 class_name Profile extends RigidBody2D
 
-var stamped := false
+var stamped := true
 var dragging := false
+var drop_zone = null
 
 var drag_body : StaticBody2D
 
@@ -18,9 +19,6 @@ func _on_input_event(viewport, event, shape_idx):
 		dragging = true
 		if !is_instance_valid(drag_body):
 			drag_body = StaticBody2D.new()
-			var sprite = Sprite2D.new()
-			sprite.texture = preload("res://assets/icon.svg")
-			drag_body.add_child(sprite)
 			drag_body.add_child(CollisionShape2D.new())
 			var joint = PinJoint2D.new()
 			drag_body.add_child(joint)
@@ -36,4 +34,6 @@ func _input(event):
 			#apply_central_impulse(Input.get_last_mouse_velocity())
 			if is_instance_valid(drag_body):
 				drag_body.queue_free()
+			if is_instance_valid(drop_zone):
+				drop_zone.drop(self)
 			

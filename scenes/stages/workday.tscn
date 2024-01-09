@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=7 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
+[ext_resource type="PackedScene" uid="uid://dwg2yia8pjpea" path="res://scenes/game/tray.tscn" id="2_nnhul"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
 normal = Vector2(1, 0)
@@ -61,3 +62,6 @@ shape = SubResource("WorldBoundaryShape2D_6sc3l")
 
 [node name="Papers" type="Node2D" parent="."]
 position = Vector2(553, 463)
+
+[node name="Tray" parent="Papers" instance=ExtResource("2_nnhul")]
+position = Vector2(274, -169)

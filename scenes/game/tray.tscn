@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game/tray.gd" id="1_ov7mi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyhvq"]
+size = Vector2(40, 56)
 
 [node name="Tray" type="Node2D"]
 script = ExtResource("1_ov7mi")
@@ -13,3 +14,4 @@ script = ExtResource("1_ov7mi")
 shape = SubResource("RectangleShape2D_hyhvq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

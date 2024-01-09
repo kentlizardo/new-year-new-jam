@@ -8,6 +8,8 @@ size = Vector2(40, 56)
 
 [node name="Profile" type="RigidBody2D"]
 input_pickable = true
+linear_damp = 5.0
+angular_damp = 5.0
 script = ExtResource("1_ixbp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
