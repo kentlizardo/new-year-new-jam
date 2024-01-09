@@ -6,11 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cajj7"]
 size = Vector2(40, 56)
 
-[node name="Profile" type="RigidBody2D"]
+[node name="Profile" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
 input_pickable = true
 linear_damp = 5.0
 angular_damp = 5.0
 script = ExtResource("1_ixbp3")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -21,3 +22,5 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_cajj7")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

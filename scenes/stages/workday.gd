@@ -1,6 +1,15 @@
 class_name Workday extends Node
 
+static var current : Workday
+
 @export var papers : Node2D
+
+func _enter_tree():
+	current = self
+
+func _exit_tree():
+	if current == self:
+		current = null
 
 func _ready():
 	var packs : Array[PackedScene] = DataManager.get_data().get_workday()

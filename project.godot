@@ -27,13 +27,12 @@ window/stretch/mode="canvas_items"
 
 click={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(235, 30),"global_position":Vector2(241, 92),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":true,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(181, 42),"global_position":Vector2(187, 104),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 
 [physics]
 
-2d/physics_engine="GodotPhysics2D"
 2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
