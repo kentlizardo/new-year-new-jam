@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvlypir8qho1k"]
+
+[ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a6yow"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uv7rm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6sc3l"]
+normal = Vector2(0, 1)
+
+[node name="Workday" type="Node" node_paths=PackedStringArray("papers")]
+script = ExtResource("1_l7s8w")
+papers = NodePath("Papers")
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="BG"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.997491, 1.00235)
+mouse_filter = 1
+color = Color(0.858824, 0.635294, 0.439216, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_gavju")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1152, 0)
+shape = SubResource("WorldBoundaryShape2D_a6yow")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_uv7rm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_6sc3l")
+
+[node name="Papers" type="Node2D" parent="."]
+position = Vector2(553, 463)

@@ -1,13 +1,13 @@
 extends Node
 
-var starting_scene : PackedScene = preload("res://scenes/main_menu.tscn")
+var main_menu_scene : PackedScene = preload("res://scenes/stages/main_menu.tscn")
 
 @onready var root : Node = $/root/Root
 
 var current_scene : Node
 
 func _ready():
-	stage(starting_scene)
+	stage(main_menu_scene)
 
 func unstage() -> bool:
 	if is_instance_valid(current_scene):
