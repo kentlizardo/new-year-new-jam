@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p5gyq5add1o"]
+
+[sub_resource type="GDScript" id="GDScript_rqrmv"]
+resource_name = "new_game"
+script/source = "extends Button
+
+var scene : PackedScene = load(\"res://scenes/main_menu.tscn\")
+
+func _ready():
+	self.pressed.connect(func(): App.stage(scene))
+"
+
+[node name="MainMenu" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.5
+offset_top = -171.0
+offset_right = 84.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="New Game" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+alignment = 0
+script = SubResource("GDScript_rqrmv")
+
+[node name="Load" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Load From Password
+"
+alignment = 0
+
+[node name="Options" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+alignment = 0
+
+[node name="Credits" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+alignment = 0
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
