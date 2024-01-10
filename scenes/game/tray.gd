@@ -11,6 +11,9 @@ func drop(body : Node2D):
 		await align.finished
 		body.freeze = false
 		body.freeze_mode = old_mode
+	var squeeze := create_tween()
+	squeeze.tween_property(self, "scale", Vector2(1.2, 0.8), 0.05).set_ease(Tween.EASE_IN)
+	squeeze.tween_property(self, "scale", Vector2.ONE, 0.05).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 
 func _on_area_2d_body_entered(body : Node2D):
 	if body is Profile:

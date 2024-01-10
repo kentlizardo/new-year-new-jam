@@ -9,6 +9,6 @@ func _ready():
 
 func destroy():
 	var hide = create_tween()
-	hide.tween_property(self, "modulate:a", 0, 0.1).from(1.0).set_trans(Tween.TRANS_SINE)
+	hide.tween_property(self, "modulate:a", 0, 0.2).from(1.0).set_trans(Tween.TRANS_SINE)
 	await hide.finished
 	queue_free()

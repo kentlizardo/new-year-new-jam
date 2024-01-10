@@ -28,6 +28,7 @@ static func set_dragged_item(drag : Draggable):
 	current = drag
 
 func is_on_top() -> bool:
+	return true
 	for node in get_tree().get_nodes_in_group("hovered"):
 		var a_search : Node = get_parent()
 		var a : Node = self
@@ -55,7 +56,6 @@ func start_drag():
 		dragging = true
 		drag_started.emit()
 		drag_distance = Vector2.ZERO
-		print("dragging " + name)
 		if !is_instance_valid(drag_body):
 			drag_body = StaticBody2D.new()
 			drag_body.add_child(CollisionShape2D.new())
@@ -87,7 +87,7 @@ func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
 		#start_drag()
 		get_parent().move_child(self, get_parent().get_children().size())
-		if is_on_top():
+		if current_hovered == self:
 			set_dragged_item(self)
 		if event is InputEventMouseButton:
 			if event.double_click:
@@ -100,12 +100,28 @@ func _input(event):
 				set_dragged_item(null)
 			#end_drag()
 
+static var current_hovered : Draggable:
+	set(x):
+		if is_instance_valid(current_hovered):
+			off_hover(current_hovered)
+		current_hovered = x
+		if is_instance_valid(current_hovered):
+			on_hover(current_hovered)
+
+static func on_hover(drag : Draggable):
+	var hover := drag.sprite.create_tween()
+	hover.tween_property(drag.sprite, "modulate:v", 1.2, 0.1)
+	drag.add_to_group("hovered")
+
+static func off_hover(drag : Draggable):
+	var unhover := drag.sprite.create_tween()
+	unhover.tween_property(drag.sprite, "modulate:v", 1.0, 0.1)
+	drag.remove_from_group("hovered")
+
 func _on_mouse_entered():
-	var hover := sprite.create_tween()
-	hover.tween_property(sprite, "modulate:v", 1.2, 0.1)
-	add_to_group("hovered")
+	current_hovered = self
 
 func _on_mouse_exited():
-	var unhover := sprite.create_tween()
-	unhover.tween_property(sprite, "modulate:v", 1.0, 0.1)
-	remove_from_group("hovered")
+	if current_hovered == self:
+		current_hovered = null
+

@@ -44,9 +44,9 @@ func stamping_body_exited(body : Node2D):
 			stamping.remove_at(i)
 
 func start_stamp():
-	linear_damp = 500
-	spring.stiffness = 1
+	linear_damp = 5000
+	#freeze = true
 
 func end_stamp():
 	linear_damp = 5
-	spring.stiffness = 40
+	#freeze = false
