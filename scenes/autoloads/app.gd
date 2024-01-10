@@ -2,7 +2,7 @@ extends Node
 
 var main_menu_scene : PackedScene = preload("res://scenes/stages/main_menu.tscn")
 
-@onready var root : Node = $/root/Root
+@onready var stage_root : Node = $/root/Root/StageRoot
 
 var current_scene : Node
 
@@ -18,4 +18,4 @@ func unstage() -> bool:
 func stage(packed : PackedScene):
 	unstage()
 	current_scene = packed.instantiate()
-	root.add_child(current_scene)
+	stage_root.add_child(current_scene)

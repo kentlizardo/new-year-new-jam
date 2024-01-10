@@ -2,7 +2,7 @@ extends Node2D
 
 func drop(body : Node2D):
 	var align := body.create_tween()
-	align.tween_property(body, "global_position", global_position, 0.3)
+	align.tween_property(body, "global_position", global_position, 0.3).set_trans(Tween.TRANS_BOUNCE)
 	align.parallel().tween_property(body, "global_rotation", global_rotation, 0.2)
 	if body is RigidBody2D:
 		body.freeze = true

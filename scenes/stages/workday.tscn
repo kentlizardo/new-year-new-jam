@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=8 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="PackedScene" uid="uid://dwg2yia8pjpea" path="res://scenes/game/tray.tscn" id="2_nnhul"]
+[ext_resource type="PackedScene" uid="uid://dpo24l4jygsv3" path="res://scenes/game/stamp.tscn" id="3_tx1l0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
 normal = Vector2(1, 0)
@@ -45,6 +46,7 @@ mouse_filter = 1
 color = Color(0.858824, 0.635294, 0.439216, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_gavju")
@@ -65,3 +67,6 @@ position = Vector2(553, 463)
 
 [node name="Tray" parent="Papers" instance=ExtResource("2_nnhul")]
 position = Vector2(274, -169)
+
+[node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
+position = Vector2(706, 296)

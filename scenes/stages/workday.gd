@@ -21,6 +21,7 @@ func _ready():
 
 func organize():
 	for profile in get_tree().get_nodes_in_group("profiles"):
+		profile.reparent(papers)
 		var node_2d := profile as Node2D
 		if node_2d:
-			node_2d.global_position = papers.global_position
+			node_2d.global_position = papers.global_position + Vector2(randi_range(-200, 200), randi_range(-100, 100))

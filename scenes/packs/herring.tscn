@@ -7,3 +7,13 @@
 [node name="Profile" parent="." instance=ExtResource("1_d8hjl")]
 linear_damp = 10.0
 angular_velocity = 0.174533
+
+[node name="Profile2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("1_d8hjl")]
+linear_damp = 10.0
+angular_velocity = 0.174533
+sprite = NodePath("../Profile/Sprite2D")
+
+[node name="Profile3" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("1_d8hjl")]
+linear_damp = 10.0
+angular_velocity = 0.174533
+sprite = NodePath("../Profile/Sprite2D")

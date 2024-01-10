@@ -12,22 +12,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
 [node name="Control" type="Panel" parent="Control"]
-custom_minimum_size = Vector2(100, 140)
+custom_minimum_size = Vector2(400, 560)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lqm7j")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Profile
+"
