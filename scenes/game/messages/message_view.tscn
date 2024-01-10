@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://7ti1tq0k3s4v"]
+[gd_scene load_steps=8 format=3 uid="uid://7ti1tq0k3s4v"]
 
 [ext_resource type="Script" path="res://scenes/game/messages/message_view.gd" id="1_8184h"]
 [ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="2_8lajs"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="3_3e71u"]
+[ext_resource type="Texture2D" uid="uid://bhixxq0k42rsc" path="res://assets/textures/message_red.png" id="3_4m3x8"]
+[ext_resource type="Texture2D" uid="uid://0q7wjiwsbxre" path="res://assets/textures/ui_box.png" id="3_n0uge"]
+[ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="6_ojofv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jglid"]
+texture = ExtResource("3_n0uge")
+texture_margin_left = 80.0
+texture_margin_top = 80.0
+texture_margin_right = 80.0
+texture_margin_bottom = 80.0
+expand_margin_left = 14.0
+expand_margin_top = 14.0
+expand_margin_right = 14.0
+expand_margin_bottom = 14.0
 
 [node name="MessageView" type="Control"]
 custom_minimum_size = Vector2(640, 480)
@@ -19,16 +34,259 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_8lajs")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jglid")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 32
+
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
 vertical = true
 
-[node name="VScrollBar" type="VScrollBar" parent="BoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "omre testing"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+
+[node name="PFPLeft" type="Control" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel/PFPLeft"]
+position = Vector2(-60, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ojofv")
+
+[node name="PFPRight" type="Control" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel/PFPRight"]
+position = Vector2(60, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ojofv")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "testing Uh oh!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+
+[node name="PFPRight2" type="Control" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel2/PFPRight2"]
+position = Vector2(60, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ojofv")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "Uh oh! This message is really long and a test message
+Blah blahblah
+What ever shall I do!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "Uh oh! This message is really long and a test message
+Blah blahblah
+What ever shall I do!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel4"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "Uh oh! This message is really long and a test message
+Blah blahblah
+What ever shall I do!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel5"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="ScrollContainer/MarginContainer/BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.258824)
+theme_override_fonts/normal_font = ExtResource("3_3e71u")
+text = "Uh oh! This message is really long and a test message
+Blah blahblah
+What ever shall I do!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/MarginContainer/BoxContainer/RichTextLabel6"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m3x8")
+patch_margin_left = 40
+patch_margin_top = 32
+patch_margin_right = 40
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
