@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpo24l4jygsv3"]
+[gd_scene load_steps=9 format=3 uid="uid://dpo24l4jygsv3"]
 
 [ext_resource type="Script" path="res://scenes/game/stamp.gd" id="1_2eywq"]
 [ext_resource type="Texture2D" uid="uid://bes78g22ri86l" path="res://assets/textures/stamp_bottom.png" id="1_mj3mv"]
 [ext_resource type="Script" path="res://scenes/game/draggable.gd" id="1_nyrib"]
 [ext_resource type="Texture2D" uid="uid://xfxbspsiml75" path="res://assets/textures/stamp_top.png" id="2_ck1ip"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7qct"]
-size = Vector2(40, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o4a0"]
 size = Vector2(44, 60)
@@ -14,7 +11,13 @@ size = Vector2(44, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8se0"]
 size = Vector2(49, 66)
 
-[node name="Stamp" type="RigidBody2D" node_paths=PackedStringArray("stamp_top", "spring", "sprite")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdvi"]
+size = Vector2(44, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7qct"]
+size = Vector2(44, 35)
+
+[node name="Stamp" type="RigidBody2D" node_paths=PackedStringArray("stamp_top", "spring", "stamp_threshold", "stamping_area", "sprite")]
 collision_layer = 2
 collision_mask = 2
 input_pickable = true
@@ -23,15 +26,9 @@ linear_damp = 5.0
 script = ExtResource("1_2eywq")
 stamp_top = NodePath("TopBody")
 spring = NodePath("DampedSpringJoint2D")
+stamp_threshold = NodePath("StampThreshold")
+stamping_area = NodePath("StampingArea")
 sprite = NodePath("Bottom")
-
-[node name="StampThreshold" type="Area2D" parent="."]
-position = Vector2(0, -3)
-input_pickable = false
-
-[node name="Area2D" type="CollisionShape2D" parent="StampThreshold"]
-position = Vector2(-1, 32)
-shape = SubResource("RectangleShape2D_x7qct")
 
 [node name="Bottom" type="Sprite2D" parent="."]
 texture = ExtResource("1_mj3mv")
@@ -70,3 +67,20 @@ texture = ExtResource("2_ck1ip")
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_o8se0")
 debug_color = Color(0.196078, 0.643137, 0, 0.419608)
+
+[node name="StampThreshold" type="Area2D" parent="."]
+position = Vector2(0, -3)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="Area2D" type="CollisionShape2D" parent="StampThreshold"]
+position = Vector2(0, 32.75)
+shape = SubResource("RectangleShape2D_kbdvi")
+
+[node name="StampingArea" type="Area2D" parent="."]
+position = Vector2(0, 17)
+input_pickable = false
+
+[node name="Area2D" type="CollisionShape2D" parent="StampingArea"]
+shape = SubResource("RectangleShape2D_x7qct")
