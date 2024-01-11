@@ -14,5 +14,8 @@ func linearize():
 					node.next_event = children[i + 1] as MessageEvent
 
 func _play():
-	await (get_children()[0] as MessageEvent).play()
+	var children := get_children()
+	children[0].play()
+	if !children[children.size() - 1].is_complete:
+		await children[children.size() - 1].finished
 

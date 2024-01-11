@@ -11,7 +11,7 @@ var contact_pfp : Texture2D
 
 var last_author : MessageView.MessageAuthor = MessageView.MessageAuthor.GLOBAL
 
-func send_message(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
+func say(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
 	var bubble := BUBBLE_SAY_TEMPLATE.instantiate() as BubbleSay
 	var align : BubbleSay.BubbleAlignment
 	if author == MessageView.MessageAuthor.AS_LAST:

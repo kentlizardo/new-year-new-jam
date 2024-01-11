@@ -1,5 +1,7 @@
 class_name UserIcon extends TextureRect
 
+signal clicked
+
 @export var notification_label : Label
 
 var notifications := 0:
@@ -15,3 +17,7 @@ func add_notification():
 func clear_notifications():
 	notifications = 0
 	notification_label.visible = false
+
+func _gui_input(event):
+	if Input.is_action_just_pressed("click"):
+		clicked.emit()

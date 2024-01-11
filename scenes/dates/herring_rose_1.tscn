@@ -26,4 +26,19 @@ message = "player is talking now"
 contact = ExtResource("3_e5k21")
 as_player = 1
 
+[node name="Test" type="Node" parent="MessageGroup"]
+script = ExtResource("1_trxno")
+
+[node name="Node2" type="Node" parent="MessageGroup/Test"]
+script = ExtResource("2_0yfbn")
+message = "group 1"
+contact = ExtResource("3_e5k21")
+as_player = 0
+
+[node name="Node3" type="Node" parent="MessageGroup/Test"]
+script = ExtResource("2_0yfbn")
+message = "group 2"
+contact = ExtResource("3_e5k21")
+as_player = 1
+
 [connection signal="ready" from="MessageGroup" to="MessageGroup" method="play"]

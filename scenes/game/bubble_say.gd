@@ -33,7 +33,6 @@ func setup(text : String, align : BubbleAlignment, icon : Texture2D):
 		BubbleAlignment.MIDDLE:
 			box_container.alignment = BoxContainer.ALIGNMENT_CENTER
 	label.text = text
-	read()
 	
 func read():
 	if !is_inside_tree():
@@ -45,4 +44,3 @@ func read():
 		var char_timer := get_tree().create_timer(0.05)
 		await char_timer.timeout
 		label.visible_characters += 1
-	

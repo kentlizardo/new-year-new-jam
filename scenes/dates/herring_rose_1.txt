@@ -1,16 +1,38 @@
-set_builder_contact("Herring")
-add_contact_alias("H")
-add_player_alias("M")
+// ? suffix to contact name requires prompts before sending
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
 H: "hi!"
 "i managed to set up a park date! :o"
 "the website i found had a list of recs"
 "the view of the fountain here is very nice."
-M: "That's great to hear, sir Herring."
+M?: "That's great to hear, sir Herring."
 H: "um ty!"
 "..."
 "so."
 "we're meeting for the first time soon,"
-"and i was wondering..."
-"which outfit should I wear?"
-media("tacky_1.png", "tacky2_.png")
-choice("The sunglasses one.", "The patterned one.")
+"and i was wondering if you could help me with,"
+"which outfit i should wear?"
+/media("tacky_1.png", "tacky2_.png")
+<choice_1>/choice
+/add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
+/add_to_choice(<choice_2>, "The patterned one.", <pattern>)
+<sunglasses>/group
+  M: "But I will advise you... that is in fact,\n a shoulder bag."
+  H: "?"
+  "but it said it was a waist bag on lamaz.in"
+  "the post said its super trendy"
+  M: "It's a shoulder bag.\n Don't trust [i]everything[/i] you see on the internet."
+  H: "okay!"
+<patterned>H: "thank you so much miss Mina!"
+"oh!
+"last thing."
+"which of these do you think would look best?"
+/media("buff_1.png", "buff_2.png", "buff_3.png")
+M?: "...Um."
+"For what?" +sweat
+<choice_2>/choice
+/add_to_choice(<choice_2>, "Maybe tone it down a bit?")
+/add_to_choice(<choice_2>, "I think it's best to just be yourself.")
+/add_to_choice(<choice_2>, "Are you sure you want to do this?")
+/media("oh_no")
