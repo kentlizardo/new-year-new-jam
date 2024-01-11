@@ -12,36 +12,36 @@ script = ExtResource("1_trxno")
 
 [node name="Node" type="Node" parent="MessageGroup"]
 script = ExtResource("2_0yfbn")
+contact = ExtResource("3_e5k21")
 message = "hi"
 as_player = 0
-contact = ExtResource("3_e5k21")
 
 [node name="Node2" type="Node" parent="MessageGroup"]
 script = ExtResource("2_0yfbn")
+contact = ExtResource("3_e5k21")
 message = "hi testing!"
 as_player = null
-contact = ExtResource("3_e5k21")
 
 [node name="Node3" type="Node" parent="MessageGroup"]
 script = ExtResource("2_0yfbn")
+contact = ExtResource("3_e5k21")
 message = "player is talking now"
 as_player = 1
-contact = ExtResource("3_e5k21")
 
 [node name="Test" type="Node" parent="MessageGroup"]
 script = ExtResource("1_trxno")
 
 [node name="Node2" type="Node" parent="MessageGroup/Test"]
 script = ExtResource("2_0yfbn")
+contact = ExtResource("3_e5k21")
 message = "group 1"
 as_player = 0
-contact = ExtResource("3_e5k21")
 
 [node name="Node3" type="Node" parent="MessageGroup/Test"]
 script = ExtResource("2_0yfbn")
+contact = ExtResource("3_e5k21")
 message = "group 2"
 as_player = 1
-contact = ExtResource("3_e5k21")
 
 [node name="MessageParser" type="Node" parent="."]
 script = ExtResource("4_fu8qr")

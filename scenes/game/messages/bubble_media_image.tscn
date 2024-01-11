@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://bm55ejd450ksc" path="res://scenes/game/messages/style_box.tres" id="2_aa2i0"]
 
 [node name="TextureRect" type="TextureRect"]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(30, 30)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("1_nratf")

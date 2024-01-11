@@ -2,6 +2,7 @@ class_name MessageEvent extends Node
 
 signal finished
 
+@export var contact : Contact
 @export var next_event : MessageEvent
 
 var is_complete := false

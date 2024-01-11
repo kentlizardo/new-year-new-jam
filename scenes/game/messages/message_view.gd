@@ -75,6 +75,14 @@ func send_media(contact : Contact, media : Array[Texture2D], author : MessageAut
 		binding.tab_icon.add_notification()
 	return bubble
 
+func make_choice(contact : Contact, choices : Array) -> ChoiceRoot:
+	check_contact(contact)
+	var binding := contacts[contact] as UserBinding
+	var bubbles := binding.messages.make_choice(choices)
+	if contact_shown != contact:
+		binding.tab_icon.add_notification()
+	return bubbles
+
 class UserBinding extends RefCounted:
 	var tab_icon : UserIcon
 	var messages : UserMessages

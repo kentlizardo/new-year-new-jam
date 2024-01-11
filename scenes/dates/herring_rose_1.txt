@@ -17,15 +17,15 @@ H: "um ty!"
 /media("H", "tacky_1.png", "tacky2_.png")
 <choice_1>/choice
 /add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
-/add_to_choice(<choice_2>, "The patterned one.", <pattern>)
+/add_to_choice(<choice_1>, "The patterned one.", <pattern>)
 <sunglasses>/group
     M: "But I will advise you... that is in fact,\n a shoulder bag."
-    H: "?"
+     H: "?"
     "but it said it was a waist bag on lamaz.in"
     "the post said its super trendy"
     M: "It's a shoulder bag.\n Don't trust [i]everything[/i] you see on the internet."
     H: "okay!"
-<patterned>H: "thank you so much miss Mina!"
+<pattern>H: "thank you so much miss Mina!"
 "oh!
 "last thing."
 "which of these do you think would look best?"
@@ -37,3 +37,7 @@ M?: "...Um."
 /add_to_choice(<choice_2>, "I think it's best to just be yourself.")
 /add_to_choice(<choice_2>, "Are you sure you want to do this?")
 /media("H", "oh_no")
+M?: "Wow..." +shaking
+H: "oh, i think she'll be here soon."
+"i'm going to change!"
+"thank you miss Mina!"

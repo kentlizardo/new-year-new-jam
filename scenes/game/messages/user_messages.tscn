@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/game/messages/user_messages.gd" id="1_mhv5p"]
 [ext_resource type="PackedScene" uid="uid://ct3h17nlrt2qr" path="res://scenes/game/bubble_say.tscn" id="1_ntdf3"]
-[ext_resource type="PackedScene" uid="uid://epbjd0q1mpys" path="res://scenes/game/bubble_choice.tscn" id="4_rgcdg"]
+[ext_resource type="PackedScene" uid="uid://83ou5u36w2y1" path="res://scenes/game/messages/choice_root.tscn" id="3_i17cd"]
 
 [sub_resource type="Theme" id="Theme_vqql7"]
 
-[node name="UserMessages" type="ScrollContainer" node_paths=PackedStringArray("message_root", "choice_root")]
+[node name="UserMessages" type="ScrollContainer" node_paths=PackedStringArray("message_root", "choice_root_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,7 +17,7 @@ follow_focus = true
 horizontal_scroll_mode = 0
 script = ExtResource("1_mhv5p")
 message_root = NodePath("MarginContainer/VBoxContainer/Messages")
-choice_root = NodePath("MarginContainer/VBoxContainer/MarginContainer/ChoiceRoot")
+choice_root_container = NodePath("MarginContainer/VBoxContainer/MarginContainer/ChoiceContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -49,13 +49,9 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
-[node name="ChoiceRoot" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="ChoiceContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
 theme_override_constants/separation = 32
-alignment = 1
 
-[node name="Choice" parent="MarginContainer/VBoxContainer/MarginContainer/ChoiceRoot" instance=ExtResource("4_rgcdg")]
-visible = false
+[node name="ChoiceRoot" parent="MarginContainer/VBoxContainer/MarginContainer/ChoiceContainer" instance=ExtResource("3_i17cd")]
 layout_mode = 2

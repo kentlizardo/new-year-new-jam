@@ -1,6 +1,5 @@
 extends MessageEvent
 
-@export var contact : Contact
 @export var message := ""
 @export var as_player : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
 
