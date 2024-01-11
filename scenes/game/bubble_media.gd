@@ -25,3 +25,4 @@ func setup(align : BubbleAlignment, images : Array[Texture2D]):
 	for img in images:
 		var tex_rect := IMAGE_TEMPLATE.instantiate() as TextureRect
 		tex_rect.texture = img
+		media_root.add_child(tex_rect)

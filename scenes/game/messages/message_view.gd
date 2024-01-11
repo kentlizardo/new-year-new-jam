@@ -54,12 +54,23 @@ func _hide(contact : Contact):
 	var p := contacts[contact] as UserBinding
 	(p.messages as CanvasItem).visible = false
 
-func send_message(contact : Contact, message : String, author : MessageAuthor) -> BubbleSay:
+func check_contact(contact : Contact):
 	if !contacts.has(contact):
 		print("adding missing contact" + contact.name)
 		add_contact(contact)
+
+func send_message(contact : Contact, message : String, author : MessageAuthor) -> BubbleSay:
+	check_contact(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.say(message, author)
+	if contact_shown != contact:
+		binding.tab_icon.add_notification()
+	return bubble
+
+func send_media(contact : Contact, media : Array[Texture2D], author : MessageAuthor) -> BubbleMedia:
+	check_contact(contact)
+	var binding := contacts[contact] as UserBinding
+	var bubble := binding.messages.send_media(media, author)
 	if contact_shown != contact:
 		binding.tab_icon.add_notification()
 	return bubble

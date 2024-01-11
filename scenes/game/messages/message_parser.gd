@@ -1,12 +1,15 @@
 class_name MessageParser extends MessageGroup
 
 const CONTACTS_PATH := "res://scenes/game/messages/contacts/"
+const MEDIA_PATH := "res://scenes/game/messages/media"
 
 const EventSay := preload("res://scenes/game/messages/events/msg_evt_say.gd")
+const EventMedia := preload("res://scenes/game/messages/events/msg_evt_media.gd")
 
 @export_file("*.txt") var source
 
 var registered_contacts : Dictionary = {} # string -> Resource(Contact)
+var registered_media : Dictionary = {} # string -> Resource(Texture2D)
 
 var pointer : Node = self
 var labeled : Dictionary = {} # string -> Node(most likely MessageEvent)
@@ -19,6 +22,11 @@ func _ready():
 		var res := load(CONTACTS_PATH + path) as Contact
 		if res:
 			registered_contacts[path.get_file().trim_suffix(".tres")] = res
+	var media_paths := DirAccess.get_files_at(MEDIA_PATH)
+	for path in media_paths:
+		var res := load(MEDIA_PATH + path) as Texture2D
+		if res:
+			registered_contacts[path.get_file()] = res
 	var file := FileAccess.open(source, FileAccess.READ)
 	if file:
 		parse_file(file)
@@ -65,18 +73,27 @@ func parse_file(file : FileAccess):
 			if alias_index != -1:
 				var split := line.split(":")
 				line = split[1].strip_edges()
-				var alias := split[0].strip_edges()
-				if alias.ends_with("?"):
-					push_warning("implement blah")
-				if aliases.has(alias):
-					author = aliases[alias]
+				var alias_token := split[0].strip_edges()
+				if alias_token.ends_with("?"):
+					push_warning("implement ? suffix")
+					alias_token = alias_token.trim_suffix("?")
+				author = read_alias_token(alias_token)
 			var say_event := EventSay.new()
 			say_event.as_player = author
 			say_event.contact = main_contact
 			say_event.message = message
 			pointer.add_child(say_event)
+			created_node = say_event
 		if line_label != "" and created_node != null:
 			labeled[line_label] = created_node
+
+func read_alias_token(token : String) -> MessageView.MessageAuthor:
+	var alias := token
+	if aliases.has(alias):
+		var author := aliases[alias] as MessageView.MessageAuthor
+		return author
+	push_error("Error: could not read alias token of \"" + token + "\"")
+	return MessageView.MessageAuthor.AS_LAST
 
 func convert_param(token : String):
 	if token.begins_with("<"):
@@ -98,6 +115,21 @@ func command(command : String, params : Array) -> Node:
 		"add_global_alias":
 			var alias := (params[0] as String)
 			aliases[alias] = MessageView.MessageAuthor.GLOBAL
+		"media":
+			var alias := (params[0] as String).strip_edges()
+			params.remove_at(0)
+			var textures : Array[Texture2D] = []
+			for path in params:
+				if path is String:
+					if registered_media.has(path):
+						textures.append(registered_media[path])
+					else:
+						textures.append(null)
+			var event_media := EventMedia.new()
+			event_media.media = textures
+			event_media.contact = main_contact
+			event_media.as_player = read_alias_token(alias)
+			pointer.add_child(event_media)
 	return null
 
 class LineLabel extends RefCounted:

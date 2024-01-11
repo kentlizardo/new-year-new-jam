@@ -49,6 +49,6 @@ func read():
 		await visibility_changed
 	label.visible_characters = 0
 	while label.visible_characters < len(label.text.replace("/[^a-z0-9-]/g", "")):
-		var char_timer := get_tree().create_timer(0.05)
+		var char_timer := get_tree().create_timer(0.005)
 		await char_timer.timeout
 		label.visible_characters += 1

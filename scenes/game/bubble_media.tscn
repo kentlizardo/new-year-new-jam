@@ -16,4 +16,5 @@ theme_override_constants/separation = 24
 
 [node name="TextureRect" parent="HBoxContainer" instance=ExtResource("1_xcy2g")]
 visible = false
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2

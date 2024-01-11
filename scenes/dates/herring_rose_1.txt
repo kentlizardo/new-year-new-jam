@@ -14,7 +14,7 @@ H: "um ty!"
 "we're meeting for the first time soon,"
 "and i was wondering if you could help me with,"
 "which outfit i should wear?"
-/media("tacky_1.png", "tacky2_.png")
+/media("H", "tacky_1.png", "tacky2_.png")
 <choice_1>/choice
 /add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
 /add_to_choice(<choice_2>, "The patterned one.", <pattern>)
@@ -29,11 +29,11 @@ H: "um ty!"
 "oh!
 "last thing."
 "which of these do you think would look best?"
-/media("buff_1.png", "buff_2.png", "buff_3.png")
+/media("H", "buff_1.png", "buff_2.png", "buff_3.png")
 M?: "...Um."
 "For what?" +sweat
 <choice_2>/choice
 /add_to_choice(<choice_2>, "Maybe tone it down a bit?")
 /add_to_choice(<choice_2>, "I think it's best to just be yourself.")
 /add_to_choice(<choice_2>, "Are you sure you want to do this?")
-/media("oh_no")
+/media("H", "oh_no")

@@ -34,3 +34,22 @@ func say(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
 	message_root.add_child(bubble)
 	return bubble
 
+func send_media(media : Array[Texture2D], author : MessageView.MessageAuthor) -> BubbleMedia:
+	var bubble := BUBBLE_MEDIA_TEMPLATE.instantiate() as BubbleMedia
+	var align : BubbleMedia.BubbleAlignment
+	if author == MessageView.MessageAuthor.AS_LAST:
+		author = last_author
+	assert(author != MessageView.MessageAuthor.AS_LAST, "Author invariant violated. Should never set last_author to AS_LAST")
+	match(author):
+		MessageView.MessageAuthor.CONTACT:
+			align = BubbleMedia.BubbleAlignment.LEFT
+		MessageView.MessageAuthor.PLAYER:
+			align = BubbleMedia.BubbleAlignment.RIGHT
+		MessageView.MessageAuthor.GLOBAL:
+			align = BubbleMedia.BubbleAlignment.MIDDLE
+	bubble.setup(align, media)
+	if author != MessageView.MessageAuthor.AS_LAST:
+		last_author = author
+	message_root.add_child(bubble)
+	return bubble
+
