@@ -116,11 +116,16 @@ func parse_file(file : FileAccess):
 		var modifiers := line.split(" ")
 		for modifier in modifiers:
 			modifier = modifier.strip_edges()
-			if modifier.begins_with("+"):
-				pass
+			if modifier.begins_with("+"): # say modifier
+				if last_created_node is EventSay:
+					var say_modifier := modifier.trim_prefix("+")
+					match(say_modifier):
+						"skip":
+							last_created_node.skip = true
+				else:
+					push_error("Cannot add a '+' modifier to a node that isn't MsgEvtSay")
 			elif modifier.begins_with("*<"):
 				var label := modifier.trim_prefix("*<").trim_suffix(">")
-				print("modifier: " + label + " -> " + label)
 				branch_towards(last_created_node, LineLabel.new(label))
 		context_indent_level = current_indent_level
 

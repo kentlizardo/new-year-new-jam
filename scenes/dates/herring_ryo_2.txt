@@ -1,0 +1,55 @@
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "the date went terribly..."
+"what do i doo,,,"
+M: "What happened?"
+H: "she didn't enjoy the movie at all..."
+"she was so quiet..."
+"it was so awkward."
+"how do i fix this?"
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+R: "Oh god, the date went so well!"
+"He was so much cuter in person!"
+"I couldn't stop looking at him the entire time!!!"
+"How could you not want to squish him?"
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "asjgahiaghrojoge"
+M?: "What's wrong, Herring!?"
+"Are you hurt?"
+H: "oh,,, sorry that was an accident."
+"a ton of gold and junk just fell on me out of nowhere."
+"thanks for worrying about me miss Mina!"
+"..."
+"no way."
+M?: "Do you need me to contact emergency services?"
+H: "this..."
+"this is a sealed limited edition Momo Magi-Girl figure!" +shaking
+"it even has the customizable cantrips!"
+"wait,"
+"this giant box crushing me to death??"
+"its a complete box set of seasons 1-22 of Dungeon Dinner!?" +shaking
+"NO WAY!???"
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+R: "i wonder if he can transform?" +skip
+"what does his slime form look like?" +skip
+"i wonder if he feels the same too 😭" +skip
+"how can a slime be filled with so much cuteness?!??" +skip
+"how do you think this is possible Miss Mina?"
+<choice_1>/choice
+/add_to_choice(<choice_1>, M?:"Um?")
+/add_to_choice(<choice_1>, M?:"Wow!")
+/add_to_choice(<choice_1>, M?:"I'm glad to hear it went well?")
+"Actually..."
+"I think I found where your hoard was transported to."
+/media("herring_squished")
