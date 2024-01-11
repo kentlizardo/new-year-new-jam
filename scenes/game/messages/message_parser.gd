@@ -90,7 +90,7 @@ func parse_file(file : FileAccess):
 			say_event.as_player = author
 			say_event.contact = main_contact
 			say_event.message = message_literal.message
-			
+			say_event.require_prompt = message_literal.require_prompt
 			for i in message_literal.modifiers:
 				if i == "skip":
 					say_event.skip = true
