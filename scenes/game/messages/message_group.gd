@@ -18,6 +18,8 @@ func linearize():
 #func _play():
 	#var children := get_children()
 	#await children[0].play()
+func _play():
+	pass
 
 # Instead, repoint the next event call to be 
 func _get_next_event() -> MessageEvent:

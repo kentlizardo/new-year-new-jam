@@ -1,3 +1,7 @@
+/set_main_contact("rose")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
 R: “I found my date!!!”
 "I’ve been searching all day and night,”
 "Turns out he was lying in the forest nearby!”

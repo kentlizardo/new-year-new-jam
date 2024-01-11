@@ -1,0 +1,96 @@
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+R: "Crapcrapcrap, what do I do??"
+M: "What's wrong, Miss Ryo?"
+R: "MY DATE IS ALMOST HERE ALREADY 💀💀💀"
+"MY HOARD IS ALL OVER THE PLACE"
+R?:"My bed."
+R?:"My living room."
+R?:"My kitchen."
+R?:"MY MICROWAVE???"
+"HOW DID IT EVEN GET IN THERE?"
+"I KNEW I SHOULDNT HAVE BINGED THOSE 2 SEASONS OF DUNGEON DINNER"
+M: "...Did you perhaps oversleep?"
+R: "..."
+"Please help me Miss Mina!!!"
+M: "I'll do what I can."
+"Try to clean as much as you can before he gets there."
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Hello! Good afternoon Mr. Herring!"
+H?: "oh hey miss mina! it's nice to talk to you again 😊"
+"im actually about to visit my date at her house!"
+H?:"it's a home/movie date!"
+"oh!"
+"the internet said the top home date activity was Cineflix and chill."
+/media("H", "herring_movies")
+"do you think she will like them?"
+M: "These don't look like movies that [i]you[/i] would typically watch?"
+"Why these ones?"
+H: "..."
+"ig you know me well after all miss Mina,,,"
+"thats a cupid specialist for you!"
+"yeah um,\ni'd rather watch something like All Metal Exchange but,,,"
+"i want to impress her!"
+"most girls like good romance movies from cool guys."
+H?: "...\nand my last partner said it was lame..."
+M:"Ah, I see." +sweat
+<choice_1>/choice
+/add_to_choice(<choice_1>, "Maybe you should introduce them to her in the near future.", <choice_1_a>)
+/add_to_choice(<choice_1>, "I'm sure it isn't lame.", <choice_1_b>)
+<choice_1_a>/group
+    M: "You'll never truly know what someone will like or hate until they try it 😌." *<post_1>
+<choice_1_b>/group
+    M: "I'll watch it with you sometime!"
+    "Then you can show it to Miss Ryo with the confidence\n that [i]you're[/i] the cool guy showing cool movies!" *<post_1>
+<post_1>"Oh!"
+"Actually, while you're on the way, I wanted to relay to you some information."
+"The route you're taking to Miss Ryo's is currently blocked."
+"Local news says theres a rampant hydro elemental on the loose."
+H: "but."
+"i don't want to be late for the date!"
+"i should be there on time!\n for miss Ryo!"
+<choice_2>/choice
+/add_to_choice(<choice_2>, "You probably don't want to go in all drenched.", <choice_2_a>)
+/add_to_choice(<choice_2>, "Prioritize your safety!", <choice_2_b>)
+<choice_2_a>/group
+    M: "It's not a good idea to ruin your new partner's carpet." *<post_2>
+<choice_2_b>/group
+    M: "Miss Ryo wouldn't want you to get hurt along the way to your date." *<post_2>
+<post_2>H: "you're right!"
+"tysm miss Mina!"
+"you're so smart!\n you should have people pay for you for this kind of thing!"
+"oh wait, nvm!"
+"i'll go find a different route to bike through 🫡"
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+M?: "So..."
+"How is it going over there?"
+R: "... 😭"
+"my."
+"m-my hoard"
+"my figures"
+"my games"
+"my manga"
+M?: "What happened?"
+R:"There's good news and bad news."
+R: "...I uh, remembered I could use chaos magic."
+"So I may have... stored my hoard somewhere""
+<choice_3>/choice
+/add_to_choice(<choice_3>, "What's the good news?", <choice_3_a>)
+/add_to_choice(<choice_3>, "Hit me with the bad news.", <post_3>)
+<choice_3_a>/group
+    R: "Good news is that chaos magic is most certainly temporary." *<post_3>
+<post_3>R?: "Bad news is uh."
+"I can't choose [i]where.[/i]"
+"or [i]when[/i]"
+"...it appears."
+M?: "...At least your house is now clean."
+R: "..."
+R: "Thank you, Miss Mina..."

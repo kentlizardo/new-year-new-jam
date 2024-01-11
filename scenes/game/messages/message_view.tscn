@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ti1tq0k3s4v"]
+[gd_scene load_steps=6 format=3 uid="uid://7ti1tq0k3s4v"]
 
 [ext_resource type="Script" path="res://scenes/game/messages/message_view.gd" id="1_8184h"]
 [ext_resource type="StyleBox" uid="uid://bm55ejd450ksc" path="res://scenes/game/messages/style_box.tres" id="2_f27y0"]
 [ext_resource type="PackedScene" uid="uid://byloginwke4aw" path="res://scenes/game/messages/user_icon.tscn" id="3_ssgas"]
 [ext_resource type="PackedScene" uid="uid://dl0j6k1u14383" path="res://scenes/game/messages/user_messages.tscn" id="4_kijv5"]
-[ext_resource type="PackedScene" uid="uid://b6m031py4oocn" path="res://scenes/dates/herring_rose_1.tscn" id="5_xe7l4"]
 [ext_resource type="Script" path="res://scenes/game/messages/message_parser.gd" id="6_c0he0"]
 
 [node name="MessageView" type="Control" node_paths=PackedStringArray("user_icons", "user_messages_root")]
@@ -69,10 +68,8 @@ theme_override_styles/panel = ExtResource("2_f27y0")
 [node name="UserMessages" parent="HBoxContainer/UserTabs/UserMessagesRoot" instance=ExtResource("4_kijv5")]
 layout_mode = 1
 
-[node name="HerringRose1" parent="." instance=ExtResource("5_xe7l4")]
-
-[node name="MessageParser2" type="Node" parent="HerringRose1"]
+[node name="MessageParser2" type="Node" parent="."]
 script = ExtResource("6_c0he0")
-source = "res://scenes/dates/herring_rose_1.txt"
+source = "res://scenes/dates/herring_ryo_1.txt"
 
-[connection signal="ready" from="HerringRose1/MessageParser2" to="HerringRose1/MessageParser2" method="play"]
+[connection signal="ready" from="MessageParser2" to="MessageParser2" method="play"]
