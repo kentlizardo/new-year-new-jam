@@ -1,4 +1,4 @@
-extends MessageEvent
+class_name MessageGroup extends MessageEvent
 
 func _ready():
 	linearize()

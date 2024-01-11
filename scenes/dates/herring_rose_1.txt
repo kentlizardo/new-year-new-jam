@@ -2,6 +2,7 @@
 /set_main_contact("herring")
 /add_contact_alias("H")
 /add_player_alias("M")
+/add_global_alias("G")
 H: "hi!"
 "i managed to set up a park date! :o"
 "the website i found had a list of recs"
@@ -18,12 +19,12 @@ H: "um ty!"
 /add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
 /add_to_choice(<choice_2>, "The patterned one.", <pattern>)
 <sunglasses>/group
-  M: "But I will advise you... that is in fact,\n a shoulder bag."
-  H: "?"
-  "but it said it was a waist bag on lamaz.in"
-  "the post said its super trendy"
-  M: "It's a shoulder bag.\n Don't trust [i]everything[/i] you see on the internet."
-  H: "okay!"
+    M: "But I will advise you... that is in fact,\n a shoulder bag."
+    H: "?"
+    "but it said it was a waist bag on lamaz.in"
+    "the post said its super trendy"
+    M: "It's a shoulder bag.\n Don't trust [i]everything[/i] you see on the internet."
+    H: "okay!"
 <patterned>H: "thank you so much miss Mina!"
 "oh!
 "last thing."

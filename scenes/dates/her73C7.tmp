@@ -46,4 +46,4 @@ as_player = 1
 script = ExtResource("4_fu8qr")
 source = "res://scenes/dates/herring_rose_1.txt"
 
-[connection signal="ready" from="MessageParser" to="MessageParser" method="play"]
+[connection signal="ready" from="MessageGroup" to="MessageGroup" method="play"]

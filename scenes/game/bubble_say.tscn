@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://crgwjttty26cx" path="res://assets/fonts/BadComic-Italic.ttf" id="3_jl86j"]
 [ext_resource type="Texture2D" uid="uid://rvlfnr2adajf" path="res://assets/textures/message_blue.png" id="4_tfvp4"]
 
-[node name="BubbleSay" type="Control" node_paths=PackedStringArray("pfp_left", "pfp_right", "label", "box_container")]
+[node name="BubbleSay" type="Control" node_paths=PackedStringArray("pfp_left", "pfp_right", "label", "box_container", "patch_rect")]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 3
 anchors_preset = 0
@@ -16,6 +16,7 @@ pfp_left = NodePath("HBoxContainer/PFPLeft")
 pfp_right = NodePath("HBoxContainer/PFPRight")
 label = NodePath("HBoxContainer/MarginContainer/RichTextLabel10")
 box_container = NodePath("HBoxContainer")
+patch_rect = NodePath("HBoxContainer/MarginContainer/RichTextLabel10/NinePatchRect")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
