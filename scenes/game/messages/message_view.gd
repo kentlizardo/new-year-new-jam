@@ -50,14 +50,15 @@ func _hide(contact : Contact):
 	var p := contacts[contact] as UserBinding
 	(p.messages as CanvasItem).visible = false
 
-func send_message(contact : Contact, message : String, author : MessageAuthor):
+func send_message(contact : Contact, message : String, author : MessageAuthor) -> BubbleSay:
 	if !contacts.keys().has(contact):
 		print("adding missing contact" + contact.name)
 		add_contact(contact)
 	var binding := contacts[contact] as UserBinding
-	binding.messages.send_message(message, author)
+	var bubble := binding.messages.send_message(message, author)
 	if contact_shown != contact:
 		binding.tab_icon.add_notification()
+	return bubble
 
 class UserBinding extends RefCounted:
 	var tab_icon : UserIcon

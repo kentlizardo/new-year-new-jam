@@ -33,4 +33,16 @@ func setup(text : String, align : BubbleAlignment, icon : Texture2D):
 		BubbleAlignment.MIDDLE:
 			box_container.alignment = BoxContainer.ALIGNMENT_CENTER
 	label.text = text
+	read()
+	
+func read():
+	if !is_inside_tree():
+		await tree_entered
+	if !is_visible_in_tree():
+		await visibility_changed
+	label.visible_characters = 0
+	while label.visible_characters < len(label.text.replace("/[^a-z0-9-]/g", "")):
+		var char_timer := get_tree().create_timer(0.05)
+		await char_timer.timeout
+		label.visible_characters += 1
 	
