@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl0j6k1u14383"]
+
+[ext_resource type="Script" path="res://scenes/game/messages/user_messages.gd" id="1_mhv5p"]
+[ext_resource type="PackedScene" uid="uid://ct3h17nlrt2qr" path="res://scenes/game/bubble_say.tscn" id="1_ntdf3"]
+[ext_resource type="PackedScene" uid="uid://epbjd0q1mpys" path="res://scenes/game/bubble_choice.tscn" id="4_rgcdg"]
+
+[sub_resource type="Theme" id="Theme_vqql7"]
+
+[node name="UserMessages" type="ScrollContainer" node_paths=PackedStringArray("message_root", "choice_root")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vqql7")
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("1_mhv5p")
+message_root = NodePath("MarginContainer/VBoxContainer/Messages")
+choice_root = NodePath("MarginContainer/VBoxContainer/MarginContainer/ChoiceRoot")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Messages" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical = true
+
+[node name="Message" parent="MarginContainer/VBoxContainer/Messages" instance=ExtResource("1_ntdf3")]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="ChoiceRoot" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Choice" parent="MarginContainer/VBoxContainer/MarginContainer/ChoiceRoot" instance=ExtResource("4_rgcdg")]
+visible = false
+layout_mode = 2

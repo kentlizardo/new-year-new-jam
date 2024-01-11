@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Contact" load_steps=2 format=3 uid="uid://b5cu0datxkkx5"]
+
+[ext_resource type="Script" path="res://scenes/game/messages/contact.gd" id="1_3oxlp"]
+
+[resource]
+script = ExtResource("1_3oxlp")
+name = "Herring"

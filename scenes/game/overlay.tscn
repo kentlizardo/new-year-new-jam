@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd1hj0wwuvob0"]
+[gd_scene load_steps=6 format=3 uid="uid://bd1hj0wwuvob0"]
 
 [ext_resource type="Script" path="res://scenes/game/overlay.gd" id="1_h3rwx"]
 [ext_resource type="Script" path="res://scenes/game/fade.gd" id="3_juv21"]
 [ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="3_up5l6"]
+[ext_resource type="PackedScene" uid="uid://7ti1tq0k3s4v" path="res://scenes/game/messages/message_view.tscn" id="4_i0nfy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7au0o"]
 shader = ExtResource("3_up5l6")
@@ -36,6 +37,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MessageView" parent="Contents" instance=ExtResource("4_i0nfy")]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

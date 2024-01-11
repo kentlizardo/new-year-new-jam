@@ -1,0 +1,16 @@
+set_builder_contact("Herring")
+add_contact_alias("H")
+add_player_alias("M")
+H: "hi!"
+"i managed to set up a park date! :o"
+"the website i found had a list of recs"
+"the view of the fountain here is very nice."
+M: "That's great to hear, sir Herring."
+H: "um ty!"
+"..."
+"so."
+"we're meeting for the first time soon,"
+"and i was wondering..."
+"which outfit should I wear?"
+media("tacky_1.png", "tacky2_.png")
+choice("The sunglasses one.", "The patterned one.")

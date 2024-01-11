@@ -1,9 +1,12 @@
 class_name MessageEvent extends Node
 
-signal completed(next : NodePath)
+@export var next_event : MessageEvent
 
-func play(msg_view : MessageView):
-	_play(msg_view)
+func play():
+	print("msg_event playing: " + name)
+	await _play()
+	if is_instance_valid(next_event):
+		await next_event.play()
 
-func _play(msg_view : MessageView):
-	pass
+func _play():
+	push_error("_play not implemented in " + self.get_script().get_path())

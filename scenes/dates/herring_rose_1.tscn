@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6m031py4oocn"]
+
+[ext_resource type="Script" path="res://scenes/game/messages/message_group.gd" id="1_trxno"]
+[ext_resource type="Script" path="res://scenes/game/messages/events/msg_evt_say.gd" id="2_0yfbn"]
+[ext_resource type="Resource" uid="uid://b5cu0datxkkx5" path="res://scenes/game/messages/contacts/herring.tres" id="3_e5k21"]
+
+[node name="HerringRose1" type="Node"]
+
+[node name="MessageGroup" type="Node" parent="."]
+script = ExtResource("1_trxno")
+
+[node name="Node" type="Node" parent="MessageGroup"]
+script = ExtResource("2_0yfbn")
+message = "hi"
+contact = ExtResource("3_e5k21")
+as_player = 0
+
+[node name="Node2" type="Node" parent="MessageGroup"]
+script = ExtResource("2_0yfbn")
+message = "hi testing!"
+contact = ExtResource("3_e5k21")
+
+[node name="Node3" type="Node" parent="MessageGroup"]
+script = ExtResource("2_0yfbn")
+message = "player is talking now"
+contact = ExtResource("3_e5k21")
+as_player = 1
+
+[connection signal="ready" from="MessageGroup" to="MessageGroup" method="play"]

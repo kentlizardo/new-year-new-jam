@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://6sryrsbkbnu1"]
+
+[ext_resource type="Script" path="res://scenes/game/bubble_media.gd" id="1_477ns"]
+[ext_resource type="PackedScene" uid="uid://lm8ds0ottbmm" path="res://scenes/game/messages/bubble_media_image.tscn" id="1_xcy2g"]
+
+[node name="MediaMessage" type="MarginContainer" node_paths=PackedStringArray("media_root")]
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+script = ExtResource("1_477ns")
+media_root = NodePath("HBoxContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="TextureRect" parent="HBoxContainer" instance=ExtResource("1_xcy2g")]
+visible = false
+layout_mode = 2
