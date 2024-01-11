@@ -63,7 +63,7 @@ func parse_file(file : FileAccess):
 		# Create label
 		if line.begins_with("<"):
 			var left := line.find("<")
-			var right := line.rfind(">")
+			var right := line.find(">")
 			line_label = line.substr(left + 1, right - left - 1)
 			line = line.replace("<" + line_label + ">", "").strip_edges()
 		if line.begins_with("//"): # Comments
@@ -88,16 +88,21 @@ func parse_file(file : FileAccess):
 			
 			message = message.replace("\\n", "\n")
 			
-			line = line.substr(0, message_l) + line.substr(message_r, -1)	
-			var alias_index := line.find(":")
+			var pre_content := line.substr(0, message_l)
+			var post_content := line.substr(message_r, -1)	
+			
+			var alias_index := pre_content.find(":")
 			if alias_index != -1:
-				var split := line.split(":")
-				line = split[1].strip_edges()
+				var split := pre_content.split(":")
+				pre_content = split[1].strip_edges()
 				var alias_token := split[0].strip_edges()
 				if alias_token.ends_with("?"):
 					push_warning("implement ? suffix")
 					alias_token = alias_token.trim_suffix("?")
 				author = read_alias_token(alias_token)
+			
+			line = post_content
+			
 			var say_event := EventSay.new()
 			say_event.as_player = author
 			say_event.contact = main_contact
@@ -108,6 +113,15 @@ func parse_file(file : FileAccess):
 			labeled[line_label] = created_node
 		if created_node:
 			last_created_node = created_node
+		var modifiers := line.split(" ")
+		for modifier in modifiers:
+			modifier = modifier.strip_edges()
+			if modifier.begins_with("+"):
+				pass
+			elif modifier.begins_with("*<"):
+				var label := modifier.trim_prefix("*<").trim_suffix(">")
+				print("modifier: " + label + " -> " + label)
+				branch_towards(last_created_node, LineLabel.new(label))
 		context_indent_level = current_indent_level
 
 func read_alias_token(token : String) -> MessageView.MessageAuthor:
@@ -129,6 +143,7 @@ func command(command : String, params : Array) -> Node:
 	match(command):
 		"set_main_contact":
 			main_contact = registered_contacts[(params[0] as String)]
+			aliases = {}
 		"add_contact_alias":
 			var alias := (params[0] as String)
 			aliases[alias] = MessageView.MessageAuthor.CONTACT
@@ -185,6 +200,14 @@ func add_to_choice(params : Array):
 			push_error("Could not find label " + label.name)
 	link.text = text
 	event_choice.choices.append(link)
+
+func branch_towards(event : MessageEvent, from : LineLabel):
+	await built
+	if labeled.has(from.name):
+		var branch := labeled[from.name] as MessageEvent
+		event.next_event = branch;
+	else:
+		push_error("Could not find label " + from.name)
 
 class LineLabel extends RefCounted:
 	var name : String = ""

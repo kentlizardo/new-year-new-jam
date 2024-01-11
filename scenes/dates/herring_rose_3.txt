@@ -1,13 +1,22 @@
-Herring: "hi!"
-"i managed to set up a park date! :o"
-"the website i found had a list of recs"
-"the view of the fountain here is very nice."
-Mina: "That's great to hear, sir Herring."
-Herring: "um ty!"
-"..."
-"so."
-"we're meeting for the first time soon,"
-"and i was wondering..."
-"which outfit should I wear?"
-media("tacky_1.png", "tacky2_.png")
-choice("The sunglasses one.", "The patterned one.")
+R: “I found my date!!!”
+"I’ve been searching all day and night,”
+"Turns out he was lying in the forest nearby!”
+M: “That’s great!”
+R: “Um… "
+"Just one thing,” +sweat
+“Why..."
+"is he so small?\n And melty?”
+M?: "Hmm..."
+M: “Slimekids are known to be weak under dark and dry conditions.”
+“They actually use a form of photosynthesis\n with the algae in their fluids\n to generate their body mass.”
+“It sounds like he hasn’t been able to keep his body intact... or from drying out.”
+“Take him to the nearest healer A.S.A.P!”
+R: "Oh!!!" +shaking
+“By then it will be too late…”
+"It's all my fault!"
+“No!”
+“Think, Rose, think!”
+R: “Oh, I know what to do!”
+“I just learned how to cast Daylight!”
+“I’ll save you my prince!”
+/media("herring_rose_date.png")

@@ -36,12 +36,15 @@ func add_contact(contact : Contact):
 	if !contact_shown:
 		focus(contact)
 
+signal contact_focused(contact : Contact)
+
 func focus(contact : Contact):
 	if contact_shown:
 		_hide(contact_shown)
 	contact_shown = contact
 	if contacts.keys().has(contact):
 		_show(contact)
+	contact_focused.emit(contact_shown)
 
 func _show(contact : Contact):
 	var p := contacts[contact] as UserBinding
@@ -59,8 +62,14 @@ func check_contact(contact : Contact):
 		print("adding missing contact" + contact.name)
 		add_contact(contact)
 
+func wait_until_open(contact : Contact):
+	var next_focus = contact_shown
+	while next_focus != contact:
+		next_focus = await contact_focused
+
 func send_message(contact : Contact, message : String, author : MessageAuthor) -> BubbleSay:
 	check_contact(contact)
+	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.say(message, author)
 	if contact_shown != contact:
@@ -69,6 +78,7 @@ func send_message(contact : Contact, message : String, author : MessageAuthor) -
 
 func send_media(contact : Contact, media : Array[Texture2D], author : MessageAuthor) -> BubbleMedia:
 	check_contact(contact)
+	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.send_media(media, author)
 	if contact_shown != contact:
@@ -77,6 +87,7 @@ func send_media(contact : Contact, media : Array[Texture2D], author : MessageAut
 
 func make_choice(contact : Contact, choices : Array) -> ChoiceRoot:
 	check_contact(contact)
+	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubbles := binding.messages.make_choice(choices)
 	if contact_shown != contact:

@@ -58,6 +58,7 @@ bbcode_enabled = true
 text = "Message Test!"
 fit_content = true
 autowrap_mode = 0
+visible_characters_behavior = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer/RichTextLabel10"]
 show_behind_parent = true

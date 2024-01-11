@@ -1,50 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6m031py4oocn"]
+[gd_scene load_steps=2 format=3 uid="uid://b6m031py4oocn"]
 
-[ext_resource type="Script" path="res://scenes/game/messages/message_group.gd" id="1_trxno"]
-[ext_resource type="Script" path="res://scenes/game/messages/events/msg_evt_say.gd" id="2_0yfbn"]
-[ext_resource type="Resource" uid="uid://b5cu0datxkkx5" path="res://scenes/game/messages/contacts/herring.tres" id="3_e5k21"]
 [ext_resource type="Script" path="res://scenes/game/messages/message_parser.gd" id="4_fu8qr"]
 
 [node name="HerringRose1" type="Node"]
 
-[node name="MessageGroup" type="Node" parent="."]
-script = ExtResource("1_trxno")
-
-[node name="Node" type="Node" parent="MessageGroup"]
-script = ExtResource("2_0yfbn")
-message = "hi"
-as_player = 0
-contact = ExtResource("3_e5k21")
-
-[node name="Node2" type="Node" parent="MessageGroup"]
-script = ExtResource("2_0yfbn")
-message = "hi testing!"
-as_player = null
-contact = ExtResource("3_e5k21")
-
-[node name="Node3" type="Node" parent="MessageGroup"]
-script = ExtResource("2_0yfbn")
-message = "player is talking now"
-as_player = 1
-contact = ExtResource("3_e5k21")
-
-[node name="Test" type="Node" parent="MessageGroup"]
-script = ExtResource("1_trxno")
-
-[node name="Node2" type="Node" parent="MessageGroup/Test"]
-script = ExtResource("2_0yfbn")
-message = "group 1"
-as_player = 0
-contact = ExtResource("3_e5k21")
-
-[node name="Node3" type="Node" parent="MessageGroup/Test"]
-script = ExtResource("2_0yfbn")
-message = "group 2"
-as_player = 1
-contact = ExtResource("3_e5k21")
-
 [node name="MessageParser" type="Node" parent="."]
 script = ExtResource("4_fu8qr")
-source = "res://scenes/dates/herring_rose_1.txt"
+source = "res://scenes/dates/herring_rose_2.txt"
 
 [connection signal="ready" from="MessageParser" to="MessageParser" method="play"]

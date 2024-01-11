@@ -13,9 +13,12 @@ func linearize():
 				if (i + 1) <= length - 1:
 					node.next_event = children[i + 1] as MessageEvent
 
-func _play():
-	var children := get_children()
-	children[0].play()
-	if !children[children.size() - 1].is_complete:
-		await children[children.size() - 1].finished
+# This will double, since adding a new play() call will basically
+# cause there to be 2 executions of a MessageEventTree
+#func _play():
+	#var children := get_children()
+	#await children[0].play()
 
+# Instead, repoint the next event call to be 
+func _get_next_event() -> MessageEvent:
+	return (get_children()[0] as MessageEvent)
