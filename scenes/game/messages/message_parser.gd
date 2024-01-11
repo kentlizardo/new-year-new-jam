@@ -80,33 +80,21 @@ func parse_file(file : FileAccess):
 				params.append(param)
 			command = command.substr(0, left)
 			created_node = command(command, params)
-		else: # If it's neither, it's a message
+		else: # If it's neither, it's most likely a message
 			var author : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
-			var message_l := line.find("\"")
-			var message_r := line.rfind("\"")
-			var message := line.substr(message_l + 1, message_r - message_l - 1)
-			
-			message = message.replace("\\n", "\n")
-			
-			var pre_content := line.substr(0, message_l)
-			var post_content := line.substr(message_r, -1)	
-			
-			var alias_index := pre_content.find(":")
-			if alias_index != -1:
-				var split := pre_content.split(":")
-				pre_content = split[1].strip_edges()
-				var alias_token := split[0].strip_edges()
-				if alias_token.ends_with("?"):
-					push_warning("implement ? suffix")
-					alias_token = alias_token.trim_suffix("?")
-				author = read_alias_token(alias_token)
-			
-			line = post_content
-			
+			var result := parse_message_literal(line)
+			var message_literal : MessageLiteral = result["message"]
+			if message_literal.alias != "":
+				author = read_alias_token(message_literal.alias)
 			var say_event := EventSay.new()
 			say_event.as_player = author
 			say_event.contact = main_contact
-			say_event.message = message
+			say_event.message = message_literal.message
+			
+			for i in message_literal.modifiers:
+				if i == "skip":
+					say_event.skip = true
+			
 			pointer.add_child(say_event)
 			created_node = say_event
 		if line_label != "" and created_node != null:
@@ -116,18 +104,54 @@ func parse_file(file : FileAccess):
 		var modifiers := line.split(" ")
 		for modifier in modifiers:
 			modifier = modifier.strip_edges()
-			if modifier.begins_with("+"): # say modifier
-				if last_created_node is EventSay:
-					var say_modifier := modifier.trim_prefix("+")
-					match(say_modifier):
-						"skip":
-							last_created_node.skip = true
-				else:
-					push_error("Cannot add a '+' modifier to a node that isn't MsgEvtSay")
-			elif modifier.begins_with("*<"):
+			if modifier.begins_with("*<"):
 				var label := modifier.trim_prefix("*<").trim_suffix(">")
 				branch_towards(last_created_node, LineLabel.new(label))
 		context_indent_level = current_indent_level
+
+func parse_message_literal(token : String) -> Dictionary: # Tuple(message: MessageLiteral, post_content: String)
+	var results := {}
+	results["message"] = null
+	results["post_content"] = token
+	
+	var message_l := token.find("\"")
+	var message_r := token.rfind("\"")
+	if message_l != -1 and message_r != -1:
+		if message_l != message_r:
+			var alias := ""
+			var message := ""
+			var modifiers : Array[String] = []
+			var require_prompt := false
+			
+			message = token.substr(message_l + 1, message_r - message_l - 1)
+			message = message.replace("\\n", "\n")
+			
+			var pre_content := token.substr(0, message_l)
+			var post_content := token.substr(message_r, -1)	
+			# Create alias from pre_content if there is one
+			var alias_index := pre_content.find(":")
+			if alias_index != -1:
+				var split := pre_content.split(":")
+				pre_content = split[1].strip_edges()
+				var alias_token := split[0].strip_edges()
+				if alias_token.ends_with("?"):
+					alias_token = alias_token.trim_suffix("?")
+					require_prompt = true
+				alias = alias_token
+			# Create modifiers from post_content
+			for possible_modifier in post_content.split(" "):
+				if possible_modifier.begins_with("+"):
+					var modifier := possible_modifier.trim_prefix("+")
+					modifiers.push_back(modifier)
+					post_content = post_content.replace(possible_modifier, "")
+			# alias message modifiers
+			results["message"] = MessageLiteral.new(alias, message, modifiers, require_prompt)
+			results["post_content"] = post_content
+			return results
+		else:
+			return results
+	else:
+		return results
 
 func read_alias_token(token : String) -> MessageView.MessageAuthor:
 	var alias := token
@@ -218,3 +242,15 @@ class LineLabel extends RefCounted:
 	var name : String = ""
 	func _init(name):
 		self.name = name
+
+class MessageLiteral extends RefCounted:
+	var alias := ""
+	var message := ""
+	var modifiers : Array[String] = []
+	var require_prompt := false
+	func _init(alias : String, message : String, modifiers : Array[String], require_prompt: bool):
+		self.alias = alias
+		self.message = message
+		self.modifiers = modifiers
+		self.require_prompt = require_prompt
+
