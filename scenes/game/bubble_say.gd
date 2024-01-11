@@ -32,14 +32,17 @@ func setup(text : String, align : BubbleAlignment, icon : Texture2D):
 			pfp_left.visible = true
 			pfp_left.texture = icon
 			patch_rect.texture = PATCH_BLUE
+			label.remove_theme_color_override("default_color")
 		BubbleAlignment.RIGHT:
 			box_container.alignment = BoxContainer.ALIGNMENT_END
 			pfp_right.visible = true
 			pfp_right.texture = icon
 			patch_rect.texture = PATCH_RED
+			label.remove_theme_color_override("default_color")
 		BubbleAlignment.MIDDLE:
 			box_container.alignment = BoxContainer.ALIGNMENT_CENTER
 			patch_rect.texture = PATCH_WHITE
+			label.add_theme_color_override("default_color", Color("472516"))
 	label.text = text
 	
 func read():
@@ -51,6 +54,6 @@ func read():
 	show.tween_property(self, "modulate:a", 1.0, 0.1).from(0)
 	label.visible_characters = 0
 	while label.visible_characters < len(label.text.replace("/[^a-z0-9-]/g", "")):
-		var char_timer := get_tree().create_timer(0.05)
+		var char_timer := get_tree().create_timer(0.005)
 		await char_timer.timeout
 		label.visible_characters += 1

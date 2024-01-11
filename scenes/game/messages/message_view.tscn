@@ -70,6 +70,6 @@ layout_mode = 1
 
 [node name="MessageParser2" type="Node" parent="."]
 script = ExtResource("6_c0he0")
-source = "res://scenes/dates/herring_ryo_2.txt"
+source = "res://scenes/dates/herring_ryo_3.txt"
 
 [connection signal="ready" from="MessageParser2" to="MessageParser2" method="play"]

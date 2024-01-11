@@ -253,4 +253,3 @@ class MessageLiteral extends RefCounted:
 		self.message = message
 		self.modifiers = modifiers
 		self.require_prompt = require_prompt
-

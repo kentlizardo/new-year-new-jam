@@ -47,9 +47,9 @@ R: "i wonder if he can transform?" +skip
 "how can a slime be filled with so much cuteness?!??" +skip
 "how do you think this is possible Miss Mina?"
 <choice_1>/choice
-/add_to_choice(<choice_1>, M?:"Um?")
-/add_to_choice(<choice_1>, M?:"Wow!")
-/add_to_choice(<choice_1>, M?:"I'm glad to hear it went well?")
+/add_to_choice(<choice_1>, "Um?")
+/add_to_choice(<choice_1>, "Wow!")
+/add_to_choice(<choice_1>, "I'm glad to hear it went well?")
 "Actually..."
 "I think I found where your hoard was transported to."
 /media("herring_squished")
