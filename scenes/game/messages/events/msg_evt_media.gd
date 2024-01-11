@@ -4,5 +4,13 @@ extends MessageEvent
 @export var as_player : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
 
 func _play():
-	var bubble := MessageView.current.send_media(contact, media, as_player)
+	var author := as_player
+	if as_player == MessageView.MessageAuthor.AS_LAST:
+		var messages := MessageView.current.get_contact_messages(contact)
+		if messages:
+			author = messages.last_author
+		else:
+			push_error("Error: message with author of LAST_AUTHOR with no previous message history")
+			author = MessageView.MessageAuthor.GLOBAL
+	var bubble := MessageView.current.send_media(contact, media, author)
 	#await get_tree().create_timer(1.0).timeout

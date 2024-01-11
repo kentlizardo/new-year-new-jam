@@ -62,6 +62,12 @@ func check_contact(contact : Contact):
 		print("adding missing contact" + contact.name)
 		add_contact(contact)
 
+func get_contact_messages(contact : Contact) -> UserMessages:
+	if contacts.has(contact):
+		var binding : UserBinding = contacts[contact]
+		return binding.messages
+	return null
+
 func wait_until_open(contact : Contact):
 	var next_focus = contact_shown
 	while next_focus != contact:

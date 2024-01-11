@@ -24,11 +24,9 @@ func on_scroll_changed():
 		scroll_vertical = max_scroll
 
 func say(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
+	assert(author != MessageView.MessageAuthor.AS_LAST, "Author invariant violated. Should never set last_author to AS_LAST")
 	var bubble := BUBBLE_SAY_TEMPLATE.instantiate() as BubbleSay
 	var align : BubbleSay.BubbleAlignment
-	if author == MessageView.MessageAuthor.AS_LAST:
-		author = last_author
-	assert(author != MessageView.MessageAuthor.AS_LAST, "Author invariant violated. Should never set last_author to AS_LAST")
 	var pfp : Texture2D = null
 	match(author):
 		MessageView.MessageAuthor.CONTACT:
@@ -41,17 +39,14 @@ func say(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
 			align = BubbleSay.BubbleAlignment.MIDDLE
 			pfp = null
 	bubble.setup(message, align, pfp)
-	if author != MessageView.MessageAuthor.AS_LAST:
-		last_author = author
+	last_author = author
 	message_root.add_child(bubble)
 	return bubble
 
 func send_media(media : Array[Texture2D], author : MessageView.MessageAuthor) -> BubbleMedia:
+	assert(author != MessageView.MessageAuthor.AS_LAST, "Author invariant violated. Should never set last_author to AS_LAST")
 	var bubble := BUBBLE_MEDIA_TEMPLATE.instantiate() as BubbleMedia
 	var align : BubbleMedia.BubbleAlignment
-	if author == MessageView.MessageAuthor.AS_LAST:
-		author = last_author
-	assert(author != MessageView.MessageAuthor.AS_LAST, "Author invariant violated. Should never set last_author to AS_LAST")
 	match(author):
 		MessageView.MessageAuthor.CONTACT:
 			align = BubbleMedia.BubbleAlignment.LEFT
@@ -60,8 +55,7 @@ func send_media(media : Array[Texture2D], author : MessageView.MessageAuthor) ->
 		MessageView.MessageAuthor.GLOBAL:
 			align = BubbleMedia.BubbleAlignment.MIDDLE
 	bubble.setup(align, media)
-	if author != MessageView.MessageAuthor.AS_LAST:
-		last_author = author
+	last_author = author
 	message_root.add_child(bubble)
 	return bubble
 
