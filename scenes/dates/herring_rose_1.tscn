@@ -6,6 +6,6 @@
 
 [node name="MessageParser" type="Node" parent="."]
 script = ExtResource("4_fu8qr")
-source = "res://scenes/dates/herring_rose_2.txt"
+source = "res://scenes/dates/herring_joan_3.txt"
 
 [connection signal="ready" from="MessageParser" to="MessageParser" method="play"]
