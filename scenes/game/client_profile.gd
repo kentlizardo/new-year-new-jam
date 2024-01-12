@@ -1,14 +1,17 @@
 class_name ClientProfile extends Profile
 
+static var current : ClientProfile # assume only one
+
 @export var label : Label
 @export var label_root : Node2D
 
-var recipes : Dictionary = {}
+var recipes : Dictionary = {} # String -> String
 
 func _ready():
 	super()
 	label.text = name
 	populate_recipes()
+	current = self
 
 func _process(delta):
 	label_root.global_rotation = 0
@@ -23,4 +26,5 @@ func populate_recipes():
 				if date_tokens[2] == "1": # only link first dates
 					if date_tokens[0] == name.to_lower():
 						var suitor := date_tokens[1]
-						recipes[suitor] = file_name
+						var dummy_recipe := suitor
+						recipes[dummy_recipe] = file_name

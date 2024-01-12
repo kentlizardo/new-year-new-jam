@@ -2,6 +2,8 @@ extends Node2D
 
 @export var sprite : Sprite2D
 
+var current_suitors : Array[String] = []
+
 func drop(body : Node2D):
 	var align := body.create_tween()
 	align.tween_property(body, "global_position", global_position, 0.3).set_trans(Tween.TRANS_BOUNCE)
@@ -17,7 +19,9 @@ func drop(body : Node2D):
 	squeeze.tween_property(self, "scale", Vector2(1.2, 0.8), 0.05).set_ease(Tween.EASE_IN)
 	squeeze.tween_property(self, "scale", Vector2.ONE, 0.05).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	if body is SuitorProfile:
-		DataManager.game_data.dates_left.append(body.first_date_source)
+		var suitor_id = body.name.to_lower()
+		if !current_suitors.has(suitor_id):
+			current_suitors.append(suitor_id)
 	body.queue_free()
 
 func _on_area_2d_body_entered(body : Node2D):
@@ -40,5 +44,20 @@ func _on_area_2d_mouse_exited():
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if MessageEvent.is_done():
-			App.stage(load("res://scenes/stages/workday.tscn"))
+		# This condition is only usable if the only valid multiple ending
+		# is one where *all* suitors are chosen. aka this game.
+		var recipe := try_recipe()
+		if !recipe.is_empty():
+			DataManager.game_data.dates_left.append(MessageParser.DATES_PATH + recipe)
+			if MessageEvent.is_done():
+				App.stage(load("res://scenes/stages/workday.tscn"))
+
+func try_recipe() -> String:
+	if current_suitors.size() == 0:
+		return ""
+	if current_suitors.size() > 1 and ClientProfile.current.recipes.has("true"):
+		return ClientProfile.current.recipes["true"]
+	elif current_suitors.size() == 1:
+		if ClientProfile.current.recipes.has(current_suitors[0]):
+			return ClientProfile.current.recipes[current_suitors[0]]
+	return ""

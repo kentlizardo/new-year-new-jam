@@ -16,16 +16,16 @@ func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
-static var current : Draggable:
+static var current_draggable : Draggable:
 	set(x):
-		if is_instance_valid(current):
-			current.end_drag()
-		current = x
-		if is_instance_valid(current):
-			current.start_drag()
+		if is_instance_valid(current_draggable):
+			current_draggable.end_drag()
+		current_draggable = x
+		if is_instance_valid(current_draggable):
+			current_draggable.start_drag()
 
 static func set_dragged_item(drag : Draggable):
-	current = drag
+	current_draggable = drag
 
 func is_on_top() -> bool:
 	return true
@@ -96,7 +96,7 @@ func _on_input_event(viewport, event, shape_idx):
 func _input(event):
 	if dragging:
 		if Input.is_action_just_released("click"):
-			if current == self:
+			if current_draggable == self:
 				set_dragged_item(null)
 			#end_drag()
 
