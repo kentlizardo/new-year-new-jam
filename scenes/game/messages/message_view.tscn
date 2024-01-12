@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ti1tq0k3s4v"]
+[gd_scene load_steps=8 format=3 uid="uid://7ti1tq0k3s4v"]
 
 [ext_resource type="Script" path="res://scenes/game/messages/message_view.gd" id="1_8184h"]
 [ext_resource type="StyleBox" uid="uid://bm55ejd450ksc" path="res://scenes/game/messages/style_box.tres" id="2_f27y0"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dl0j6k1u14383" path="res://scenes/game/messages/user_messages.tscn" id="4_kijv5"]
 [ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="4_uq8t1"]
 [ext_resource type="Script" path="res://scenes/game/messages/exit_icon.gd" id="5_6hjyi"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="6_rj53w"]
 
-[node name="MessageView" type="Control" node_paths=PackedStringArray("user_icons", "user_messages_root")]
+[node name="MessageView" type="Control" node_paths=PackedStringArray("user_icons", "user_messages_root", "header_contact_name")]
 custom_minimum_size = Vector2(640, 480)
 layout_mode = 3
 anchors_preset = 0
@@ -17,6 +18,7 @@ mouse_filter = 1
 script = ExtResource("1_8184h")
 user_icons = NodePath("HBoxContainer/Panel/MarginContainer/UserIcons")
 user_messages_root = NodePath("HBoxContainer/UserTabs/UserMessagesRoot")
+header_contact_name = NodePath("HBoxContainer/UserTabs/Panel2/RichTextLabel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -65,13 +67,36 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Panel2" type="Panel" parent="HBoxContainer/UserTabs"]
-visible = false
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_f27y0")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/UserTabs/Panel2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -23.0
+offset_right = 67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.278431, 0.14902, 0.0823529, 1)
+theme_override_colors/font_shadow_color = Color(0.584314, 0.435294, 0.556863, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("6_rj53w")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
 [node name="UserMessagesRoot" type="Panel" parent="HBoxContainer/UserTabs"]
-self_modulate = Color(0.92549, 0.878431, 0.960784, 1)
+self_modulate = Color(0.909804, 0.882353, 0.972549, 1)
 show_behind_parent = true
 layout_mode = 2
 size_flags_vertical = 3

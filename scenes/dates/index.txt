@@ -1,4 +1,5 @@
 after_herring.txt
+before_herring.txt
 before_wulf.txt
 boss_true_1.txt
 herring_joan_1.txt

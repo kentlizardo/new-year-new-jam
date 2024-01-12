@@ -14,9 +14,16 @@ static var current : MessageView
 
 @export var user_icons : Control
 @export var user_messages_root : Control
+@export var header_contact_name : RichTextLabel
 
 var contacts : Dictionary = {} # Contact -> UserBinding
-var contact_shown : Contact
+var contact_shown : Contact:
+	set(x):
+		if contact_shown:
+			header_contact_name.text = ""
+		contact_shown = x
+		if contact_shown:
+			header_contact_name.text = contact_shown.name
 
 func _init():
 	current = self
@@ -99,7 +106,11 @@ func send_message(contact : Contact, message : String, author : MessageAuthor) -
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.say(message, author)
 	if contact_shown != contact:
-		binding.tab_icon.add_notification()
+		if author == MessageAuthor.PLAYER:
+			binding.tab_icon.clear_notifications()
+		else:
+			binding.tab_icon.add_notification()
+	App.message_events_added.emit()
 	return bubble
 
 func send_media(contact : Contact, media : Array[Texture2D], author : MessageAuthor) -> BubbleMedia:
@@ -108,7 +119,11 @@ func send_media(contact : Contact, media : Array[Texture2D], author : MessageAut
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.send_media(media, author)
 	if contact_shown != contact:
-		binding.tab_icon.add_notification()
+		if author == MessageAuthor.PLAYER:
+			binding.tab_icon.clear_notifications()
+		else:
+			binding.tab_icon.add_notification()
+	App.message_events_added.emit()
 	return bubble
 
 func make_choice(contact : Contact, choices : Array) -> ChoiceRoot:
@@ -116,8 +131,7 @@ func make_choice(contact : Contact, choices : Array) -> ChoiceRoot:
 	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubbles := binding.messages.make_choice(choices)
-	if contact_shown != contact:
-		binding.tab_icon.add_notification()
+	App.message_events_added.emit()
 	return bubbles
 
 class UserBinding extends RefCounted:

@@ -20,7 +20,7 @@ func _play():
 			author = MessageView.MessageAuthor.GLOBAL
 	#if require_prompt and author == MessageView.MessageAuthor.PLAYER:
 	# Always make player click message to proceed with message
-	if author == MessageView.MessageAuthor.PLAYER:
+	if author == MessageView.MessageAuthor.PLAYER and !skip:
 		var bubbles := MessageView.current.make_choice(contact, [message])
 		var answer = await bubbles.choice_taken
 		MessageView.current.send_message(contact, answer, MessageView.MessageAuthor.PLAYER)

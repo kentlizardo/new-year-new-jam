@@ -2,11 +2,12 @@ extends Node
 
 # No static signal support so using Singleton to store
 signal message_events_done
+signal message_events_added
 
 var main_menu_scene : PackedScene = preload("res://scenes/stages/main_menu.tscn")
 
 @onready var stage_root : Node = $/root/Root/StageRoot
-
+@onready var msg_root = $/root/Root/MessageViewRoot
 var current_scene : Node
 
 func _ready():

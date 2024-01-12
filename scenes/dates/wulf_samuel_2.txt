@@ -2,8 +2,18 @@
 /add_contact_alias("W")
 /add_player_alias("M")
 /add_global_alias("G")
-W: "Hello? You there?"
-"I screwed big time."
-
-
+W: "Hello? Is this thing on?"
+M: "Yes!"
+W: "I screwed up big time."
+"...I found out she was a..."
+"Demon."
+M: "Ah."
+W: "And you know how the..."
+"You know how a paladin and believer in the Light would react to that."
+"I did not realize just how much I hurt her until I calmed down."
+"I would like to apologize to her."
+M: "I see!"
+// add a bunch of choices here. try to figure out things she would like
+// hes skeptical but turns around and then planas to do things earnestly
 W: "You're a good kid, Mina"
+M: "I wish you luck!"
