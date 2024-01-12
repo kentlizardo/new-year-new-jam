@@ -33,8 +33,6 @@ func _input(event):
 func load_workday(data : Dictionary):
 	var packs : Array[PackedScene] = data["packs"]
 	var dates : Array = data["dates"]
-	print(packs)
-	print(dates)
 	for pack in packs:
 		var items : Node = pack.instantiate()
 		add_child(items)

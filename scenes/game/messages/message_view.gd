@@ -33,7 +33,7 @@ func unreveal():
 	var hidden_pos := get_viewport_rect().size / 2 - size / 2 + Vector2(0, get_viewport_rect().size.y)
 	var tw := create_tween()
 	tw.tween_property(self, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
-	tw.parallel().tween_property(self, "global_position", hidden_pos, 0.5).from(shown_pos).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tw.parallel().tween_property(self, "global_position", hidden_pos, 0.5).from(shown_pos).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 	await tw.finished
 	visible = false
 

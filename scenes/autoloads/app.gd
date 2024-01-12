@@ -14,12 +14,20 @@ func _ready():
 		MessageParser.register_resources()
 	stage(main_menu_scene)
 
+func _process(delta):
+	if stage_queue.size() > 0:
+		var scene := stage_queue.pop_front() as PackedScene
+		_stage(scene)
+
 func stage(packed : PackedScene):
+	if !stage_queue.has(packed):
+		stage_queue.append(packed)
+var stage_queue : Array[PackedScene] = []
+
+func _stage(packed : PackedScene):
 	if is_instance_valid(current_scene):
 		current_scene.call_deferred("free")
 		await current_scene.tree_exited
-	_stage(packed)
-func _stage(packed : PackedScene):
 	current_scene = packed.instantiate()
 	if current_scene is Workday:
 		Workday.current = current_scene
