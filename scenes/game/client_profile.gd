@@ -11,7 +11,12 @@ func _ready():
 	super()
 	label.text = name
 	populate_recipes()
-	current = self
+
+func _enter_tree():
+	current = self 
+func _exit_tree():
+	if current == self:
+		current = null
 
 func _process(delta):
 	label_root.global_rotation = 0

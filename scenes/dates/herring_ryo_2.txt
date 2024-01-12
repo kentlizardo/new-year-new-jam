@@ -45,7 +45,7 @@ R: "i wonder if he can transform?" +skip
 "what does his slime form look like?" +skip
 "i wonder if he feels the same too 😭" +skip
 "how can a slime be filled with so much cuteness?!??" +skip
-"how do you think this is possible Miss Mina?"
+"Mina, how do you think this is even possible?"
 <choice_1>/choice
 /add_to_choice(<choice_1>, "Um?")
 /add_to_choice(<choice_1>, "Wow!")

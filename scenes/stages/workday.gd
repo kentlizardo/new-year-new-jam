@@ -14,7 +14,7 @@ func _ready():
 	else:
 		workday_load = DataManager.get_data().get_workday()
 	if workday_load.is_empty():
-		pass # TODO: Win screen
+		App.stage(load("res://scenes/stages/win.tscn"))
 	else:
 		load_workday(workday_load)
 

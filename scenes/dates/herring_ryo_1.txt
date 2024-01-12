@@ -93,5 +93,5 @@ R: "...I uh, remembered I could use chaos magic."
 "...it appears."
 M?: "...At least your house is now clean."
 R: "..."
-R: "Thank you, Miss Mina..."
+R: "Thank you, Mina..."
 /push_date("herring_ryo_2")
