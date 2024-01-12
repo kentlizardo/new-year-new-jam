@@ -1,0 +1,16 @@
+/set_main_contact("wulf")
+/add_contact_alias("W")
+/add_player_alias("M")
+/add_global_alias("G")
+W: "Hello?"
+"Is this one of those robots in the phone?"
+M: "Good afternoon, a representative is speaking to you currently. No robot here 😇."
+W: "Sorry, I'm not really used to these things."
+"My grandkid signed me up for this,"
+"I told her it didn't really matter, you know."
+"I'm a little too old for these kinds of things now."
+"But she [i]was[/i] really insistent."
+"Plus she said she knew someone who was an expert."
+M: "I'll do what I can!"
+"No one is too old to find a good partner,"
+"Let's see what we got!"

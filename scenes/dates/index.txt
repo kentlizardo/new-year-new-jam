@@ -1,4 +1,5 @@
 after_herring.txt
+before_wulf.txt
 boss_true_1.txt
 herring_joan_1.txt
 herring_joan_2.txt
@@ -9,3 +10,12 @@ herring_rose_3.txt
 herring_ryo_1.txt
 herring_ryo_2.txt
 herring_ryo_3.txt
+wulf_clydie_1.txt
+wulf_clydie_2.txt
+wulf_clydie_3.txt
+wulf_noel_1.txt
+wulf_noel_2.txt
+wulf_noel_3.txt
+wulf_samuel_1.txt
+wulf_samuel_2.txt
+wulf_samuel_3.txt

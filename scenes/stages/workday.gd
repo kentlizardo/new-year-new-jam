@@ -51,3 +51,4 @@ func organize():
 		var node_2d := profile as Node2D
 		if node_2d:
 			node_2d.global_position = papers.global_position + Vector2(randi_range(-200, 200), randi_range(-100, 100))
+			node_2d.global_rotation_degrees = randf_range(-30, 30)

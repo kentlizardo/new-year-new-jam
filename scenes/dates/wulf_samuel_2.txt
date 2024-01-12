@@ -1,0 +1,9 @@
+/push_date("wulf_samuel_2")
+/add_contact_alias("W")
+/add_player_alias("M")
+/add_global_alias("G")
+W: "Hello? You there?"
+"I screwed big time."
+
+
+W: "You're a good kid, Mina"

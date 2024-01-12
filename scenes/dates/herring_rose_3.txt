@@ -23,5 +23,5 @@ R: "Oh!!!" +shaking
 R: "Oh, I know what to do!"
 "I just learned how to cast Daylight!"
 "I’ll save you my prince!"
-/media("herring_rose_date.png")
-/push_date("after_herring")
+/media("R", "herring_rose_date.png")
+/message_parser("after_herring")

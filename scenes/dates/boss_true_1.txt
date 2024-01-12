@@ -2,7 +2,7 @@
 /add_contact_alias("A")
 /add_player_alias("M")
 /add_global_alias("G")
-/add_media("boss_true_date.png")
+/media("A", "boss_true_date.png")
 A: "You know,"
 "It really was a great choice to let you pick for me."
 "After years of trying to date or even settle down,"

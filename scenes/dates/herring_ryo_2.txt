@@ -52,5 +52,5 @@ R: "i wonder if he can transform?" +skip
 /add_to_choice(<choice_1>, "I'm glad to hear it went well?")
 "Actually..."
 "I think I found where your hoard was transported to."
-/media("herring_squished")
+/media("R", "herring_squished")
 /push_date("herring_ryo_3")

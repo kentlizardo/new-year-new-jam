@@ -33,4 +33,4 @@ M: "Oh, don't worry about it.\n Just enjoy your day with Miss Ryo!"
 G: "Congratulations (Mina, Cupid Specialist)"
 "You just received a review!"
 "⭐⭐⭐⭐⭐"
-/push_date("after_herring")
+/message_parser("after_herring")

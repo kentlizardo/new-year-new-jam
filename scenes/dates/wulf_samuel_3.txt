@@ -1,0 +1,20 @@
+/set_main_contact("samuel")
+/add_contact_alias("S")
+/add_player_alias("M")
+/add_global_alias("G")
+/media("wulf_samuel_date.png")
+
+S: "Ah."
+"Oh dear, that was an accident"
+M: "🫢"
+S: "Sorry, I don't know how to use these things."
+"Will I be billed?"
+M: "I'll waive it for you, ^^."
+"Don't worry about it."
+S: "How sweet of you."
+"Oh, I think I found it."
+"Thank you, Mina."
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
+/message_parser("after_wulf")

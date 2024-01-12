@@ -78,11 +78,13 @@ func _ready():
 			registered_contacts[path.get_file()] = res
 		else:
 			push_error("could not load contact media resource " + MEDIA_PATH + path)
-	print(registered_contacts)
-	print(registered_media)
+	if !source.ends_with(".txt"):
+		source += ".txt"
 	var file := FileAccess.open(source, FileAccess.READ)
 	if file:
 		parse_file(file)
+	else:
+		push_error("MessageParser with invalid source: " + source)
 	built.emit()
 	linearize()
 	file.close()
@@ -283,6 +285,15 @@ func command(command : String, params : Array) -> Node:
 			event_group.contact = main_contact
 			pointer.add_child(event_group)
 			return event_group
+		"message_parser":
+			var file_name := params[0] as String
+			if file_name:
+				var parser := MessageParser.new()
+				parser.source = DATES_PATH + file_name
+				pointer.add_child(parser)
+				return parser
+			else:
+				push_error("Invalid formatting for message_parser with params " + str(params))
 		"choice":
 			var event_choices := EventChoices.new()
 			event_choices.contact = main_contact
