@@ -10,7 +10,7 @@ H: "miss Mina!"
 /add_to_choice(<place>, "The cafe.")
 /add_to_choice(<place>, "The fountain.")
 /add_to_choice(<place>, "Somewhere else.", <other>)
-"oh really!"
+H: "oh really!"
 "i knew you had good taste miss Mina!"
 <other>"hm..."
 "maybe I could take her to..."

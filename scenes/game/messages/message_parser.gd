@@ -24,22 +24,65 @@ var main_contact : Contact = null
 var labeled : Dictionary = {} # string -> Node(most likely MessageEvent)
 var aliases : Dictionary = {} # string -> MessageView.MessageAuthor
 
+func load_index(text : String) -> Array[String]:
+	var index : Array[String] = []
+	for line : String in text.split("\n"):
+		if !line.is_empty():
+			index.push_back(line)
+	return index
+
+func save_index(path : String, file_names : Array):
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	for file_name in file_names:
+		file.store_line(file_name)
+	file.close()
+
+func not_an_index(path : String) -> bool:
+	return path != "index.txt"
+
 func _ready():
-	var contact_paths := DirAccess.get_files_at(CONTACTS_PATH)
-	for path in contact_paths:
+	var contact_files := []
+	var media_files := []
+	if !OS.has_feature("standalone"):
+		var contact_dir_paths := DirAccess.get_files_at(CONTACTS_PATH)
+		var media_dir_paths := DirAccess.get_files_at(MEDIA_PATH)
+		# Save for future exported builds
+		print("Running in editor, so writing index files.")
+		save_index(CONTACTS_PATH + "index.txt", Array(contact_dir_paths).filter(not_an_index))
+		save_index(MEDIA_PATH + "index.txt", Array(media_dir_paths).filter(not_an_index))
+	var contact_index := FileAccess.open(CONTACTS_PATH + "index.txt", FileAccess.READ)
+	if contact_index:
+		contact_files = load_index(contact_index.get_as_text())
+		contact_index.close()
+	else:
+		push_error("Error: no index file in " + CONTACTS_PATH + ". Try running a non-standalone version of the editor to generate the index file.")
+	var media_index := FileAccess.open(MEDIA_PATH + "index.txt", FileAccess.READ)
+	if media_index:
+		media_files = load_index(media_index.get_as_text())
+		media_index.close()
+	else:
+		push_error("Error: no index file in " + MEDIA_PATH + ". Try running a non-standalone version of the editor to generate the index file.")
+	
+	for path in contact_files:
 		var res := load(CONTACTS_PATH + path) as Contact
 		if res:
 			registered_contacts[path.get_file().trim_suffix(".tres")] = res
-	var media_paths := DirAccess.get_files_at(MEDIA_PATH)
-	for path in media_paths:
+		else:
+			push_error("could not load contact contact resource " + CONTACTS_PATH + path)
+	for path in media_files:
 		var res := load(MEDIA_PATH + path) as Texture2D
 		if res:
 			registered_contacts[path.get_file()] = res
+		else:
+			push_error("could not load contact media resource " + MEDIA_PATH + path)
+	print(registered_contacts)
+	print(registered_media)
 	var file := FileAccess.open(source, FileAccess.READ)
 	if file:
 		parse_file(file)
 	built.emit()
 	linearize()
+	file.close()
 	add_child(pointer)
 
 func parse_file(file : FileAccess):
@@ -84,7 +127,7 @@ func parse_file(file : FileAccess):
 				params.append(param)
 			command = command.substr(0, left)
 			created_node = command(command, params)
-		else: # If it's neither, it's most likely a message
+		elif line.find("\"") != line.rfind("\""): # If it's neither, it's most likely a message
 			var author : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
 			var result := parse_message_literal(line)
 			var message_literal : MessageLiteral = result["message"]
