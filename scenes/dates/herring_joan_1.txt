@@ -17,11 +17,14 @@ H: "when will the packages arrive?"
 <choice_1>/choice
 /add_to_choice(<choice_1>, "In 24 business hours or less.", <post_1>)
 /add_to_choice(<choice_1>, "You'll know.", <ominous>)
-<ominous>H: "ominous but ok"
+<ominous>H: "ominous"
+"but i'll take it"
 <post_1>M: "The spirits of fortune have been shipped towards your location."
-H: "ok great tysm!"
+H: "hmm..."
+H: "ok that sounds great, tysm!"
 "the thing is, we actually had a date planned today"
-M: "Oh? Why did you order the package then?"
+M: "Oh?"
+"Why did you order the package?"
 H: "but work came up..."
 M: "Ah."
 H: "so i wanted to see..."
@@ -34,7 +37,8 @@ H: "so i wanted to see..."
 /add_player_alias("M")
 /add_global_alias("G")
 J: "Hi!"
-"Um..."
+"Um."
+"This is my first time using this thing so don't mind me..."
 "I was turning around the corner delivering packages for this bakery..."
 "And I turned the corner too fast (I think)"
 "I think I hit something cute-looking and it went splat."

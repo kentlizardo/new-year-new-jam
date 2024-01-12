@@ -12,14 +12,9 @@ var current_scene : Node
 func _ready():
 	stage(main_menu_scene)
 
-func unstage() -> bool:
-	if is_instance_valid(current_scene):
-		current_scene.queue_free()
-		return true
-	return false
-
 func stage(packed : PackedScene):
-	if unstage():
+	if is_instance_valid(current_scene):
+		current_scene.call_deferred("free")
 		await current_scene.tree_exited
 	_stage(packed)
 func _stage(packed : PackedScene):
