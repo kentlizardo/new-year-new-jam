@@ -1,0 +1,43 @@
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "hi!! i would like to buy the Toastal Coincidence Package!!"
+"with my recommended partner!"
+M: "Oh, sure thing! I'll add it to your bill."
+"Would you also like to add on the extra Shoujo Sparkles Effect Package?"
+H: "...do you think it would look good on me?"
+"hmm..."
+M: "I'm not supposed to do this, so don't tell this to any of my supervisors,"
+"[i]your date's profile says she likes cute things[/i]"
+H: "i'll buy it!"
+M: "👍"
+"I'll waive your Date Advice Package cost for now until you need it. 😊"
+H: "when will the packages arrive?"
+<choice_1>/choice
+/add_to_choice(<choice_1>, "In 24 business hours or less.", <post_1>)
+/add_to_choice(<choice_1>, "You'll know.", <ominous>)
+<ominous>H: "ominous but ok"
+<post_1>M: "The spirits of fortune have been shipped towards your location."
+H: "ok great tysm!"
+"the thing is, we actually had a date planned today"
+M: "Oh? Why did you order the package then?"
+H: "but work came up..."
+M: "Ah."
+H: "so i wanted to see..."
+"if i could meet her by chance on her job."
+"apparently she's an independent deliverywoman!!!"
+"isn't that cool?"
+"anyway, enough about her!\n i suddenly feel the urge to go walking on the street right now."
+/set_main_contact("joan")
+/add_contact_alias("J")
+/add_player_alias("M")
+/add_global_alias("G")
+J: "Hi!"
+"Um..."
+"I was turning around the corner delivering packages for this bakery..."
+"And I turned the corner too fast (I think)"
+"I hit something and it went splat."
+"Could you let my date know that I'm going to be late?"
+"He's not answering for some reason.\n I hope he's okay."
+M: "Sure, I'll let him know." +sweating

@@ -82,21 +82,22 @@ func parse_file(file : FileAccess):
 			created_node = command(command, params)
 		else: # If it's neither, it's most likely a message
 			var author : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
+			print(line)
 			var result := parse_message_literal(line)
 			var message_literal : MessageLiteral = result["message"]
-			if message_literal.alias != "":
-				author = read_alias_token(message_literal.alias)
-			var say_event := EventSay.new()
-			say_event.as_player = author
-			say_event.contact = main_contact
-			say_event.message = message_literal.message
-			say_event.require_prompt = message_literal.require_prompt
-			for i in message_literal.modifiers:
-				if i == "skip":
-					say_event.skip = true
-			
-			pointer.add_child(say_event)
-			created_node = say_event
+			if message_literal:
+				if message_literal.alias != "":
+					author = read_alias_token(message_literal.alias)
+				var say_event := EventSay.new()
+				say_event.as_player = author
+				say_event.contact = main_contact
+				say_event.message = message_literal.message
+				say_event.require_prompt = message_literal.require_prompt
+				for i in message_literal.modifiers:
+					if i == "skip":
+						say_event.skip = true
+				pointer.add_child(say_event)
+				created_node = say_event
 		if line_label != "" and created_node != null:
 			labeled[line_label] = created_node
 		if created_node:
