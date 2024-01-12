@@ -47,6 +47,8 @@ func parse_file(file : FileAccess):
 	var context_indent_level := 0
 	var last_created_node : Node = null
 	for line : String in file_content.split("\n"):
+		line = line.replace("“", "\"")
+		line = line.replace("”", "\"")
 		var current_indent_level := 0
 		var created_node : Node = null
 		var line_label := ""

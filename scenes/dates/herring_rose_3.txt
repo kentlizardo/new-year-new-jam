@@ -16,12 +16,12 @@ M: “Slimes are known to be weak under dark and dry conditions.”
 “It sounds like he hasn’t been able to keep his body intact... or from drying out.”
 “Take him to the nearest healer A.S.A.P!”
 R: "Oh!!!" +shaking
-“By then it will be too late…”
+"By then it will be too late…"
 "It's all my fault!"
-“No!”
-“Think, Rose, think!”
-R: “Oh, I know what to do!”
-“I just learned how to cast Daylight!”
-“I’ll save you my prince!”
+"No!"
+"Think, Rose, think!"
+R: "Oh, I know what to do!"
+"I just learned how to cast Daylight!"
+"I’ll save you my prince!"
 /media("herring_rose_date.png")
 /push_date("after_herring")

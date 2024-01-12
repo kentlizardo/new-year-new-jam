@@ -26,4 +26,4 @@ func _stage(packed : PackedScene):
 	current_scene = packed.instantiate()
 	if current_scene is Workday:
 		Workday.current = current_scene
-	stage_root.add_child(current_scene)
+	stage_root.call_deferred("add_child",current_scene)
