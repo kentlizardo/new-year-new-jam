@@ -110,12 +110,12 @@ static var current_hovered : Draggable:
 
 static func on_hover(drag : Draggable):
 	var hover := drag.sprite.create_tween()
-	hover.tween_property(drag.sprite, "modulate:v", 1.2, 0.1)
+	hover.tween_property(drag.sprite, "modulate:v", 1.2, 0.05)
 	drag.add_to_group("hovered")
 
 static func off_hover(drag : Draggable):
 	var unhover := drag.sprite.create_tween()
-	unhover.tween_property(drag.sprite, "modulate:v", 1.0, 0.1)
+	unhover.tween_property(drag.sprite, "modulate:v", 1.0, 0.05)
 	drag.remove_from_group("hovered")
 
 func _on_mouse_entered():

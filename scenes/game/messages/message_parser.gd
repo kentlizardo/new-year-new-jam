@@ -5,11 +5,13 @@ signal built
 
 const CONTACTS_PATH := "res://scenes/game/messages/contacts/"
 const MEDIA_PATH := "res://scenes/game/messages/media"
+const DATES_PATH := "res://scenes/dates/"
 
 const EventSay := preload("res://scenes/game/messages/events/msg_evt_say.gd")
 const EventMedia := preload("res://scenes/game/messages/events/msg_evt_media.gd")
 const EventChoices := preload("res://scenes/game/messages/events/msg_evt_choices.gd")
 const EventGroup := preload("res://scenes/game/messages/message_group.gd")
+
 
 @export_file("*.txt") var source
 
@@ -166,6 +168,16 @@ func convert_param(token : String):
 	if token.begins_with("<"):
 		var line_label := LineLabel.new(token.trim_prefix("<").trim_suffix(">"))
 		return line_label
+	elif token.begins_with("%"):
+		var l := token.find("%")
+		var r := token.rfind("%")
+		if l != -1:
+			if l != r:
+				var flag_access := token.trim_prefix("%").trim_suffix("%")
+				if DataManager.game_data.flags.has(flag_access):
+					return DataManager.game_data.flags[flag_access]
+				else:
+					push_error("Error: Could not convert DataFlag Literal as it was not found. " + flag_access)
 	return token.trim_prefix("\"").trim_suffix("\"")
 
 func command(command : String, params : Array) -> Node:
@@ -211,6 +223,15 @@ func command(command : String, params : Array) -> Node:
 			return event_choices
 		"add_to_choice":
 			add_to_choice(params)
+		"set_flag":
+			var flag_id := params[0] as String
+			var data = params[1]
+			DataManager.game_data.flags[flag_id] = data
+		"push_date":
+			var date_filename := params[0] as String
+			date_filename = date_filename.trim_suffix(".txt")
+			var full_date_path := DATES_PATH + date_filename
+			DataManager.game_data.dates_left.push_back(full_date_path)
 	return null
 
 func add_to_choice(params : Array):

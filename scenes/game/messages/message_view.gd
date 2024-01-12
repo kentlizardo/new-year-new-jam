@@ -21,6 +21,18 @@ var contact_shown : Contact
 func _init():
 	current = self
 
+var revealed = false:
+	set(x):
+		revealed = x
+		if x:
+			var tw := create_tween()
+			tw.tween_property(self, "modulate:a", 1.0, 0.2)
+		else:
+			var tw := create_tween()
+			tw.tween_property(self, "modulate:a", 0.0, 0.2)
+func _ready():
+	visible = false
+
 func add_contact(contact : Contact):
 	var user_icon := USER_ICON_TEMPLATE.instantiate() as UserIcon
 	user_icon.texture = contact.pfp
@@ -29,6 +41,7 @@ func add_contact(contact : Contact):
 	new_messages.contact_pfp = contact.pfp
 	
 	user_icons.add_child(user_icon)
+	user_icons.move_child(user_icon, 0)
 	user_messages_root.add_child(new_messages)
 	contacts[contact] = UserBinding.new(user_icon, new_messages)
 	
@@ -40,20 +53,20 @@ signal contact_focused(contact : Contact)
 
 func focus(contact : Contact):
 	if contact_shown:
-		_hide(contact_shown)
+		_hide_contact(contact_shown)
 	contact_shown = contact
 	if contacts.keys().has(contact):
-		_show(contact)
+		_show_contact(contact)
 	contact_focused.emit(contact_shown)
 
-func _show(contact : Contact):
+func _show_contact(contact : Contact):
 	var p := contacts[contact] as UserBinding
 	(p.messages as CanvasItem).visible = true
 	var icon := (p.tab_icon as CanvasItem)
 	icon.get_parent().move_child(icon, 0)
 	p.tab_icon.clear_notifications()
 
-func _hide(contact : Contact):
+func _hide_contact(contact : Contact):
 	var p := contacts[contact] as UserBinding
 	(p.messages as CanvasItem).visible = false
 

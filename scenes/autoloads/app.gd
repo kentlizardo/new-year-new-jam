@@ -16,6 +16,9 @@ func unstage() -> bool:
 	return false
 
 func stage(packed : PackedScene):
-	unstage()
+	if unstage():
+		await current_scene.tree_exited
+	call_deferred("_stage", packed)
+func _stage(packed : PackedScene):
 	current_scene = packed.instantiate()
 	stage_root.add_child(current_scene)

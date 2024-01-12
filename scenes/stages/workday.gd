@@ -11,12 +11,42 @@ func _exit_tree():
 	if current == self:
 		current = null
 
+static var faux_save : Dictionary = {}
+
+var workday_load : Dictionary = {}
 func _ready():
-	var packs : Array[PackedScene] = DataManager.get_data().get_workday()
+	if !faux_save.is_empty():
+		workday_load = faux_save
+	else:
+		workday_load = DataManager.get_data().get_workday()
+	load_workday(workday_load)
+
+func save():
+	faux_save = workday_load
+
+func save_and_quit():
+	save()
+	App.stage(load("res://scenes/stages/main_menu.tscn"))
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Pause.show()
+
+func load_workday(data : Dictionary):
+	var packs : Array[PackedScene] = data["packs"]
+	var dates : Array = data["dates"]
+	print(packs)
+	print(dates)
 	for pack in packs:
 		var items : Node = pack.instantiate()
 		add_child(items)
 		print("pack found: " + items.name)
+	for date in dates:
+		if date is String:
+			var date_parser = MessageParser.new()
+			date_parser.source = date
+			add_child(date_parser)
+			date_parser.play()
 	organize()
 
 func organize():

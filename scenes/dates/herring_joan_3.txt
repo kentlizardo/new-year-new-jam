@@ -38,7 +38,7 @@ H: "miss mina!!!!" +skip
 /add_to_choice(<cheer_up>, "She enjoyed the dates!")
 /add_to_choice(<cheer_up>, "She doesn't hate you!")
 M: "I'm sure of it!"
-J: "...i'm gonna go wallow away now"
+H: "...i'm gonna go wallow away now"
 M: "???"
 H: "-somewhere with no people..."
 M: "As long as you're safe!"
@@ -68,6 +68,12 @@ J: "Huh..."
 "Huh? He wants me to go through a bunch of foliage"
 "..."
 "Woah!"
-"I think you should see this Miss Mina!"
-"I'll take a picture so you can see it too!"
+"That was super close!"
+"I bumped into him and almost lost my head!"
+"Thankfully he caught it!"
+"..."
+"It's really beautiful here!"
+"Mina! I think you should see this"
+"Here's a pic with us in as well!"
 /media("herring_joan_date.png")
+M: "It really is a great view."

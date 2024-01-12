@@ -1,3 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://branosegmvh65"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://branosegmvh65"]
+
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="1_tuklv"]
 
 [resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_tuklv")

@@ -5,10 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dvlypir8qho1k" path="res://scenes/stages/workday.tscn" id="3_01mx5"]
 [ext_resource type="Script" path="res://scenes/stages/main_menu/load.gd" id="3_gwdrj"]
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

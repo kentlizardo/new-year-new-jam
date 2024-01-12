@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyhvq"]
 size = Vector2(40, 86)
 
-[node name="Tray" type="Node2D"]
+[node name="Tray" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_ov7mi")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -30,3 +31,6 @@ polygon = PackedVector2Array(-48, 50, -43, 50, -41, -69, 43, -68, 43, 48, 47, 51
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

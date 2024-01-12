@@ -1,17 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://kxx03bkeuw0h"]
 
-[ext_resource type="PackedScene" uid="uid://yu0odryvf0fc" path="res://scenes/game/profile.tscn" id="1_d8hjl"]
+[ext_resource type="PackedScene" uid="uid://2x38parnkntw" path="res://scenes/game/suitor_profile.tscn" id="1_xnkxu"]
 
 [node name="Herring" type="Node"]
 
-[node name="Profile" parent="." instance=ExtResource("1_d8hjl")]
-linear_damp = 10.0
-angular_velocity = 0.174533
+[node name="Rose" parent="." instance=ExtResource("1_xnkxu")]
+first_date_source = "res://scenes/dates/herring_rose_1.txt"
 
-[node name="Profile2" parent="." instance=ExtResource("1_d8hjl")]
-linear_damp = 10.0
-angular_velocity = 0.174533
+[node name="Joan" parent="." instance=ExtResource("1_xnkxu")]
+first_date_source = "res://scenes/dates/herring_joan_1.txt"
 
-[node name="Profile3" parent="." instance=ExtResource("1_d8hjl")]
-linear_damp = 10.0
-angular_velocity = 0.174533
+[node name="Ryo" parent="." instance=ExtResource("1_xnkxu")]
+first_date_source = "res://scenes/dates/herring_ryo_1.txt"
