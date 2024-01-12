@@ -80,4 +80,4 @@ theme_override_styles/panel = ExtResource("2_f27y0")
 [node name="UserMessages" parent="HBoxContainer/UserTabs/UserMessagesRoot" instance=ExtResource("4_kijv5")]
 layout_mode = 1
 
-[connection signal="clicked" from="HBoxContainer/Panel/MarginContainer/UserIcons/ExitIcon" to="." method="hide"]
+[connection signal="clicked" from="HBoxContainer/Panel/MarginContainer/UserIcons/ExitIcon" to="." method="unreveal"]

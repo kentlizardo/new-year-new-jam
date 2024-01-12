@@ -21,15 +21,22 @@ var contact_shown : Contact
 func _init():
 	current = self
 
-var revealed = false:
-	set(x):
-		revealed = x
-		if x:
-			var tw := create_tween()
-			tw.tween_property(self, "modulate:a", 1.0, 0.2)
-		else:
-			var tw := create_tween()
-			tw.tween_property(self, "modulate:a", 0.0, 0.2)
+func reveal():
+	visible = true
+	var shown_pos := get_viewport_rect().size / 2 - size / 2 
+	var hidden_pos := get_viewport_rect().size / 2 - size / 2 + Vector2(0, get_viewport_rect().size.y)
+	var tw := create_tween()
+	tw.tween_property(self, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	tw.parallel().tween_property(self, "global_position", shown_pos, 0.5).from(hidden_pos).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+func unreveal():
+	var shown_pos := get_viewport_rect().size / 2 - size / 2 
+	var hidden_pos := get_viewport_rect().size / 2 - size / 2 + Vector2(0, get_viewport_rect().size.y)
+	var tw := create_tween()
+	tw.tween_property(self, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	tw.parallel().tween_property(self, "global_position", hidden_pos, 0.5).from(shown_pos).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	await tw.finished
+	visible = false
+
 func _ready():
 	visible = false
 
