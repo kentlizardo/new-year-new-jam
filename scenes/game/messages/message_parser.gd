@@ -88,6 +88,25 @@ func _ready():
 	file.close()
 	add_child(pointer)
 
+const WRAP_LENGTH = 58
+func clean_message(contents : String):
+	contents = contents.replace("\n ", " ").replace("\n", " ")
+	var buffer_length := 0
+	var newline_injects : Array[int] = []
+	var index := 0
+	for ch in contents:
+		if ch == " ": # only wrap after a word ends
+			if buffer_length >= WRAP_LENGTH:
+				newline_injects.append(index)
+				buffer_length = 0
+		buffer_length += 1
+		index += 1
+	var injected := 0
+	for i in newline_injects:
+		contents = contents.insert(i + injected, "\n")
+		injected += 1
+	return contents
+
 func parse_file(file : FileAccess):
 	var file_content := file.get_as_text()
 	var context_indent_level := 0
@@ -175,6 +194,7 @@ func parse_message_literal(token : String) -> Dictionary: # Tuple(message: Messa
 			
 			message = token.substr(message_l + 1, message_r - message_l - 1)
 			message = message.replace("\\n", "\n")
+			message = clean_message(message)
 			
 			var pre_content := token.substr(0, message_l)
 			var post_content := token.substr(message_r, -1)	

@@ -58,10 +58,10 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			if !recipe.is_empty():
 				DataManager.game_data.dates_left.append(MessageParser.DATES_PATH + recipe)
 				if MessageEvent.is_done():
-					App.stage(load("res://scenes/stages/workday.tscn"))
+					App.call_deferred("stage", load("res://scenes/stages/workday.tscn"))
 		else:
 			if MessageEvent.is_done():
-					App.stage(load("res://scenes/stages/workday.tscn"))
+					App.call_deferred("stage", load("res://scenes/stages/workday.tscn"))
 
 func try_recipe() -> String:
 	if current_suitors.size() == 0:

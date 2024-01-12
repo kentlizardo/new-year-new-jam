@@ -26,3 +26,11 @@ func setup(align : BubbleAlignment, images : Array[Texture2D]):
 		var tex_rect := IMAGE_TEMPLATE.instantiate() as TextureRect
 		tex_rect.texture = img
 		media_root.add_child(tex_rect)
+
+func read():
+	if !is_inside_tree():
+		await tree_entered
+	if !is_visible_in_tree():
+		await visibility_changed
+	var show := create_tween()
+	show.tween_property(self, "modulate:a", 1.0, 0.2).from(0.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
