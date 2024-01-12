@@ -19,5 +19,4 @@ func setup(choices : Array):
 		bubble.meta_clicked.connect(on_meta_clicked.bind(i))
 
 func on_meta_clicked(meta : Variant, id : String):
-	print("choice was taken " + id)
 	choice_taken.emit(id)

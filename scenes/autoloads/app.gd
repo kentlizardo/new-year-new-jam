@@ -1,5 +1,8 @@
 extends Node
 
+# No static signal support so using Singleton to store
+signal message_events_done
+
 var main_menu_scene : PackedScene = preload("res://scenes/stages/main_menu.tscn")
 
 @onready var stage_root : Node = $/root/Root/StageRoot
@@ -18,7 +21,9 @@ func unstage() -> bool:
 func stage(packed : PackedScene):
 	if unstage():
 		await current_scene.tree_exited
-	call_deferred("_stage", packed)
+	_stage(packed)
 func _stage(packed : PackedScene):
 	current_scene = packed.instantiate()
+	if current_scene is Workday:
+		Workday.current = current_scene
 	stage_root.add_child(current_scene)

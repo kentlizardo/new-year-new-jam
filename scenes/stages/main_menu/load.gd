@@ -1,10 +1,5 @@
 extends Button
 
-var overlay := preload("res://scenes/game/overlay.tscn")
-
 func _ready():
-	self.pressed.connect(func():
-		var x : Overlay = overlay.instantiate()
-		x.items = preload("res://scenes/game/messages/message_view.tscn")
-		App.current_scene.add_child(x)
-		)
+	self.disabled = Workday.faux_save.is_empty()
+	self.pressed.connect(func(): App.stage(load("res://scenes/stages/workday.tscn")))

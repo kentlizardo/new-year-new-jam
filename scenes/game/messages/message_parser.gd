@@ -84,7 +84,6 @@ func parse_file(file : FileAccess):
 			created_node = command(command, params)
 		else: # If it's neither, it's most likely a message
 			var author : MessageView.MessageAuthor = MessageView.MessageAuthor.AS_LAST
-			print(line)
 			var result := parse_message_literal(line)
 			var message_literal : MessageLiteral = result["message"]
 			if message_literal:
@@ -230,7 +229,7 @@ func command(command : String, params : Array) -> Node:
 		"push_date":
 			var date_filename := params[0] as String
 			date_filename = date_filename.trim_suffix(".txt")
-			var full_date_path := DATES_PATH + date_filename
+			var full_date_path := DATES_PATH + date_filename + ".txt"
 			DataManager.game_data.dates_left.push_back(full_date_path)
 	return null
 

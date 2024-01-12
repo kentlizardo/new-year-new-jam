@@ -1,14 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://kxx03bkeuw0h"]
+[gd_scene load_steps=3 format=3 uid="uid://kxx03bkeuw0h"]
 
 [ext_resource type="PackedScene" uid="uid://2x38parnkntw" path="res://scenes/game/suitor_profile.tscn" id="1_xnkxu"]
+[ext_resource type="PackedScene" uid="uid://b8qro7svwrof2" path="res://scenes/game/client_profile.tscn" id="2_15c86"]
 
 [node name="Herring" type="Node"]
 
-[node name="Rose" parent="." instance=ExtResource("1_xnkxu")]
-first_date_source = "res://scenes/dates/herring_rose_1.txt"
+[node name="Herring" parent="." instance=ExtResource("2_15c86")]
 
-[node name="Joan" parent="." instance=ExtResource("1_xnkxu")]
-first_date_source = "res://scenes/dates/herring_joan_1.txt"
+[node name="Rose" parent="." instance=ExtResource("1_xnkxu")]
 
 [node name="Ryo" parent="." instance=ExtResource("1_xnkxu")]
-first_date_source = "res://scenes/dates/herring_ryo_1.txt"
+
+[node name="Joan" parent="." instance=ExtResource("1_xnkxu")]

@@ -94,3 +94,4 @@ R: "...I uh, remembered I could use chaos magic."
 M?: "...At least your house is now clean."
 R: "..."
 R: "Thank you, Miss Mina..."
+/push_date("herring_ryo_2")

@@ -47,6 +47,7 @@ script = ExtResource("2_vgysh")
 scene = ExtResource("3_01mx5")
 
 [node name="Load" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Load From Password
 "

@@ -77,3 +77,4 @@ J: "Huh..."
 "Here's a pic with us in as well!"
 /media("herring_joan_date.png")
 M: "It really is a great view."
+/push_date("after_herring")

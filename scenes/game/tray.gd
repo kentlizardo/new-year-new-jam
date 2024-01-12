@@ -40,4 +40,5 @@ func _on_area_2d_mouse_exited():
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
-		App.stage(load("res://scenes/stages/workday.tscn"))
+		if MessageEvent.is_done():
+			App.stage(load("res://scenes/stages/workday.tscn"))

@@ -4,25 +4,23 @@ static var current : Workday
 
 @export var papers : Node2D
 
-func _enter_tree():
-	current = self
-
-func _exit_tree():
-	if current == self:
-		current = null
-
 static var faux_save : Dictionary = {}
 
 var workday_load : Dictionary = {}
 func _ready():
 	if !faux_save.is_empty():
 		workday_load = faux_save
+		push_error("Should never reach here.")
 	else:
 		workday_load = DataManager.get_data().get_workday()
-	load_workday(workday_load)
+	if workday_load.is_empty():
+		pass # TODO: Win screen
+	else:
+		load_workday(workday_load)
 
 func save():
-	faux_save = workday_load
+	pass
+	#faux_save = workday_load
 
 func save_and_quit():
 	save()
@@ -30,7 +28,7 @@ func save_and_quit():
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
-		$Pause.show()
+		$Pause.visible = !$Pause.visible
 
 func load_workday(data : Dictionary):
 	var packs : Array[PackedScene] = data["packs"]
