@@ -24,32 +24,35 @@ var main_contact : Contact = null
 var labeled : Dictionary = {} # string -> Node(most likely MessageEvent)
 var aliases : Dictionary = {} # string -> MessageView.MessageAuthor
 
-func load_index(text : String) -> Array[String]:
+static func load_index(text : String) -> Array[String]:
 	var index : Array[String] = []
 	for line : String in text.split("\n"):
 		if !line.is_empty():
 			index.push_back(line)
 	return index
 
-func save_index(path : String, file_names : Array):
+static func save_index(path : String, file_names : Array):
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	for file_name in file_names:
 		file.store_line(file_name)
 	file.close()
 
-func not_an_index(path : String) -> bool:
-	return path != "index.txt"
+static func register_resources():
+	var not_an_index = func(path : String) -> bool:
+		return path != "index.txt"
+	var contact_dir_paths := DirAccess.get_files_at(CONTACTS_PATH)
+	var media_dir_paths := DirAccess.get_files_at(MEDIA_PATH)
+	var dates_dir_paths := DirAccess.get_files_at(DATES_PATH)
+	# Save for future exported builds
+	print("Running in editor, so writing index files.")
+	save_index(CONTACTS_PATH + "index.txt", Array(contact_dir_paths).filter(not_an_index))
+	save_index(MEDIA_PATH + "index.txt", Array(media_dir_paths).filter(not_an_index))
+	save_index(DATES_PATH + "index.txt", Array(dates_dir_paths).filter(not_an_index))
 
 func _ready():
 	var contact_files := []
 	var media_files := []
-	if !OS.has_feature("standalone"):
-		var contact_dir_paths := DirAccess.get_files_at(CONTACTS_PATH)
-		var media_dir_paths := DirAccess.get_files_at(MEDIA_PATH)
-		# Save for future exported builds
-		print("Running in editor, so writing index files.")
-		save_index(CONTACTS_PATH + "index.txt", Array(contact_dir_paths).filter(not_an_index))
-		save_index(MEDIA_PATH + "index.txt", Array(media_dir_paths).filter(not_an_index))
+	# Load index files
 	var contact_index := FileAccess.open(CONTACTS_PATH + "index.txt", FileAccess.READ)
 	if contact_index:
 		contact_files = load_index(contact_index.get_as_text())

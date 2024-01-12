@@ -22,7 +22,13 @@ func _process(delta):
 	label_root.global_rotation = 0
 
 func populate_recipes():
-	var all_files = DirAccess.get_files_at(MessageParser.DATES_PATH)
+	var all_files : Array[String] = []
+	var date_index := FileAccess.open(MessageParser.DATES_PATH + "index.txt", FileAccess.READ)
+	if date_index:
+		all_files = MessageParser.load_index(date_index.get_as_text())
+		date_index.close()
+	else:
+		push_error("Error: no index file in " + MessageParser.DATES_PATH + ". Try running a non-standalone version of the editor to generate the index file.")
 	for file_name in all_files:
 		if file_name.ends_with(".txt"):
 			var date_identifier := file_name.trim_suffix(".txt")
