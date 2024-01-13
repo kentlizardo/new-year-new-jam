@@ -11,7 +11,7 @@ var main_menu_scene : PackedScene = preload("res://scenes/stages/main_menu.tscn"
 var current_scene : Node
 
 func _ready():
-	if !OS.has_feature("standalone"):
+	if OS.has_feature("editor"):
 		MessageParser.register_resources()
 	stage(main_menu_scene)
 

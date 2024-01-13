@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=14 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="PackedScene" uid="uid://dwg2yia8pjpea" path="res://scenes/game/tray.tscn" id="2_nnhul"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/game/phone.gd" id="4_kda5t"]
 [ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="5_fvnxm"]
 [ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="5_jysak"]
+[ext_resource type="PackedScene" uid="uid://dcjwbs5jkdlnm" path="res://scenes/game/opening.tscn" id="5_kqgpu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
 normal = Vector2(1, 0)
@@ -102,6 +103,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Opening" parent="." instance=ExtResource("5_kqgpu")]
 
 [node name="Pause" type="ColorRect" parent="."]
 visible = false

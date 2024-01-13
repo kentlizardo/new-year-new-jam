@@ -67,6 +67,7 @@ text = "Credits
 alignment = 0
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Quit"
 alignment = 0
