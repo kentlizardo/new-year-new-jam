@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=18 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="5_jysak"]
 [ext_resource type="PackedScene" uid="uid://dcjwbs5jkdlnm" path="res://scenes/game/opening.tscn" id="5_uichr"]
 [ext_resource type="Script" path="res://scenes/game/phone.gd" id="7_dkvqk"]
+[ext_resource type="Texture2D" uid="uid://dtcrvfl0swaml" path="res://assets/textures/desk/aphro_hand.png" id="8_eey7c"]
 [ext_resource type="Texture2D" uid="uid://c0eb1ngm6axf0" path="res://assets/textures/desk/phone.png" id="8_mjxoy"]
 [ext_resource type="Texture2D" uid="uid://ck0dkxaxgxelk" path="res://assets/textures/desk/notif.png" id="9_wu34e"]
 
@@ -103,6 +104,11 @@ texture = ExtResource("9_wu34e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phone"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_80cwv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(865, 83)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_eey7c")
 
 [node name="Opening" parent="." instance=ExtResource("5_uichr")]
 
