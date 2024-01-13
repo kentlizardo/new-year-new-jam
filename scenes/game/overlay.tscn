@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd1hj0wwuvob0"]
+[gd_scene load_steps=7 format=3 uid="uid://bd1hj0wwuvob0"]
 
 [ext_resource type="Script" path="res://scenes/game/overlay.gd" id="1_h3rwx"]
 [ext_resource type="Script" path="res://scenes/game/fade.gd" id="3_juv21"]
 [ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="3_up5l6"]
 [ext_resource type="Texture2D" uid="uid://4rxk35vw5wyh" path="res://assets/textures/opening/1/frame.png" id="4_1iiqm"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="5_aon5c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7au0o"]
 shader = ExtResource("3_up5l6")
@@ -61,6 +62,8 @@ theme_override_constants/margin_bottom = 40
 [node name="Back" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_aon5c")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/Back" to="." method="destroy"]

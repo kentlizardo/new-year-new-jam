@@ -18,7 +18,7 @@ size = Vector2(44, 9.5)
 size = Vector2(44, 35)
 
 [node name="Stamp" type="RigidBody2D" node_paths=PackedStringArray("stamp_top", "spring", "stamp_threshold", "stamping_area", "sprite")]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 2
 input_pickable = true
 lock_rotation = true

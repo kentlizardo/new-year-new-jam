@@ -17,3 +17,4 @@ M: "Oh."
 /add_to_choice(<a>, "Ah.")
 /add_to_choice(<a>, "Oops.")
 M: "Is this a joke or did "
+// dig into misunderstandings and learn about why struggle?

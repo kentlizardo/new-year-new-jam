@@ -1,3 +1,6 @@
+// This storyline seems too serious?
+// Either add more intimate story beats to herring's?
+// Or tone this one down?
 /push_date("wulf_clydie_2")
 /set_main_contact("wulf")
 /add_contact_alias("W")

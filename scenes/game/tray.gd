@@ -21,7 +21,7 @@ func _process(delta):
 
 func drop(body : Node2D):
 	if body is SuitorProfile:
-		if current_suitors.has(body.get_suitor_id()):
+		if current_suitors.has(body.get_profile_id()):
 			return
 		var align := body.create_tween()
 		align.tween_property(body, "global_position", tray_body.global_position, 0.3).set_trans(Tween.TRANS_BOUNCE)
@@ -36,7 +36,7 @@ func drop(body : Node2D):
 		var squeeze := create_tween()
 		squeeze.tween_property(sprite_root, "scale", Vector2(1.2, 0.8), 0.05).set_ease(Tween.EASE_IN)
 		squeeze.tween_property(sprite_root, "scale", Vector2.ONE, 0.05).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		current_suitors.append(body.get_suitor_id())
+		current_suitors.append(body.get_profile_id())
 		body.queue_free()
 		sprite.texture = CLOSED_SPRITE
 		check_recipe()

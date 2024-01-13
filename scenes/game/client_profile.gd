@@ -6,14 +6,10 @@ static var current : ClientProfile :# assume only one
 		if current == null:
 			App.submitted_to_client.emit()
 
-@export var label : Label
-@export var label_root : Node2D
-
 var recipes : Dictionary = {} # String -> String
 
 func _ready():
 	super()
-	label.text = name
 	populate_recipes()
 
 func _enter_tree():
@@ -21,9 +17,6 @@ func _enter_tree():
 func _exit_tree():
 	if current == self:
 		current = null
-
-func _process(delta):
-	label_root.global_rotation = 0
 
 func populate_recipes():
 	var all_files : Array[String] = []
