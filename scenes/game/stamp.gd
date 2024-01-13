@@ -16,7 +16,7 @@ func _ready():
 
 func threshold_body_entered(body : Node2D):
 	if body == stamp_top:
-		for i in stamping:
+		for i in stamp_collatoral:
 			if i is Profile:
 				i.stamped = true
 				var stamp_sprite := Sprite2D.new()
@@ -31,22 +31,35 @@ func threshold_body_entered(body : Node2D):
 func threshold_body_exited(body : Node2D):
 	pass
 
-var stamping : Array[Node2D] = []
+var stamp_collatoral : Array[Node2D] = []
+var stamping := false
+
+func _physics_process(delta):
+	super(delta)
+	if stamping:
+		stamp_top.global_position.x = global_position.x
+		if stamp_top.global_position.y >= global_position.y + 20:
+			stamp_top.global_position.y = global_position.y + 20
+		if stamp_top.global_position.y <= global_position.y - 20:
+			stamp_top.global_position.y = global_position.y - 20
 
 func stamping_body_entered(body : Node2D):
 	if body is Profile:
-		stamping.append(body)
+		stamp_collatoral.append(body)
 
 func stamping_body_exited(body : Node2D):
 	if body is Profile:
-		var i := stamping.find(body)
+		var i := stamp_collatoral.find(body)
 		if i != -1:
-			stamping.remove_at(i)
+			stamp_collatoral.remove_at(i)
 
 func start_stamp():
+	freeze = true
+	#print(freeze)
 	linear_damp = 5000
-	#freeze = true
-
+	stamping = true
 func end_stamp():
+	freeze = false
+	#print(freeze)
 	linear_damp = 5
-	#freeze = false
+	stamping = false

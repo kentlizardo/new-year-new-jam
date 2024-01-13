@@ -1,4 +1,4 @@
-extends Node2D
+class_name Tray extends Node2D
 
 const OPEN_SPRITE = preload("res://assets/textures/desk/tray_open.png")
 const CLOSED_SPRITE = preload("res://assets/textures/desk/tray_close.png")
@@ -9,9 +9,12 @@ const SUITOR_TEMPLATE = preload("res://scenes/game/suitor_profile.tscn")
 @export var sprite_root : Node2D
 
 var current_suitors : Array[String] = [] # suitor_ids
+static var current : Tray
 
 func _ready():
+	tray_body.add_to_group("tray_bodies")
 	tray_body.double_clicked.connect(drop_papers)
+	current = self
 
 func _process(delta):
 	tray_cooldown -= delta
@@ -36,6 +39,7 @@ func drop(body : Node2D):
 		current_suitors.append(body.name.to_lower())
 		body.queue_free()
 		sprite.texture = CLOSED_SPRITE
+		check_recipe()
 
 func _on_area_2d_body_entered(body : Node2D):
 	if body is Profile:
@@ -64,7 +68,12 @@ func drop_papers():
 		profile.global_position = tray_body.global_position
 		profile.global_rotation = tray_body.global_rotation
 		current_suitors.remove_at(current_suitors.find(i))
-	sprite.texture = CLOSED_SPRITE
+	sprite.texture = OPEN_SPRITE
+	check_recipe()
+
+func check_recipe():
+	var recipe := try_recipe()
+	Hand.current.valid_recipe = !recipe.is_empty()
 
 func submit():
 	if tray_cooldown > 0:
@@ -72,15 +81,11 @@ func submit():
 	tray_cooldown += 1.0
 	# This condition is only usable if the only valid multiple ending
 	# is one where *all* suitors are chosen. aka this game.
-	if ClientProfile.current != null:
+	if ClientProfile.current != null: # redundant assertion.
 		var recipe := try_recipe()
 		if !recipe.is_empty():
 			DataManager.game_data.dates_left.append(MessageParser.DATES_PATH + recipe)
-			if MessageEvent.is_done():
-				App.call_deferred("stage", load("res://scenes/stages/workday.tscn"))
-	else:
-		if MessageEvent.is_done():
-				App.call_deferred("stage", load("res://scenes/stages/workday.tscn"))
+			ClientProfile.current = null
 
 func try_recipe() -> String:
 	var suitor_ids := current_suitors

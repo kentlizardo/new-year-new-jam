@@ -48,7 +48,6 @@ node_a = NodePath("../TopBody")
 node_b = NodePath("..")
 rest_length = 50.0
 stiffness = 40.0
-damping = 3.0
 
 [node name="TopBody" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(0, -23)

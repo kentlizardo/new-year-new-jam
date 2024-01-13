@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=21 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
 [ext_resource type="PackedScene" uid="uid://dwg2yia8pjpea" path="res://scenes/game/tray.tscn" id="2_nnhul"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="3_br1ku"]
 [ext_resource type="PackedScene" uid="uid://dpo24l4jygsv3" path="res://scenes/game/stamp.tscn" id="3_tx1l0"]
 [ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="5_fvnxm"]
 [ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="5_jysak"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/game/phone.gd" id="7_dkvqk"]
 [ext_resource type="Texture2D" uid="uid://dtcrvfl0swaml" path="res://assets/textures/desk/aphro_hand.png" id="8_eey7c"]
 [ext_resource type="Texture2D" uid="uid://c0eb1ngm6axf0" path="res://assets/textures/desk/phone.png" id="8_mjxoy"]
+[ext_resource type="Script" path="res://scenes/game/hand.gd" id="9_d8c81"]
 [ext_resource type="Texture2D" uid="uid://ck0dkxaxgxelk" path="res://assets/textures/desk/notif.png" id="9_wu34e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
@@ -26,13 +28,17 @@ normal = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80cwv"]
 size = Vector2(100, 160.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7m5a"]
+radius = 200.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d3m3l"]
 shader = ExtResource("5_jysak")
 shader_parameter/amount = 2.0
 
-[node name="Workday" type="Node" node_paths=PackedStringArray("papers")]
+[node name="Workday" type="Node" node_paths=PackedStringArray("papers", "finish_button")]
 script = ExtResource("1_l7s8w")
 papers = NodePath("Papers")
+finish_button = NodePath("BG/TextEdit/MarginContainer/Button")
 
 [node name="BG" type="Control" parent="."]
 layout_mode = 3
@@ -53,6 +59,26 @@ grow_vertical = 2
 texture = ExtResource("2_h3d0c")
 expand_mode = 5
 stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/TextEdit"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -59.0
+offset_right = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="BG/TextEdit/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_br1ku")
+theme_override_font_sizes/font_size = 42
+text = "Go home for the day!"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -76,9 +102,6 @@ position = Vector2(601, 301)
 
 [node name="Tray" parent="Papers" instance=ExtResource("2_nnhul")]
 position = Vector2(287, -90)
-
-[node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
-position = Vector2(706, 296)
 
 [node name="Phone" type="RigidBody2D" parent="." node_paths=PackedStringArray("notif_pivot", "notif", "sprite")]
 position = Vector2(128, 521)
@@ -105,10 +128,33 @@ texture = ExtResource("9_wu34e")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_80cwv")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(865, 83)
+[node name="A" type="Node2D" parent="."]
+position = Vector2(866, -227)
 scale = Vector2(0.75, 0.75)
+
+[node name="Hand" type="Sprite2D" parent="A" node_paths=PackedStringArray("idle", "prompt", "accept")]
 texture = ExtResource("8_eey7c")
+script = ExtResource("9_d8c81")
+idle = NodePath("..")
+prompt = NodePath("../../B")
+accept = NodePath("../../C")
+
+[node name="Area2D" type="Area2D" parent="A/Hand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A/Hand/Area2D"]
+position = Vector2(0, 110.667)
+shape = SubResource("CircleShape2D_i7m5a")
+
+[node name="B" type="Node2D" parent="."]
+position = Vector2(866, -27)
+scale = Vector2(0.75, 0.75)
+
+[node name="C" type="Node2D" parent="."]
+position = Vector2(866, 123)
+scale = Vector2(0.75, 0.75)
+
+[node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
+position = Vector2(706, 296)
 
 [node name="Opening" parent="." instance=ExtResource("5_uichr")]
 
@@ -150,5 +196,7 @@ theme = ExtResource("5_fvnxm")
 text = "Back to Main Menu"
 alignment = 0
 
+[connection signal="body_entered" from="A/Hand/Area2D" to="A/Hand" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="A/Hand/Area2D" to="A/Hand" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="Pause" method="hide"]
 [connection signal="pressed" from="Pause/VBoxContainer/Button" to="." method="save_and_quit"]

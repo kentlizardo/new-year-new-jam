@@ -27,6 +27,7 @@ sprite = NodePath("SpriteRoot/Sprite2D")
 
 [node name="TrayArea" type="Area2D" parent="Rigidbody"]
 position = Vector2(0, -30)
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rigidbody/TrayArea"]
 position = Vector2(0.5, 29)

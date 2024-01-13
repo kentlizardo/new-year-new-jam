@@ -85,7 +85,7 @@ func _physics_process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion:
 		drag_distance += event.relative
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and current_hovered == self:
 		#start_drag()
 		get_parent().move_child(self, get_parent().get_children().size())
 		if current_hovered == self:

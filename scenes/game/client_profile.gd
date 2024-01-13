@@ -1,6 +1,10 @@
 class_name ClientProfile extends Profile
 
-static var current : ClientProfile # assume only one
+static var current : ClientProfile :# assume only one
+	set(x):
+		current = x
+		if current == null:
+			App.submitted_to_client.emit()
 
 @export var label : Label
 @export var label_root : Node2D
