@@ -1,0 +1,12 @@
+/set_main_contact("boss")
+/add_contact_alias("B")
+/add_player_alias("M")
+/add_global_alias("G")
+B: "Hmmm..." +skip
+"Maybe it's almost time for me to retire  :P" +skip
+M: "???"
+B: "Kidding!"
+"Although, this new client is someone..."
+"That's a [i]little[/i] bit of a special case."
+"Meaning, a perfect job for you!"
+M: "Uh oh" +sweat

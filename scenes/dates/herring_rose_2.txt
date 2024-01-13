@@ -2,7 +2,7 @@
 /add_contact_alias("R")
 /add_player_alias("M")
 /add_global_alias("G")
-G: "Good afternoon, [Customer Name].\n Thank you for reaching out to us for our Live Date Advice Package."
+G: "Good afternoon, [Ryo].\n Thank you for reaching out to us for our Live Date Advice Package."
 "You will be connected to the representative,\nMina(Specialist Cupid), shortly.\n(This is an automated message)"
 R: "Hi! You're my assigned Cupid right?"
 M?: "Yes I am.\n How may I help you?"

@@ -2,6 +2,15 @@ after_herring.txt
 after_wulf.txt
 before_herring.txt
 before_wulf.txt
+boss_lichking_1.txt
+boss_lichking_2.txt
+boss_lichking_3.txt
+boss_raphiel_1.txt
+boss_raphiel_2.txt
+boss_raphiel_3.txt
+boss_ross_1.txt
+boss_ross_2.txt
+boss_ross_3.txt
 boss_true_1.txt
 coffee.txt
 herring_joan_1.txt

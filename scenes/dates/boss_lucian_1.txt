@@ -1,0 +1,24 @@
+/set_main_contact("boss")
+/add_contact_alias("B")
+/add_player_alias("M")
+/add_global_alias("G")
+B: "Hey, Mina!!! 🥰"
+"How's work going?"
+M: "Good evening Ms Ava. It's okay."
+<work>/choice
+/add_to_choice(<work>, "Work is going well.")
+/add_to_choice(<work>, "So and so, so far.")
+/add_to_choice(<work>, "I've had better days.")
+B: "I just wanted to share how me and lovely Ross here are having an amazing time."
+"He invited me to a business party his company was holding,"
+"And introduced me to everyone!!!"
+"I absolutely love the mood in here."
+"Oh another round of drinks are coming... I shouldn't,"
+"Ah... Why not? I'm here to celebrate after all."
+M: "How's Lucian doing?" +sweat
+B: "Oh, I'm sure he's doing just fine!"
+"He's a bit of a light drinker haha,"
+/media("A", "boss_lucian_date")
+"I'll make sure to take him home later."
+M: "...I'll come pick you two up instead after work."
+/mark_history("lucian")
