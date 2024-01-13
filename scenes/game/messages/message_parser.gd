@@ -90,7 +90,7 @@ func _ready():
 	file.close()
 	add_child(pointer)
 
-const WRAP_LENGTH = 58
+const WRAP_LENGTH = 40
 func clean_message(contents : String):
 	contents = contents.replace("\n ", "\n")#.replace("\n", " ")
 	var buffer_length := 0

@@ -35,7 +35,7 @@ H: "this..."
 "it even has the customizable cantrips!"
 "wait,"
 "this giant box crushing me to death??"
-"its a complete box set of seasons 1-22 of Dungeon Dinner!?" +shaking
+"its a complete box set of seasons 1-8 of Dungeon Dinner!?" +shaking
 "NO WAY!???"
 /set_main_contact("ryo")
 /add_contact_alias("R")
