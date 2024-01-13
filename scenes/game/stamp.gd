@@ -14,13 +14,22 @@ func _ready():
 	stamping_area.body_entered.connect(stamping_body_entered)
 	stamping_area.body_exited.connect(stamping_body_exited)
 
+static func get_total_2d_scale(node : Node) -> Vector2:
+	var scale := Vector2.ONE
+	if node is Node2D:
+		scale = node.scale
+	var parent := node.get_parent()
+	if parent:
+		scale *= get_total_2d_scale(parent)
+	return scale
+
 func threshold_body_entered(body : Node2D):
 	if body == stamp_top:
 		for i in stamp_collatoral:
 			if i is Profile:
 				i.stamped = true
 			var stamp_sprite := Sprite2D.new()
-			stamp_sprite.scale = Vector2.ONE * 0.25
+			stamp_sprite.scale = 0.4 * Vector2.ONE / get_total_2d_scale(i.sprite)
 			stamp_sprite.texture = preload("res://assets/textures/stamp.png")
 			i.sprite.add_child(stamp_sprite)
 			stamp_sprite.global_position = stamping_area.global_position

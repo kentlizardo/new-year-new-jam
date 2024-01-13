@@ -19,7 +19,6 @@ sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
-scale = Vector2(2, 2)
 texture = ExtResource("2_6w8gj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

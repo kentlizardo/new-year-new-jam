@@ -114,6 +114,7 @@ notif = NodePath("NodePivot/Sprite2D")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Phone"]
+clip_children = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_mjxoy")
 
