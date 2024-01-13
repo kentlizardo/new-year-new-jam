@@ -19,14 +19,14 @@ func threshold_body_entered(body : Node2D):
 		for i in stamp_collatoral:
 			if i is Profile:
 				i.stamped = true
-				var stamp_sprite := Sprite2D.new()
-				stamp_sprite.scale = Vector2.ONE * 0.25
-				stamp_sprite.texture = preload("res://assets/textures/stamp.png")
-				i.sprite.add_child(stamp_sprite)
-				stamp_sprite.global_position = stamping_area.global_position
-				
-				var tw := stamp_sprite.create_tween()
-				tw.tween_property(stamp_sprite, "modulate:a", 1.0 * randf_range(0.4, 1.0), 0.05).from(0.0)
+			var stamp_sprite := Sprite2D.new()
+			stamp_sprite.scale = Vector2.ONE * 0.25
+			stamp_sprite.texture = preload("res://assets/textures/stamp.png")
+			i.sprite.add_child(stamp_sprite)
+			stamp_sprite.global_position = stamping_area.global_position
+			
+			var tw := stamp_sprite.create_tween()
+			tw.tween_property(stamp_sprite, "modulate:a", 1.0 * randf_range(0.4, 1.0), 0.05).from(0.0)
 
 func threshold_body_exited(body : Node2D):
 	pass
@@ -44,11 +44,11 @@ func _physics_process(delta):
 			stamp_top.global_position.y = global_position.y - 20
 
 func stamping_body_entered(body : Node2D):
-	if body is Profile:
+	if body is Profile or body is Phone:
 		stamp_collatoral.append(body)
 
 func stamping_body_exited(body : Node2D):
-	if body is Profile:
+	if body is Profile or body is Phone:
 		var i := stamp_collatoral.find(body)
 		if i != -1:
 			stamp_collatoral.remove_at(i)

@@ -129,7 +129,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_80cwv")
 
 [node name="A" type="Node2D" parent="."]
-position = Vector2(866, -227)
+position = Vector2(866, -378)
 scale = Vector2(0.75, 0.75)
 
 [node name="Hand" type="Sprite2D" parent="A" node_paths=PackedStringArray("idle", "prompt", "accept")]
