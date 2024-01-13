@@ -4,9 +4,9 @@
 /add_player_alias("M")
 /add_global_alias("G")
 C: "Hello, is this Mina?"
-M: "Who's asking?"
+M: "Hm, who's asking?"
 "Ah, I'm kidding of course,"
-"It's always a pleasure talking to one of my clients."
+"It's always a pleasure meeting one of my clients."
 "How are you doing, Clydie?"
 C: "Right!"
 "Things are going well with Wulf."
