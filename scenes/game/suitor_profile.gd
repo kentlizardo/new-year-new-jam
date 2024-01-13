@@ -22,3 +22,4 @@ func popup():
 	if profile_texture:
 		var overlay := preload("res://scenes/game/overlay.tscn").instantiate() as Overlay
 		overlay.profile_tex = profile_texture
+		Workday.current.add_child(overlay)

@@ -5,12 +5,15 @@ class_name Overlay extends Node
 
 func destroy():
 	var hide = create_tween()
-	hide.tween_property(self, "modulate:a", 0.0, 0.2).from(1.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	hide.tween_property(self, "modulate:a", 0.0, 0.8).from(1.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	await hide.finished
 	queue_free()
 
 func _ready():
 	profile_sprite.texture = profile_tex
+	var tw := create_tween()
+	tw.tween_property(profile_sprite, "position", Vector2.ZERO, 1.5).from(Vector2(0, 768)).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tw.parallel().tween_property(profile_sprite, "modulate:a", 1.0, 0.6).from(0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)
 
-func _process(delta):
-	profile_sprite.global_position = get_viewport().size / 2
+#func _process(delta):
+	#profile_sprite.global_position = get_viewport().size / 2

@@ -39,8 +39,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProfileRoot" type="Node2D" parent="."]
+position = Vector2(512, 384)
 
 [node name="Sprite2D" type="Sprite2D" parent="ProfileRoot"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_1iiqm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
