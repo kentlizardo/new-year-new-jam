@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=23 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c0eb1ngm6axf0" path="res://assets/textures/desk/phone.png" id="8_mjxoy"]
 [ext_resource type="Script" path="res://scenes/game/hand.gd" id="9_d8c81"]
 [ext_resource type="Texture2D" uid="uid://ck0dkxaxgxelk" path="res://assets/textures/desk/notif.png" id="9_wu34e"]
+[ext_resource type="Texture2D" uid="uid://dh6jcc5233tge" path="res://assets/textures/desk/mug_coffee.png" id="10_r8tu7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
 normal = Vector2(1, 0)
@@ -30,6 +31,10 @@ size = Vector2(100, 160.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7m5a"]
 radius = 200.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3un03"]
+radius = 60.0
+height = 160.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d3m3l"]
 shader = ExtResource("5_jysak")
@@ -154,6 +159,16 @@ scale = Vector2(0.75, 0.75)
 [node name="C" type="Node2D" parent="."]
 position = Vector2(866, 123)
 scale = Vector2(0.75, 0.75)
+
+[node name="Coffee" type="RigidBody2D" parent="."]
+position = Vector2(472, 327)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coffee"]
+texture = ExtResource("10_r8tu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coffee"]
+position = Vector2(-4.00006, -17)
+shape = SubResource("CapsuleShape2D_3un03")
 
 [node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
 position = Vector2(706, 296)

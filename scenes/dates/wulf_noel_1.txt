@@ -1,1 +1,19 @@
 /push_date("wulf_noel_2")
+/set_main_contact("noel")
+/add_contact_alias("N")
+/add_player_alias("M")
+/add_global_alias("G")
+N: "Hi."
+"I have a complaint with your services."
+M: "What issues did you have?"
+"I very clearly specified I DID NOT want to be matched with stubborn good-for-nothing muscleheads."
+"And I was clearly matched with one."
+"One that I've already had the displeasure of meeting."
+M: "Oh."
+"And I dare say the displeasure of having been romantically involved in the past."
+"Albeit long ago."
+<a>/choice
+/add_to_choice(<a>, "Oh.")
+/add_to_choice(<a>, "Ah.")
+/add_to_choice(<a>, "Oops.")
+M: "Is this a joke or did "

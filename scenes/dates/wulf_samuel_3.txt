@@ -3,7 +3,6 @@
 /add_player_alias("M")
 /add_global_alias("G")
 /media("wulf_samuel_date.png")
-
 S: "Ah."
 "Oh dear, that was an accident"
 M: "🫢"

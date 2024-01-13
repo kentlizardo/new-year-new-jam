@@ -34,6 +34,8 @@ func save_and_quit():
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$Pause.visible = !$Pause.visible
+		if $Pause.visible:
+			MessageView.current.unreveal()
 
 var client_required := false:
 	set(x):

@@ -1,1 +1,53 @@
 /push_date("wulf_clydie_2")
+/set_main_contact("wulf")
+/add_contact_alias("W")
+/add_player_alias("M")
+/add_global_alias("G")
+W: "Hello? Is this number still available to contact?"
+M: "Yes, of course! I'm always here to help."
+W: "Oh. You're the one I talked to last time!"
+"I wanted to know if you have experience with..."
+"Relationships where you don't see the other very often."
+M: "Oh yes. Long distance relationships!"
+"It's a difficult topic in my line of work but I'm not inexperienced with it."
+W: "That's good."
+"You're pretty dependable for someone so young!"
+M: "It is my job. 😇"
+W: "I'm not very good at this typing thing."
+"Or with this phone."
+"Having a partnership with someone with our time mostly spent using these things."
+"It just feels... Weird to someone of my years."
+<a>/choice
+/add_to_choice(<a>, "It's like that for everyone.")
+/add_to_choice(<a>, "It certainly be difficult.")
+/add_to_choice(<a>, "It's like that for everyone.")
+W: "I... I used to fancy someone many years ago."
+"Then she had to leave."
+"We'd only contact eachother every couple of years."
+"She'd forget to write back easily. Haha."
+"Despite having the Goddess's blessing, I didn't have the same spans of time she did."
+"..."
+"I can remember feeling the same way I do now."
+"The yearning, and the pain."
+M: "Ah. Well,"
+M: "What do you think about your new partner now?"
+W: "It's frustrating how much I can't do with her."
+M: "Do you think it's still the same case with Miss Clytie now?"
+M: "Hmm..."
+"What do you think about being with her? Despite all the circumstances."
+W: "Well."
+"She's the kindest person I've ever met."
+"Despite me living for as long as I have"
+"It feels like she lives in the same moments I do."
+M: "Then I think you should focus on that!"
+"There's plenty more things you can do."
+"A lot more things are possible now, more than before. Our agency is here to help. As well as your granddaughter!"
+"You can have her teach you how to use more than just the phone,"
+"And you know, if you are ever feeling frustrated!"
+"Just buy the Live Date Advice Package 😇."
+W: "Haha, what a snake!"
+"Are you sure you have a halo?"
+"Jokes aside.
+"You really are a specialist if I've ever seen one."
+"Thank you, young miss."
+M: "My pleasure!"

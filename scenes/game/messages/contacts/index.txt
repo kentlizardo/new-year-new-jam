@@ -1,6 +1,9 @@
 alex.tres
 boss.tres
+clydie.tres
+emma.tres
 herring.tres
 joan.tres
 rose.tres
 ryo.tres
+wulf.tres

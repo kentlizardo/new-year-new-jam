@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Contact" load_steps=3 format=3 uid="uid://b4t6h3wchfvv"]
+
+[ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="1_dvjem"]
+[ext_resource type="Script" path="res://scenes/game/messages/contact.gd" id="1_upi5s"]
+
+[resource]
+script = ExtResource("1_upi5s")
+name = "Emma"
+pfp = ExtResource("1_dvjem")

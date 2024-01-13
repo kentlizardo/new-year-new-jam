@@ -1,16 +1,43 @@
+
+/set_main_contact("boss")
+/add_contact_alias("B")
+/add_player_alias("M")
+/add_global_alias("G")
+B: "Hey!!!!" +skip
+"Another case heading your way : O" +skip
+"Emma's got you covered for introducing you to them." +skip
+"Have fun!" +skip
+/set_main_contact("emma")
+/add_contact_alias("E")
+/add_player_alias("M")
+/add_global_alias("G")
+E: "Mina!!! MY BFF"
+"I heard from Ms. Ava that you agreed to help me. 😭"
+"You're doing me such a huge favor!"
+"I owe you so much. ^^"
+M: "Right... I totally remember telling her I'd help you."
+"Remind me what the details of the client are again?"
+E: "Okay so... It's my Pops!"
+"He's been on edge at home ever since he's been forced to retire."
+"Since y'know, he's got nothing to do and I'm sure staring at me and my new BF hang out at home"
+"Please find him someone to get him out of the house! And maybe to make him not so cranky too :P"
+M: "Alright."
+"I think I got the basic gist."
+E: "Tysm! You're one of the best Cupids I know!"
+M: "Enough with the flattering :P. I already said I'd help."
 /set_main_contact("wulf")
 /add_contact_alias("W")
 /add_player_alias("M")
 /add_global_alias("G")
 W: "Hello?"
-"Is this one of those robots in the phone?"
+"Is this one of those robots in the phone? Or a real person?"
 M: "Good afternoon, a representative is speaking to you currently. No robot here 😇."
 W: "Sorry, I'm not really used to these things."
 "My grandkid signed me up for this,"
 "I told her it didn't really matter, you know."
 "I'm a little too old for these kinds of things now."
 "But she [i]was[/i] really insistent."
-"Plus she said she knew someone who was an expert."
+"And she did say she knew someone who was an expert."
 M: "I'll do what I can!"
 "No one is too old to find a good partner,"
 "Let's see what we've got!"

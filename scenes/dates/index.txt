@@ -1,7 +1,9 @@
 after_herring.txt
+after_wulf.txt
 before_herring.txt
 before_wulf.txt
 boss_true_1.txt
+coffee.txt
 herring_joan_1.txt
 herring_joan_2.txt
 herring_joan_3.txt

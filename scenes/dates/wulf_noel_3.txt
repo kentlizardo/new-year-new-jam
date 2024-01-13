@@ -1,1 +1,8 @@
+E: "Good afternoon"
+"I would like to change my previous rating."
+M: "Ah, you have to click Support through Cupid Automated."
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐ "
+E: "Thank you."
 /message_parser("after_wulf")

@@ -54,6 +54,6 @@ func read():
 	show.tween_property(self, "modulate:a", 1.0, 0.2).from(0.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
 	label.visible_characters = 0
 	while label.visible_characters < len(label.text.replace("/[^a-z0-9-]/g", "")):
-		var char_timer := get_tree().create_timer(0.05)
+		var char_timer := get_tree().create_timer(0.02)
 		await char_timer.timeout
 		label.visible_characters += 1

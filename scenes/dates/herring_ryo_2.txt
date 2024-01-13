@@ -55,7 +55,7 @@ M: "Uh."
 /add_to_choice(<sure>, "Yep. Looks exactly like him.")
 /add_to_choice(<sure>, "I can sort of see it?")
 /add_to_choice(<sure>, "???")
-R: "Mina, am I dreaming?"
+R: "I hope I can see him soon!"
 M: "I'm glad to hear it went well!"
 "Actually..."
 "I think I found where your hoard was transported to."

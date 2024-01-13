@@ -4,11 +4,11 @@
 /add_global_alias("G")
 H: "miss Mina!"
 "i was wondering which of these places you'd like the most"
-/media("H", "boring_mall.png", "boring_cafe.png", "boring_fountain.png")
+/media("H", "boring_mall.png", "boring_cafe.png", "boring_park.png")
 <place>/choice
 /add_to_choice(<place>, "The mall.")
 /add_to_choice(<place>, "The cafe.")
-/add_to_choice(<place>, "The fountain.")
+/add_to_choice(<place>, "The park.")
 /add_to_choice(<place>, "Somewhere else.", <other>)
 H: "oh really!"
 "i knew you had good taste miss Mina!"

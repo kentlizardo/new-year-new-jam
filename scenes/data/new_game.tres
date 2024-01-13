@@ -1,15 +1,20 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=5 format=3 uid="uid://dxuu0kyx3atwc"]
+[gd_resource type="Resource" script_class="GameData" load_steps=7 format=3 uid="uid://dxuu0kyx3atwc"]
 
 [ext_resource type="Script" path="res://scenes/data/game_data.gd" id="1_2h1gp"]
 [ext_resource type="PackedScene" uid="uid://kxx03bkeuw0h" path="res://scenes/packs/herring.tscn" id="1_cjt1f"]
 [ext_resource type="Script" path="res://scenes/data/client_job.gd" id="1_s5qvb"]
+[ext_resource type="PackedScene" uid="uid://bltu6j7bu44ms" path="res://scenes/packs/wulf.tscn" id="3_miog3"]
 
 [sub_resource type="Resource" id="Resource_udj27"]
 script = ExtResource("1_s5qvb")
 main_pack = ExtResource("1_cjt1f")
 
+[sub_resource type="Resource" id="Resource_k8b2d"]
+script = ExtResource("1_s5qvb")
+main_pack = ExtResource("3_miog3")
+
 [resource]
 script = ExtResource("1_2h1gp")
-clients_left = Array[ExtResource("1_s5qvb")]([SubResource("Resource_udj27")])
+clients_left = Array[ExtResource("1_s5qvb")]([SubResource("Resource_udj27"), SubResource("Resource_k8b2d")])
 dates_left = Array[String]([])
 pack_stack = Array[PackedScene]([])

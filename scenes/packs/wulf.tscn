@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bltu6j7bu44ms"]
+
+[ext_resource type="PackedScene" uid="uid://b8qro7svwrof2" path="res://scenes/game/client_profile.tscn" id="1_oj0tr"]
+[ext_resource type="PackedScene" uid="uid://2x38parnkntw" path="res://scenes/game/suitor_profile.tscn" id="2_gfux6"]
+[ext_resource type="Script" path="res://scenes/game/messages/message_parser.gd" id="3_n5dcb"]
+
+[node name="Wulf" type="Node"]
+
+[node name="Wulf" parent="." instance=ExtResource("1_oj0tr")]
+
+[node name="Samuel" parent="." instance=ExtResource("2_gfux6")]
+
+[node name="Noel" parent="." instance=ExtResource("2_gfux6")]
+
+[node name="Clydie" parent="." instance=ExtResource("2_gfux6")]
+
+[node name="MessageParser" type="Node" parent="."]
+script = ExtResource("3_n5dcb")
+source = "res://scenes/dates/before_wulf.txt"
+
+[connection signal="ready" from="MessageParser" to="MessageParser" method="play"]
