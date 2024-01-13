@@ -6,6 +6,7 @@ signal built
 const CONTACTS_PATH := "res://scenes/game/messages/contacts/"
 const MEDIA_PATH := "res://scenes/game/messages/media"
 const DATES_PATH := "res://scenes/dates/"
+const PROFILES_PATH := "res://assets/textures/profiles/"
 
 const EventSay := preload("res://scenes/game/messages/events/msg_evt_say.gd")
 const EventMedia := preload("res://scenes/game/messages/events/msg_evt_media.gd")

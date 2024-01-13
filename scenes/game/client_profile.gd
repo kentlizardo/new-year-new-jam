@@ -39,7 +39,7 @@ func populate_recipes():
 			var date_tokens := date_identifier.split("_")
 			if date_tokens.size() >= 3:
 				if date_tokens[2] == "1": # only link first dates
-					if date_tokens[0] == name.to_lower():
+					if date_tokens[0] == name.to_lower().replace(" ", ""):
 						var suitor := date_tokens[1]
 						var dummy_recipe := suitor
 						recipes[dummy_recipe] = file_name
