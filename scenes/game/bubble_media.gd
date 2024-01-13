@@ -13,6 +13,7 @@ var IMAGE_TEMPLATE = preload("res://scenes/game/messages/bubble_media_image.tscn
 func clean():
 	(self as Control).set_anchors_preset(Control.PRESET_CENTER)
 
+const MEDIA_SIZE := 0.2
 func setup(align : BubbleAlignment, images : Array[Texture2D]):
 	clean()
 	match(align):
@@ -24,7 +25,9 @@ func setup(align : BubbleAlignment, images : Array[Texture2D]):
 			(self as Control).set_anchors_preset(Control.PRESET_CENTER)
 	for img in images:
 		var tex_rect := IMAGE_TEMPLATE.instantiate() as TextureRect
-		tex_rect.texture = img
+		if img:
+			tex_rect.texture = img
+			tex_rect.custom_minimum_size  = img.get_size() * MEDIA_SIZE
 		media_root.add_child(tex_rect)
 
 func read():

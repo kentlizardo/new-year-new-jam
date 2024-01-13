@@ -44,7 +44,7 @@ H: "My form!"
 /add_to_choice(<choice_2>, "Maybe tone it down a bit?")
 /add_to_choice(<choice_2>, "I think it's best to just be yourself.")
 /add_to_choice(<choice_2>, "Are you sure you want to do this?")
-/media("H", "oh_no")
+/media("H", "oh_no.png")
 M?: "Wow..." +shaking
 H: "oh, i think she'll be here soon."
 "i'm going to change!"

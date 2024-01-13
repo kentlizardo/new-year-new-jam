@@ -20,7 +20,7 @@ H: "oh really!"
 "i'll.."
 "i'll!" +shaking
 "i'll take her to all three!"
-M: "Good luck!" +sweating
+M: "Good luck!" +sweat
 /random_encounter
 /set_main_contact("joan")
 /add_contact_alias("J")

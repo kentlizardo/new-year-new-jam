@@ -32,5 +32,5 @@ M: "Right..." +sweat
 /add_global_alias("G")
 A: "I have to say, this is certainly an interesting look for Ms. Ava."
 M: "Right..."
-/media("boss_lichking_date")
+/media("boss_lichking_date.png")
 /mark_history("lichking")

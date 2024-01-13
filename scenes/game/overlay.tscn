@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_h3rwx")
-profile_sprite = NodePath("ProfileRoot/Sprite2D")
+profile_sprite = NodePath("Contents/Center/ProfileRoot/Sprite2D")
 
 [node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_7au0o")
@@ -39,10 +39,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProfileRoot" type="Node2D" parent="."]
-position = Vector2(512, 384)
+[node name="Center" type="Control" parent="Contents"]
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="ProfileRoot"]
+[node name="ProfileRoot" type="Node2D" parent="Contents/Center"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Contents/Center/ProfileRoot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_1iiqm")
 

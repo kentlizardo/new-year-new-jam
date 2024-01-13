@@ -1,4 +1,4 @@
-class_name Overlay extends Node
+class_name Overlay extends Control
 
 @export var profile_tex : Texture2D
 @export var profile_sprite : Sprite2D

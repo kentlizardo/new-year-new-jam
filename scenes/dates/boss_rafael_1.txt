@@ -29,5 +29,5 @@ A: "Anyway, I should get going with shopping,"
 "Oh, I should get some for my extended family too."
 "Ooh!"
 "Maybe I'll get some for everyone's extended families-"
-/media("boss_rafael_date")
+/media("boss_rafael_date.png")
 /mark_history("raphiel")

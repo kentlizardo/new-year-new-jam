@@ -4,7 +4,7 @@ class_name MessageParser extends MessageGroup
 signal built
 
 const CONTACTS_PATH := "res://scenes/game/messages/contacts/"
-const MEDIA_PATH := "res://scenes/game/messages/media"
+const MEDIA_PATH := "res://assets/textures/media/"
 const DATES_PATH := "res://scenes/dates/"
 const PROFILES_PATH := "res://assets/textures/profiles/"
 
@@ -13,6 +13,7 @@ const EventMedia := preload("res://scenes/game/messages/events/msg_evt_media.gd"
 const EventChoices := preload("res://scenes/game/messages/events/msg_evt_choices.gd")
 const EventGroup := preload("res://scenes/game/messages/message_group.gd")
 const EventMarkHistory := preload("res://scenes/game/messages/events/msg_evt_mark_history.gd")
+const EventSetFlag := preload("res://scenes/game/messages/events/msg_evt_set_flag.gd")
 
 @export_file("*.txt") var source
 
@@ -40,7 +41,7 @@ static func save_index(path : String, file_names : Array):
 
 static func register_resources():
 	var not_an_index = func(path : String) -> bool:
-		return path != "index.txt"
+		return path != "index.txt" and !path.ends_with(".import")
 	var contact_dir_paths := DirAccess.get_files_at(CONTACTS_PATH)
 	var media_dir_paths := DirAccess.get_files_at(MEDIA_PATH)
 	var dates_dir_paths := DirAccess.get_files_at(DATES_PATH)
@@ -76,7 +77,7 @@ func _ready():
 	for path in media_files:
 		var res := load(MEDIA_PATH + path) as Texture2D
 		if res:
-			registered_contacts[path.get_file()] = res
+			registered_media[path.get_file()] = res
 		else:
 			push_error("could not load contact media resource " + MEDIA_PATH + path)
 	if !source.ends_with(".txt"):
@@ -313,8 +314,11 @@ func command(command : String, params : Array) -> Node:
 			add_to_choice(params)
 		"set_flag":
 			var flag_id := params[0] as String
-			var data = params[1]
-			DataManager.game_data.flags[flag_id] = data
+			var data = params[1] as String
+			var event_choices := EventSetFlag.new()
+			event_choices.flag_id = flag_id
+			event_choices.val = data
+			pointer.add_child(event_choices)
 		"push_date":
 			var date_filename := params[0] as String
 			date_filename = date_filename.trim_suffix(".txt")

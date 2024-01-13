@@ -18,7 +18,7 @@ B: "I just wanted to share how me and lovely Ross here are having an amazing tim
 M: "How's Lucian doing?" +sweat
 B: "Oh, I'm sure he's doing just fine!"
 "He's a bit of a light drinker haha,"
-/media("A", "boss_lucian_date")
+/media("A", "boss_lucian_date.png")
 "I'll make sure to take him home later."
 M: "...I'll come pick you two up instead after work."
 /mark_history("lucian")
