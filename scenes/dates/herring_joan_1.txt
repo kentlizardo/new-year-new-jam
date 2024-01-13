@@ -38,7 +38,8 @@ H: "so i wanted to see..."
 /add_player_alias("M")
 /add_global_alias("G")
 J: "Hi!"
-"Um."
+M: "Good afternoon!"
+J: "Um."
 "This is my first time using this thing so don't mind me..."
 "I was turning around the corner delivering packages for this bakery..."
 "And I turned the corner too fast (I think)"

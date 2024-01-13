@@ -2,6 +2,7 @@ class_name Draggable extends RigidBody2D
 
 signal drag_started
 signal drag_ended
+signal double_clicked
 
 @export var sprite : Sprite2D
 
@@ -91,7 +92,7 @@ func _on_input_event(viewport, event, shape_idx):
 			set_dragged_item(self)
 		if event is InputEventMouseButton:
 			if event.double_click:
-				print("doubled")
+				double_clicked.emit()
 
 func _input(event):
 	if dragging:

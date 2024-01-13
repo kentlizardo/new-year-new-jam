@@ -11,9 +11,12 @@ B: "Mina!!! <3" +skip
 /add_player_alias("M")
 /add_global_alias("G")
 A: "Did you make sure to calibrate your wings?\n  -Alex" +skip
-M: "Yes... I did. Twice" +skip
+M: "Yes... I did!!! Twice" +skip
 A: "Oh. Here's the latest news on the trendiest date spots.\n  -Alex" +skip
+"[url]Latest date spots for this upcoming February season![/url]" +skip
+"[url]www.edit.com/c/dating_advice/cupid-breakdown[url]" +skip
 M: "TY!!!" +skip
+"IOU ^^" +skip
 A: "I also have a set of slides with a more detailed rundown of the article.\n  -Alex" +skip
 M: "No.. I'm good! Thanks for asking." +skip
 A: "Make sure you don't forget to submit the quarter reviews to Ms. Ava by 8pm.\n  -Alex" +skip
