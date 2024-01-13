@@ -34,6 +34,7 @@ func drop(body : Node2D):
 	if body is Draggable:
 		if body.get_parent() is Tray:
 			var tray := body.get_parent() as Tray
+			body.freeze = true
 			body.input_pickable = false
 			tray.submit()
 			tray.reparent(self)

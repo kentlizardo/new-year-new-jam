@@ -12,7 +12,7 @@ R: “Um… "
 "is he so small?\n And melty?”
 M?: "Hmm..."
 M: “Slimes are known to be weak under dark and dry conditions.”
-“They actually use a form of photosynthesis\n with the algae in their fluids\n to generate their body mass.”
+“They actually use a form of photosynthesis with the algae in their fluids to generate their body mass.”
 “It sounds like he hasn’t been able to keep his body intact... or from drying out.”
 “Take him to the nearest healer A.S.A.P!”
 R: "Oh!!!" +shaking

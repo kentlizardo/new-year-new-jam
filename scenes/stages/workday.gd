@@ -7,6 +7,7 @@ static var faux_save : Dictionary = {}
 
 @export var papers : Node2D
 @export var finish_button : Button
+@export var opening : Opening
 
 var workday_load : Dictionary = {}
 func _ready():
@@ -16,6 +17,7 @@ func _ready():
 	else:
 		workday_load = DataManager.get_data().get_workday()
 	if workday_load.is_empty():
+		await opening.finished
 		App.stage(load("res://scenes/stages/win.tscn"))
 	else:
 		load_workday(workday_load)

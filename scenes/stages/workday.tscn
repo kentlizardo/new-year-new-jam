@@ -35,10 +35,11 @@ radius = 200.0
 shader = ExtResource("5_jysak")
 shader_parameter/amount = 2.0
 
-[node name="Workday" type="Node" node_paths=PackedStringArray("papers", "finish_button")]
+[node name="Workday" type="Node" node_paths=PackedStringArray("papers", "finish_button", "opening")]
 script = ExtResource("1_l7s8w")
 papers = NodePath("Papers")
 finish_button = NodePath("BG/TextEdit/MarginContainer/Button")
+opening = NodePath("Opening")
 
 [node name="BG" type="Control" parent="."]
 layout_mode = 3

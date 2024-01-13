@@ -25,9 +25,6 @@ static var current_draggable : Draggable:
 		if is_instance_valid(current_draggable):
 			current_draggable.start_drag()
 
-static func set_dragged_item(drag : Draggable):
-	current_draggable = drag
-
 func is_on_top() -> bool:
 	return true
 	for node in get_tree().get_nodes_in_group("hovered"):
@@ -83,23 +80,30 @@ func _physics_process(delta):
 			drag_body.global_position = get_global_mouse_position()
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseMotion:
-		drag_distance += event.relative
 	if Input.is_action_just_pressed("click") and current_hovered == self:
-		#start_drag()
 		get_parent().move_child(self, get_parent().get_children().size())
-		if current_hovered == self:
-			set_dragged_item(self)
 		if event is InputEventMouseButton:
 			if event.double_click:
 				double_clicked.emit()
 
+var drag_ready := false
 func _input(event):
+	if Input.is_action_just_released("click"):
+		drag_ready = false
+	if Input.is_action_just_pressed("click"):
+		drag_distance = Vector2.ZERO
+		drag_ready = true
 	if dragging:
 		if Input.is_action_just_released("click"):
 			if current_draggable == self:
-				set_dragged_item(null)
-			#end_drag()
+				current_draggable = null
+	else:
+		if drag_ready:
+			if event is InputEventMouseMotion:
+				drag_distance += event.relative
+				if drag_distance.length_squared() >= 200:
+					if current_hovered == self and current_draggable == null:
+						current_draggable = self
 
 static var current_hovered : Draggable:
 	set(x):
