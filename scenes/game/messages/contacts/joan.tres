@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Contact" load_steps=3 format=3 uid="uid://v5rx3af30yha"]
 
-[ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="1_gmq7h"]
+[ext_resource type="Texture2D" uid="uid://b3rko2yemqv0t" path="res://assets/textures/pfps/joan.png" id="1_rftjp"]
 [ext_resource type="Script" path="res://scenes/game/messages/contact.gd" id="2_d4h42"]
 
 [resource]
 script = ExtResource("2_d4h42")
 name = "Joan"
-pfp = ExtResource("1_gmq7h")
+pfp = ExtResource("1_rftjp")

@@ -11,7 +11,7 @@ const EventSay := preload("res://scenes/game/messages/events/msg_evt_say.gd")
 const EventMedia := preload("res://scenes/game/messages/events/msg_evt_media.gd")
 const EventChoices := preload("res://scenes/game/messages/events/msg_evt_choices.gd")
 const EventGroup := preload("res://scenes/game/messages/message_group.gd")
-
+const EventMarkHistory := preload("res://scenes/game/messages/events/msg_evt_mark_history.gd")
 
 @export_file("*.txt") var source
 
@@ -296,6 +296,13 @@ func command(command : String, params : Array) -> Node:
 				return parser
 			else:
 				push_error("Invalid formatting for message_parser with params " + str(params))
+		"mark_history":
+			var key := params[0] as String
+			if key:
+				var event := EventMarkHistory.new()
+				event.key = key
+				pointer.add_child(event)
+				return event
 		"choice":
 			var event_choices := EventChoices.new()
 			event_choices.contact = main_contact

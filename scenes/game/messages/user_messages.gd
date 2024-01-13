@@ -1,6 +1,6 @@
 class_name UserMessages extends ScrollContainer
 
-const PLAYER_PFP = preload("res://assets/textures/pfp.png")
+const PLAYER_PFP = preload("res://assets/textures/pfps/mina.png")
 const BUBBLE_SAY_TEMPLATE = preload("res://scenes/game/bubble_say.tscn")
 const BUBBLE_MEDIA_TEMPLATE = preload("res://scenes/game/bubble_media.tscn")
 const CHOICE_ROOT_TEMPLATE = preload("res://scenes/game/messages/choice_root.tscn")

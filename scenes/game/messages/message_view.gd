@@ -49,7 +49,8 @@ func _ready():
 
 func add_contact(contact : Contact):
 	var user_icon := USER_ICON_TEMPLATE.instantiate() as UserIcon
-	user_icon.texture = contact.pfp
+	user_icon.icon.texture = contact.pfp
+	
 	var new_messages := USER_MESSAGES_TEMPLATE.instantiate() as UserMessages
 	new_messages.visible = false
 	new_messages.contact_pfp = contact.pfp

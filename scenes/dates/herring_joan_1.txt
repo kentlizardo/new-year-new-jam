@@ -32,6 +32,7 @@ H: "so i wanted to see..."
 "apparently she's an independent deliverywoman!!!"
 "isn't that cool?"
 "anyway, enough about her!\n i suddenly feel the urge to go walking on the street right now."
+/random_encounter
 /set_main_contact("joan")
 /add_contact_alias("J")
 /add_player_alias("M")
