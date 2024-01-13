@@ -23,9 +23,9 @@ A: "Make sure you don't forget to submit the quarter reviews to Ms. Ava by 8pm.\
 M: "I heard a case was getting transferred over?"
 A: "Ah. Yes."
 "It's Herring. I've tried setting him up with partners but they've all backed out."
-"I cross referenced their profiles"
-"I created a like/love/hate regression analysis with supposed 80% confidence."
-"I found a partner with a 98% compatibility level and that partner even left for another Cupid Agency."
+"I cross referenced each and every single profile"
+"I created a like/love/hate regression analysis with a supposed 85% confidence."
+"I found a partner with a 98% compatibility level and that partner was so unsatisfied they even left for another Cupid Agency."
 "I'm lost. Please take him.\n  -Alex"
 M: "..." +sweat
 "Sure thing."

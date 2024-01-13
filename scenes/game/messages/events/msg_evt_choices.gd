@@ -10,8 +10,7 @@ func _play():
 			if !link.branch_event.is_empty():
 				next_event = get_node(link.branch_event)
 	MessageView.current.send_message(contact, answer, MessageView.MessageAuthor.PLAYER)
-	print("choice made")
-	#await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0).timeout
 
 func get_text_from_link(link : ChoiceLink) -> String:
 	return link.text

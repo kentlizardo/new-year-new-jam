@@ -17,7 +17,8 @@ func save_history():
 	print("saving with keys: " + str(user_history))
 	if file:
 		for i in user_history:
-			file.store_line(i)
+			if !i.is_empty():
+				file.store_line(i)
 		file.close()
 
 func load_history():

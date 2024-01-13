@@ -33,5 +33,5 @@ M: "Oh, don't worry about it.\n Just enjoy your day with Miss Ryo!"
 G: "Congratulations (Mina, Cupid Specialist)"
 "You just received a review!"
 "⭐⭐⭐⭐⭐"
-/message_parser("after_herring")
 /mark_history("ryo")
+/message_parser("after_herring")

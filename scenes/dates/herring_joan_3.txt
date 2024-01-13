@@ -76,5 +76,8 @@ J: "Huh..."
 "Mina! I think you should see this too ^^"
 /media("J", "herring_joan_date.png")
 M: "It really is a great view."
-/message_parser("after_herring")
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
 /mark_history("joan")
+/message_parser("after_herring")

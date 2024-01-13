@@ -32,4 +32,7 @@ R: "...You're right!"
 /media("R", "herring_rose_date.png")
 /mark_history("rose")
 /random_encounter
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
 /message_parser("after_herring")

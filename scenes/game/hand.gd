@@ -41,7 +41,7 @@ func drop(body : Node2D):
 
 func _move_to(node : Node2D):
 	var tw := create_tween()
-	tw.tween_property(self, "global_position", node.global_position, 2.4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tw.tween_property(self, "global_position", node.global_position, 1.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 func _on_area_2d_body_entered(body : Node2D):
 	if body.is_in_group("tray_bodies"):

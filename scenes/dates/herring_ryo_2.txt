@@ -13,7 +13,8 @@ H: "she didn't enjoy the movie at all..."
 /add_contact_alias("R")
 /add_player_alias("M")
 /add_global_alias("G")
-R: "Oh god, the date went so well!"
+R: "the date...
+"WAS INCREDIBLE!"
 "He was so much cuter in person!"
 "I couldn't stop looking at him the entire time!!!"
 "How could you not want to squish him?"
@@ -45,11 +46,17 @@ R: "i wonder if he can transform?" +skip
 "what does his slime form look like?" +skip
 "i wonder if he feels the same too 😭" +skip
 "how can a slime be filled with so much cuteness?!??" +skip
-"Mina, how do you think this is even possible?"
-<choice_1>/choice
-/add_to_choice(<choice_1>, "Um?")
-/add_to_choice(<choice_1>, "Wow!")
-/add_to_choice(<choice_1>, "I'm glad to hear it went well?")
+"HE LOOKS EXACTLY LIKE MY FAVORITE CHARACTER TOO"
+M: "Oh, really?"
+R: "Look at my profile pic!"
+"DOESN'T HE LOOK EXACTLY LIKE HIM?"
+M: "Uh."
+<sure>/choice
+/add_to_choice(<sure>, "Yep. Looks exactly like him.")
+/add_to_choice(<sure>, "I can sort of see it?")
+/add_to_choice(<sure>, "???")
+R: "Mina, am I dreaming?"
+M: "I'm glad to hear it went well!"
 "Actually..."
 "I think I found where your hoard was transported to."
 /media("R", "herring_squished")

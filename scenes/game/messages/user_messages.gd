@@ -40,7 +40,7 @@ func say(message : String, author : MessageView.MessageAuthor) -> BubbleSay:
 			pfp = null
 	bubble.setup(message, align, pfp)
 	last_author = author
-	message_root.add_child(bubble)
+	message_root.call_deferred("add_child", (bubble))
 	return bubble
 
 func send_media(media : Array[Texture2D], author : MessageView.MessageAuthor) -> BubbleMedia:
@@ -56,11 +56,11 @@ func send_media(media : Array[Texture2D], author : MessageView.MessageAuthor) ->
 			align = BubbleMedia.BubbleAlignment.MIDDLE
 	bubble.setup(align, media)
 	last_author = author
-	message_root.add_child(bubble)
+	message_root.call_deferred("add_child", (bubble))
 	return bubble
 
 func make_choice(choices : Array) -> ChoiceRoot:
 	var choice_root = CHOICE_ROOT_TEMPLATE.instantiate() as ChoiceRoot
 	choice_root.setup(choices)
-	choice_root_container.add_child(choice_root)
+	choice_root_container.call_deferred("add_child", choice_root)
 	return choice_root

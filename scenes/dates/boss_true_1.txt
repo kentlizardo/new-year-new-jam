@@ -35,3 +35,4 @@ A:"It's about time for me to settle down, don't you think."
 G: "Congratulations (Mina, Executive Cupid)"
 "You just received a review!"
 "⭐⭐⭐⭐⭐"
+/mark_history("true")
