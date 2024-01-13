@@ -34,3 +34,4 @@ G: "Congratulations (Mina, Cupid Specialist)"
 "You just received a review!"
 "⭐⭐⭐⭐⭐"
 /message_parser("after_herring")
+/mark_history("ryo")

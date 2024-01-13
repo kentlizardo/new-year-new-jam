@@ -18,10 +18,18 @@ M: “Slimes are known to be weak under dark and dry conditions.”
 R: "Oh!!!" +shaking
 "By then it will be too late…"
 "It's all my fault!"
-"No!"
-"Think, Rose, think!"
-R: "Oh, I know what to do!"
-"I just learned how to cast Daylight!"
-"I’ll save you my prince!"
+M: "It isn't!"
+"Let me get help,"
+R:"Think, Rose, think!"
+"Oh, I know what to do!"
+"I just learned how to cast Daylight in my training!"
+"..."
+R: "It only has a 33% success rate..." +sweat
+M: "You can do it!"
+R: "...You're right!"
+"There's no time like right now to become a hero!"
+"I’ll save you my prince!" +shaking
 /media("R", "herring_rose_date.png")
+/mark_history("rose")
+/random_encounter
 /message_parser("after_herring")

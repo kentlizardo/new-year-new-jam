@@ -77,3 +77,4 @@ J: "Huh..."
 /media("J", "herring_joan_date.png")
 M: "It really is a great view."
 /message_parser("after_herring")
+/mark_history("joan")
