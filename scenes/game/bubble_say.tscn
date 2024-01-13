@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct3h17nlrt2qr"]
+[gd_scene load_steps=7 format=3 uid="uid://ct3h17nlrt2qr"]
 
 [ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="1_lwv43"]
 [ext_resource type="Script" path="res://scenes/game/bubble_say.gd" id="1_py768"]
 [ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="2_xjccx"]
 [ext_resource type="FontFile" uid="uid://crgwjttty26cx" path="res://assets/fonts/BadComic-Italic.ttf" id="3_jl86j"]
+[ext_resource type="Texture2D" uid="uid://do6sfidbq6hs" path="res://assets/textures/pfps/ryo.png" id="3_yanrn"]
 [ext_resource type="Texture2D" uid="uid://rvlfnr2adajf" path="res://assets/textures/message_blue.png" id="4_tfvp4"]
 
 [node name="BubbleSay" type="Control" node_paths=PackedStringArray("pfp_left", "pfp_right", "label", "box_container", "patch_rect")]
@@ -12,8 +13,8 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 0
 script = ExtResource("1_py768")
-pfp_left = NodePath("HBoxContainer/PFPLeft")
-pfp_right = NodePath("HBoxContainer/PFPRight")
+pfp_left = NodePath("HBoxContainer/LeftMask/PFPLeft2")
+pfp_right = NodePath("HBoxContainer/RightMask/PfpRight")
 label = NodePath("HBoxContainer/MarginContainer/RichTextLabel10")
 box_container = NodePath("HBoxContainer")
 patch_rect = NodePath("HBoxContainer/MarginContainer/RichTextLabel10/NinePatchRect")
@@ -30,12 +31,26 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="PFPLeft" type="TextureRect" parent="HBoxContainer"]
+[node name="LeftMask" type="TextureRect" parent="HBoxContainer"]
+clip_children = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("1_lwv43")
+expand_mode = 1
+
+[node name="PFPLeft2" type="TextureRect" parent="HBoxContainer/LeftMask"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_yanrn")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
@@ -83,10 +98,24 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 axis_stretch_horizontal = 2
 
-[node name="PFPRight" type="TextureRect" parent="HBoxContainer"]
+[node name="RightMask" type="TextureRect" parent="HBoxContainer"]
+clip_children = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_lwv43")
+expand_mode = 1
+
+[node name="PfpRight" type="TextureRect" parent="HBoxContainer/RightMask"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_yanrn")
 expand_mode = 1
