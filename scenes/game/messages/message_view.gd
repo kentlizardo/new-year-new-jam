@@ -137,6 +137,8 @@ func make_choice(contact : Contact, choices : Array) -> ChoiceRoot:
 	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubbles := binding.messages.make_choice(choices)
+	if contact_shown != contact:
+		binding.tab_icon.add_notification()
 	App.message_events_added.emit()
 	return bubbles
 

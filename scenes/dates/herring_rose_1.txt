@@ -51,7 +51,7 @@ H:"How's this form look?"
 M?: "Wow..." +shaking
 <choice_3>/choice
 /add_to_choice(<choice_3>, "You look amazing.")
-/add_to_choice(<choice_3>, "That's c")
+/add_to_choice(<choice_3>, "That's certainly something.")
 /add_to_choice(<choice_3>, "Maybe don't...?")
 H: "oh, I think she'll be here soon."
 "I'm going to change!"
