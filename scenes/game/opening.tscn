@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcjwbs5jkdlnm"]
+[gd_scene load_steps=24 format=3 uid="uid://dcjwbs5jkdlnm"]
 
 [ext_resource type="Script" path="res://scenes/game/opening.gd" id="1_i57sg"]
 [ext_resource type="StyleBox" uid="uid://bm55ejd450ksc" path="res://scenes/game/messages/style_box.tres" id="2_fmys7"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://53w3432nr56s" path="res://assets/textures/opening/3/mask.png" id="15_un7ro"]
 [ext_resource type="Texture2D" uid="uid://bc0dghbkxjr31" path="res://assets/textures/opening/3/frame_bottom.png" id="15_xhnkl"]
 [ext_resource type="Texture2D" uid="uid://jjfr3ocqy81m" path="res://assets/textures/opening/3/mina.png" id="16_8le7m"]
+[ext_resource type="AudioStream" uid="uid://bi5qhk2kfo2eu" path="res://assets/audio/glass_squeak.mp3" id="19_4kkjo"]
+[ext_resource type="AudioStream" uid="uid://hvh2fposhuho" path="res://assets/audio/coffee_drip.mp3" id="20_8y1g5"]
 
 [sub_resource type="Animation" id="Animation_4mv56"]
 length = 0.001
@@ -285,6 +287,30 @@ tracks/21/keys = {
 "update": 0,
 "values": [Vector2(400, 400)]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Halo:playing")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Cofeee:playing")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pb7c3"]
 resource_name = "open"
@@ -368,7 +394,7 @@ tracks/6/path = NodePath("Control/Window/2/hand:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.5, 2.9, 3.4, 3.9),
+"times": PackedFloat32Array(0, 2.5, 2.9, 3.2, 3.9),
 "transitions": PackedFloat32Array(1, 2, 2, 2, -2),
 "update": 0,
 "values": [Vector2(197, 155), Vector2(79, 89), Vector2(1.00001, 5), Vector2(4, 20), Vector2(65, 105)]
@@ -404,7 +430,7 @@ tracks/9/path = NodePath("Control/Window/2/halo:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 2.8, 3.3),
+"times": PackedFloat32Array(0, 2.8, 3.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.251926]
@@ -540,6 +566,30 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(400, 400)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Halo:playing")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(2.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Cofeee:playing")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.5, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_43ffq"]
@@ -786,3 +836,11 @@ grow_vertical = 2
 rotation = 0.00100503
 texture = ExtResource("15_xhnkl")
 expand_mode = 1
+
+[node name="Halo" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(607, 289)
+stream = ExtResource("19_4kkjo")
+
+[node name="Cofeee" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(607, 289)
+stream = ExtResource("20_8y1g5")
