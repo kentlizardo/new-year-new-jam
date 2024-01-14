@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwg2yia8pjpea"]
+[gd_scene load_steps=7 format=3 uid="uid://dwg2yia8pjpea"]
 
 [ext_resource type="Script" path="res://scenes/game/tray.gd" id="1_ov7mi"]
-[ext_resource type="Texture2D" uid="uid://bn0rmlpdg3jue" path="res://assets/textures/desk/tray_close.png" id="2_cxi6g"]
+[ext_resource type="Texture2D" uid="uid://dla3bd3mi8c58" path="res://assets/textures/desk/tray_open.png" id="3_2hyx0"]
 [ext_resource type="Script" path="res://scenes/game/draggable.gd" id="3_p5p2e"]
+[ext_resource type="AudioStream" uid="uid://dw0ej0l0dqf06" path="res://assets/audio/open.mp3" id="4_5qbj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyhvq"]
 size = Vector2(249, 302)
@@ -10,11 +11,12 @@ size = Vector2(249, 302)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy2yx"]
 size = Vector2(213, 223)
 
-[node name="Tray" type="Node2D" node_paths=PackedStringArray("tray_body", "sprite", "sprite_root")]
+[node name="Tray" type="Node2D" node_paths=PackedStringArray("tray_body", "sprite", "sprite_root", "open_sound")]
 script = ExtResource("1_ov7mi")
 tray_body = NodePath("Rigidbody")
 sprite = NodePath("Rigidbody/SpriteRoot/Sprite2D")
 sprite_root = NodePath("Rigidbody/SpriteRoot")
+open_sound = NodePath("Rigidbody/AudioStreamPlayer2D")
 
 [node name="Rigidbody" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-1, 13)
@@ -42,7 +44,10 @@ shape = SubResource("RectangleShape2D_iy2yx")
 [node name="Sprite2D" type="Sprite2D" parent="Rigidbody/SpriteRoot"]
 position = Vector2(1, -13)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_cxi6g")
+texture = ExtResource("3_2hyx0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Rigidbody"]
+stream = ExtResource("4_5qbj6")
 
 [connection signal="body_entered" from="Rigidbody/TrayArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Rigidbody/TrayArea" to="." method="_on_area_2d_body_exited"]

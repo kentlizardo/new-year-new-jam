@@ -7,6 +7,7 @@ const SUITOR_TEMPLATE = preload("res://scenes/game/suitor_profile.tscn")
 @export var tray_body : Draggable
 @export var sprite : Sprite2D
 @export var sprite_root : Node2D
+@export var open_sound : AudioStreamPlayer2D
 
 var current_suitors : Array[String] = [] # suitor_ids
 static var current : Tray
@@ -23,6 +24,7 @@ func drop(body : Node2D):
 	if body is SuitorProfile:
 		if current_suitors.has(body.get_profile_id()):
 			return
+		open_sound.play()
 		var align := body.create_tween()
 		align.tween_property(body, "global_position", tray_body.global_position, 0.3).set_trans(Tween.TRANS_BOUNCE)
 		align.parallel().tween_property(body, "global_rotation", tray_body.global_rotation, 0.2)
@@ -61,6 +63,8 @@ func _on_area_2d_mouse_exited():
 
 static var tray_cooldown := 0.0
 func drop_papers():
+	if current_suitors.size() > 0:
+		open_sound.play()
 	for i in current_suitors.duplicate():
 		var profile := SUITOR_TEMPLATE.instantiate()
 		profile.name = i.capitalize()

@@ -2,6 +2,8 @@ class_name Coffee extends Draggable
 
 @onready var init_pos := self.global_position
 
+@export var break_sound : AudioStreamPlayer2D
+
 func _ready():
 	super()
 	freeze = true
@@ -11,6 +13,9 @@ func _ready():
 	freeze = false
 
 func refresh_coffee():
+	break_sound.reparent(get_parent())
+	break_sound.play()
+	break_sound.finished.connect(break_sound.call_deferred.bind("queue_free"))
 	var new_coffee := preload("res://scenes/game/coffee.tscn").instantiate() as Node2D
 	new_coffee.global_position = init_pos
 	get_parent().call_deferred("add_child", new_coffee)

@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh77lu6vi7e4b"]
+[gd_scene load_steps=6 format=3 uid="uid://dh77lu6vi7e4b"]
 
 [ext_resource type="PackedScene" uid="uid://7ti1tq0k3s4v" path="res://scenes/game/messages/message_view.tscn" id="1_y0irv"]
+[ext_resource type="Texture2D" uid="uid://0q7wjiwsbxre" path="res://assets/textures/ui_box.png" id="2_8etos"]
 [ext_resource type="Script" path="res://scenes/volume_slider.gd" id="2_t4wc4"]
 [ext_resource type="AudioStream" uid="uid://b5kl660xlpgx" path="res://assets/audio/Smooth Lovin.mp3" id="3_s4mfy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tneaw"]
+texture = ExtResource("2_8etos")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.501961, 0.552941, 0.388235, 1)
 
 [node name="Root" type="Node"]
 
@@ -35,7 +44,7 @@ grow_vertical = 2
 
 [node name="VSlider" type="VSlider" parent="."]
 custom_minimum_size = Vector2(30, 90)
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -46,6 +55,7 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/slider = SubResource("StyleBoxTexture_tneaw")
 script = ExtResource("2_t4wc4")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
