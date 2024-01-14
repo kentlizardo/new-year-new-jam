@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="3_vw3n1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cajj7"]
-size = Vector2(40, 56)
+size = Vector2(74, 108)
 
 [node name="Profile" type="RigidBody2D" node_paths=PackedStringArray("label", "label_root", "sprite")]
 input_pickable = true
@@ -18,7 +18,7 @@ sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
-scale = Vector2(2, 2)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_f5ym4")
 
 [node name="DocLabel" type="Node2D" parent="."]
