@@ -84,6 +84,10 @@ func _on_input_event(viewport, event, shape_idx):
 		get_parent().move_child(self, get_parent().get_children().size())
 	if Input.is_action_just_pressed("interact"):
 		double_clicked.emit()
+	elif Input.is_action_just_pressed("click"):
+		if event is InputEventMouseButton:
+			if event.double_click:
+				double_clicked.emit()
 
 var drag_ready := false
 func _input(event):

@@ -22,10 +22,14 @@ func _process(delta):
 func get_profile_id() -> String:
 	return name.to_lower().replace(" ", "")
 
+static var _curr_overlay : Overlay = null
 func popup():
+	if is_instance_valid(_curr_overlay):
+		return
 	if profile_texture:
 		var overlay := preload("res://scenes/game/overlay.tscn").instantiate() as Overlay
 		overlay.profile_tex = profile_texture
 		Workday.current.add_child(overlay)
+		_curr_overlay = overlay
 	var tw := create_tween()
 	tw.tween_property(label, "modulate:a", 1.0, 0.2).from(0.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
