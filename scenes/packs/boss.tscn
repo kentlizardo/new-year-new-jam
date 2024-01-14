@@ -10,7 +10,7 @@
 
 [node name="Lucian" parent="." instance=ExtResource("2_s61c8")]
 
-[node name="Lichking" parent="." instance=ExtResource("2_s61c8")]
+[node name="Lich King" parent="." instance=ExtResource("2_s61c8")]
 
 [node name="Rafael" parent="." instance=ExtResource("2_s61c8")]
 

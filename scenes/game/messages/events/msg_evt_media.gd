@@ -13,4 +13,7 @@ func _play():
 			push_error("Error: message with author of LAST_AUTHOR with no previous message history")
 			author = MessageView.MessageAuthor.GLOBAL
 	var bubble := MessageView.current.send_media(contact, media, author)
-	#await get_tree().create_timer(1.0).timeout
+	if Input.is_action_pressed("ui_accept"):
+		await get_tree().create_timer(0.2).timeout
+	else:
+		await get_tree().create_timer(1.0).timeout

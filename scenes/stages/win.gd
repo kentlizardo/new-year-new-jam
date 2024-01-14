@@ -4,7 +4,7 @@ class_name Win extends Control
 
 var wins := {
 	"Herring": ["ryo", "rose", "joan"],
-	"Boss": ["ross", "rafiel", "lich", "true"],
+	"Boss": ["ross", "rafael", "lichking", "true"],
 }
 
 func _ready():
