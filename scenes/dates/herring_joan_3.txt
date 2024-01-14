@@ -31,14 +31,14 @@ J: "Oh... Nevermind that!"
 /add_global_alias("G")
 H: "miss mina!!!!" +skip
 "the dates were so bad 😭" +skip
-"why did i pick all three" +skip
+"why did I pick all three" +skip
 "she must totally hate me nowww" +skip
 "Joan was so cool... and i let her down with boring places..."
 <cheer_up>/choice
 /add_to_choice(<cheer_up>, "She enjoyed the dates!")
 /add_to_choice(<cheer_up>, "She doesn't hate you!")
 M: "I'm sure of it!"
-H: "...i'm gonna go wallow away now"
+H: "...I'm gonna go wallow away now"
 M: "???"
 H: "-somewhere with no people..."
 M: "As long as you're safe!"

@@ -2,8 +2,6 @@
 /add_contact_alias("R")
 /add_player_alias("M")
 /add_global_alias("G")
-G: "Good afternoon, [Ryo].\n Thank you for reaching out to us for our Live Date Advice Package."
-"You will be connected to the representative,\nMina(Specialist Cupid), shortly.\n(This is an automated message)"
 R: "Hi! You're my assigned Cupid right?"
 M?: "Yes I am.\n How may I help you?"
 R: ",,,Was I stood up yesterday?"
@@ -15,7 +13,8 @@ M: "...Hm???" +sweat
 R: "Even a monster showed up while I was waiting at the meeting place!"
 M?: "Excuse me?" +hesitate
 R: "Yeah, a super scary looking monster! I managed to scare them off though thankfully."
-"Wait... maybe I should have let my date save [i]me[/i] instead..."
+"Wait..."
+"...maybe I should have let my date save [i]me[/i] instead..."
 "Do you think that would've been more maiden-like?"
 M?: "Actually..."
 M: "I don't think that's the issue."

@@ -4,16 +4,16 @@
 /add_player_alias("M")
 /add_global_alias("G")
 H: "hi!"
-"i managed to set up a park date! :o"
-"the website i found had a list of recs"
+"I managed to set up a park date! :o"
+"the website I found had a list of recommendations"
 "the view of the fountain here is very nice."
 M?: "That's great to hear, Mr. Herring."
 H: "um ty!"
 "..."
 "so."
 "we're meeting for the first time soon,"
-"and i was wondering if you could help me with,"
-"which outfit i should wear?"
+"and I was wondering if you could help me with,"
+"which outfit I should wear?"
 /media("H", "tacky_1.png", "tacky_2.png")
 <choice_1>/choice
 /add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
@@ -27,10 +27,10 @@ H: "um ty!"
     /set_flag("herring_post", "tacky_1_post.png")
     H: "okay!" *<after_choice_1>
 <pattern>/group
-    M: "I must say, your sense of fashion is unique."
+    M: "Your sense of fashion is unique!"
     H: "tysm!"
     /set_flag("herring_post", "tacky_2_post.png")
-    "i studied long and hard for today!" *<after_choice_1>
+    "I studied long and hard for today!" *<after_choice_1>
 <after_choice_1>H: "thank you so much miss Mina!"
 "oh!
 "last thing."
@@ -46,7 +46,7 @@ H: "My form!"
 /add_to_choice(<choice_2>, "Are you sure you want to do this?")
 /media("H", "oh_no.png")
 M?: "Wow..." +shaking
-H: "oh, i think she'll be here soon."
-"i'm going to change!"
+H: "oh, I think she'll be here soon."
+"I'm going to change!"
 "thank you miss Mina!"
 /push_date("herring_rose_2")

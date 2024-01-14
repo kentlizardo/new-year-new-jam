@@ -6,29 +6,63 @@ R: “I found my date!!!”
 "I’ve been searching all day and night,”
 "Turns out he was lying in the forest nearby!”
 M: “That’s great!”
+"...Not the forest part."
 R: “Um… "
 "Just one thing,” +sweat
 “Why..."
 "is he so small?\n And melty?”
 M?: "Hmm..."
 M: “Slimes are known to be weak under dark and dry conditions.”
-“They actually use a form of photosynthesis with the algae in their fluids to generate their body mass.”
+“They actually use a form of photosynthesis with the microalgae in their fluids to generate their body mass.”
 “It sounds like he hasn’t been able to keep his body intact... or from drying out.”
 “Take him to the nearest healer A.S.A.P!”
 R: "Oh!!!" +shaking
+"Where is that?"
+/media("M","gps_location.png")
+R: "But that's really far away!"
 "By then it will be too late…"
-"It's all my fault!"
-M: "It isn't!"
+"...It's all my fault!"
+"...My last partner said I act too much like a hero and not like a maiden..."
+"Only if I hadn't been so careless,"
+M: "It isn't your fault!"
+"Being brave isn't a bad thing. You even did all that work to find him!"
 "Let me go get help,"
-R:"Think, Rose, think!"
-"Oh, I know what to do!"
-"I just learned how to cast Daylight in my training!"
+R: "Mmm..."
+"Think, Rose, think!"
+"Oh! I have an idea!"
+"I just learned how to cast Daylight in my knight training!"
 "..."
-R: "It only has a 33% success rate..." +sweat
-M: "You can do it!"
+R: "I only have a 33% success rate so far..." +sweat
+M: "You should try it!"
+R: "But what if I mess up the spell?"
+M: "You won't."
+R: "..."
+R: "I'm not a real knight yet..."
+R: "I didn't pass my written exams, and barely passed the combat tests..."
+"...What if I can't save him?"
+M: "Those are tests. Not the real world."
+"The only thing that matters is if you save him, not a piece of paper!"
+R: "..."
+M: "No matter what your last partner said, what Herring needs right now is [i]a hero[/i]."
 R: "...You're right!"
 "There's no time like right now to become a hero!"
 "I’ll save you my prince!" +shaking
+"It's..."
+"It's working!!!"
+"He's reforming!"
+"I..."
+"I did it!"
+M: "You did!!!"
+"You really are a knight, Miss Rose!"
+R: "..."
+"I'm a real knight..."
+"..."
+"Oh... speaking of-"
+M: "Emergency services should already be on their way! A healer should be heading towards you two right now."
+"Just keep him safe!"
+R: "Alright, okay..."
+"Thank you Miss Mina,,,"
+"For saving me and Herring."
 /media("R", "herring_rose_date.png")
 /mark_history("rose")
 /random_encounter

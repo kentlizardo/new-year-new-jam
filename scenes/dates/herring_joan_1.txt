@@ -2,7 +2,7 @@
 /add_contact_alias("H")
 /add_player_alias("M")
 /add_global_alias("G")
-H: "hi!! i would like to buy the Toastal Coincidence Package!!"
+H: "hi!! I would like to buy the Toastal Coincidence Package!!"
 "with my recommended partner!"
 M: "Oh, sure thing! I'll add it to your bill."
 "Would you also like to add on the extra Shoujo Sparkles Effect Package?"
@@ -10,7 +10,7 @@ H: "...do you think it would look good on me?"
 "hmm..."
 M: "I'm not supposed to do this, so don't tell this to any of my supervisors,"
 "[i]your date's profile says she likes cute things[/i]"
-H: "i'll buy it!"
+H: "I'll buy it!"
 M: "👍"
 "I'll waive your Date Advice Package cost for now until you need it. 😊"
 H: "when will the packages arrive?"
@@ -18,7 +18,7 @@ H: "when will the packages arrive?"
 /add_to_choice(<choice_1>, "In 24 business hours or less.\n Hopefully.", <post_1>)
 /add_to_choice(<choice_1>, "You'll know.", <ominous>)
 <ominous>H: "ominous"
-"but i'll take it"
+"but I'll take it"
 <post_1>M: "The spirits of fortune have been shipped towards your location."
 H: "hmm..."
 H: "ok that sounds great, tysm!"
@@ -27,11 +27,11 @@ M: "Oh?"
 "Why did you order the package?"
 H: "but work came up..."
 M: "Ah."
-H: "so i wanted to see..."
+H: "so I wanted to see..."
 "if i could meet her by chance on her job."
 "apparently she's an independent deliverywoman!!!"
 "isn't that cool?"
-"anyway, enough about her!\n i suddenly feel the urge to go walking on the street right now."
+"anyway, enough about her!\n I suddenly feel the urge to go walking on the street right now."
 /random_encounter
 /set_main_contact("joan")
 /add_contact_alias("J")
@@ -46,5 +46,5 @@ J: "Um."
 "I think I hit something cute-looking and it went splat."
 "Could you let my date know that I'm going to be late?"
 "He's not answering for some reason.\n I hope he's okay."
-M: "Sure, I'll let him know." +sweating
+M: "Sure, I'll let him know." +sweat
 /push_date("herring_joan_2")

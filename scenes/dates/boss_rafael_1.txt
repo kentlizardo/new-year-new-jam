@@ -1,4 +1,4 @@
-/set_main_contact("alex")
+/set_main_contact("boss")
 /add_contact_alias("B")
 /add_player_alias("M")
 /add_global_alias("G")
@@ -7,24 +7,24 @@ B:"Mina!"
 "Ah, don't tell the others I said that"
 "🤐"
 M: "Still at work. How are things with your new date?"
-"I'm currently at the mall with lovely Rafel!"
+B: "I'm currently at the mall with lovely Rafel!"
 "Do you want anything???"
 M: "Company policy states employees must not accept gifts from clients."
-A: "We're heading towards that one coffee shop you like ^^. With the "
+B: "We're heading towards that one coffee shop you like ^^"
 M: "Although..".
 "Maybe my boss can make an exception,"
-A: "🤫"
+B: "🤫"
 "I'll ask my dear Rafael if I can buy your favorite premium roast from the store."
 M: "Oh, it's no worries. Just get me something small."
-A: "Don't worry! It's fine, he's so generous and sweet."
+B: "Don't worry! It's fine, he's so generous and sweet."
 "He even let me buy the clothes from all the brand stores!"
 M: "Oh he bought you some outfits?"
-A: "No,"
+B: "No,"
 "The clothes!"
 M: "Some clothes from the stores?" +sweat
-A: "Silly, I mean all of 'em."
+B: "Silly, I mean all of 'em."
 M: "Um." +sweat
-A: "Anyway, I should get going with shopping,"
+B: "Anyway, I should get going with shopping,"
 "I've plan on getting housewarming gifts for you all!"
 "Oh, I should get some for my extended family too."
 "Ooh!"

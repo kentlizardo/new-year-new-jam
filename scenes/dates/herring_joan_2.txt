@@ -3,7 +3,7 @@
 /add_player_alias("M")
 /add_global_alias("G")
 H: "miss Mina!"
-"i was wondering which of these places you'd like the most"
+"I was wondering which of these places you'd like the most"
 /media("H", "boring_mall.png", "boring_cafe.png", "boring_park.png")
 <place>/choice
 /add_to_choice(<place>, "The mall.")
@@ -11,15 +11,15 @@ H: "miss Mina!"
 /add_to_choice(<place>, "The park.")
 /add_to_choice(<place>, "Somewhere else.", <other>)
 H: "oh really!"
-"i knew you had good taste miss Mina!"
+"I knew you had good taste miss Mina!"
 <other>H:"hm..."
 "maybe I could take her to..."
 "oh!!!"
 "miss Joan just responded to me"
 "she's off work the entire day!!"
-"i'll.."
-"i'll!" +shaking
-"i'll take her to all three!"
+"I'll.."
+"I'll!" +shaking
+"I'll take her to all three!"
 M: "Good luck!" +sweat
 /random_encounter
 /set_main_contact("joan")
