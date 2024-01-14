@@ -23,12 +23,12 @@ func _play():
 	if author == MessageView.MessageAuthor.PLAYER and !skip:
 		var bubbles := MessageView.current.make_choice(contact, [message])
 		var answer = await bubbles.choice_taken
-		MessageView.current.send_message(contact, answer, MessageView.MessageAuthor.PLAYER)
+		MessageView.current.send_message(contact, answer, MessageView.MessageAuthor.PLAYER, skip)
 	else:
-		var bubble := MessageView.current.send_message(contact, message, author)
+		var bubble := MessageView.current.send_message(contact, message, author, skip)
 		if !skip:
 			await bubble.read()
-		if Input.is_action_pressed("ui_accept"):
-			await get_tree().create_timer(0.2).timeout
-		else:
-			await get_tree().create_timer(1.0).timeout
+			if Input.is_action_pressed("ui_accept"):
+				await get_tree().create_timer(0.2).timeout
+			else:
+				await get_tree().create_timer(1.0).timeout

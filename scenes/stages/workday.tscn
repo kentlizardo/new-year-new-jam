@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=29 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/game/coffee_border.gd" id="4_tgcyr"]
 [ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="5_fvnxm"]
 [ext_resource type="PackedScene" uid="uid://dcjwbs5jkdlnm" path="res://scenes/game/opening.tscn" id="5_uichr"]
+[ext_resource type="AudioStream" uid="uid://wjia00tbw7l7" path="res://assets/audio/tap.mp3" id="6_3obof"]
 [ext_resource type="Script" path="res://scenes/game/phone.gd" id="7_dkvqk"]
 [ext_resource type="Script" path="res://scenes/game/draggable.gd" id="7_kgabt"]
 [ext_resource type="Texture2D" uid="uid://dtcrvfl0swaml" path="res://assets/textures/desk/aphro_hand.png" id="8_eey7c"]
@@ -100,19 +101,19 @@ collision_mask = 4
 script = ExtResource("4_tgcyr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Coffee2"]
-position = Vector2(-60, 0)
+position = Vector2(-160, 0)
 shape = SubResource("WorldBoundaryShape2D_f1ih8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Coffee2"]
-position = Vector2(1084, 0)
+position = Vector2(1184, 0)
 shape = SubResource("WorldBoundaryShape2D_kgpqt")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/Coffee2"]
-position = Vector2(0, 828)
+position = Vector2(0, 928)
 shape = SubResource("WorldBoundaryShape2D_yb7vi")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/Coffee2"]
-position = Vector2(0, -60)
+position = Vector2(0, -160)
 shape = SubResource("WorldBoundaryShape2D_vhg8x")
 
 [node name="Papers" type="Node2D" parent="Node2D"]
@@ -121,7 +122,7 @@ position = Vector2(601, 301)
 [node name="Tray" parent="Node2D/Papers" instance=ExtResource("2_nnhul")]
 position = Vector2(287, -90)
 
-[node name="Phone" type="RigidBody2D" parent="Node2D" node_paths=PackedStringArray("notif_pivot", "notif", "sprite")]
+[node name="Phone" type="RigidBody2D" parent="Node2D" node_paths=PackedStringArray("notif_pivot", "notif", "tap_sound", "sprite")]
 position = Vector2(128, 521)
 input_pickable = true
 linear_damp = 5.0
@@ -129,7 +130,12 @@ angular_damp = 5.0
 script = ExtResource("7_dkvqk")
 notif_pivot = NodePath("NodePivot")
 notif = NodePath("NodePivot/Sprite2D")
+tap_sound = NodePath("AudioListener2D")
 sprite = NodePath("Sprite2D")
+
+[node name="AudioListener2D" type="AudioStreamPlayer2D" parent="Node2D/Phone"]
+stream = ExtResource("6_3obof")
+volume_db = -3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Phone"]
 clip_children = 2

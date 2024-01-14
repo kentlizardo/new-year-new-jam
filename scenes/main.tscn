@@ -49,6 +49,7 @@ grow_vertical = 0
 script = ExtResource("2_t4wc4")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(512, 384)
 current = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]

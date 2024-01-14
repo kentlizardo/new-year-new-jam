@@ -15,6 +15,9 @@ func add_notification():
 	notifications += 1
 	notification_label.visible = true
 	notification_label.text = str(notifications)
+	if is_instance_valid(Phone.current_phone):
+		if !Phone.current_phone.tap_sound.playing:
+			Phone.current_phone.tap_sound.play()
 
 func clear_notifications():
 	notifications = 0
