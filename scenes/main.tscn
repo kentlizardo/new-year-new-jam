@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh77lu6vi7e4b"]
+[gd_scene load_steps=2 format=3 uid="uid://dh77lu6vi7e4b"]
 
 [ext_resource type="PackedScene" uid="uid://7ti1tq0k3s4v" path="res://scenes/game/messages/message_view.tscn" id="1_y0irv"]
-[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="2_ynv64"]
 
 [node name="Root" type="Node"]
 
@@ -31,22 +30,3 @@ offset_right = 320.0
 offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -152.0
-offset_right = 152.0
-offset_bottom = 34.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0.278431, 0.14902, 0.054902, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/normal_font = ExtResource("2_ynv64")
-theme_override_font_sizes/normal_font_size = 28
-bbcode_enabled = true
-text = "
-
-Testing blah blah blahd"
-fit_content = true
-autowrap_mode = 0

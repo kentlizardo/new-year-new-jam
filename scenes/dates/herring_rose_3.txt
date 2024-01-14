@@ -12,13 +12,35 @@ R: “Um… "
 “Why..."
 "is he so small?\n And melty?”
 M?: "Hmm..."
-M: “Slimes are known to be weak under dark and dry conditions.”
-“They actually use a form of photosynthesis with the microalgae in their fluids to generate their body mass.”
+"Give me a second..."
+/set_main_contact("alex")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Hey Alex, you there?"
+A: "Yes. What's up Mina?"
+M: "How would a slime get, um."
+""Small and melty""
+A: "Hmm."
+"I'm not quite sure. What happened to this slime?"
+M: "He was found in a forest at night"
+A: "Okay."
+A: "So Slimes are known to be weak under dark and dry conditions."
+“They use a form of photosynthesis with the microalgae in their fluids to generate their body mass.”
 “It sounds like he hasn’t been able to keep his body intact... or from drying out.”
-“Take him to the nearest healer A.S.A.P!”
+A: "They'd need to get medical attention immediately."
+M: "Okay! Thank you Alex!"
+A: "No problem."
+/set_main_contact("rose")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Take him to the nearest healer A.S.A.P!"
+"He's in big danger!"
 R: "Oh!!!" +shaking
 "Where is that?"
-/media("M","gps_location.png")
+///media("M","gps_location.png")
+M: "[color=mediumslateblue][url]maps.oogle.com/XXXXXX[/url][/color]"
 R: "But that's really far away!"
 "By then it will be too late…"
 "...It's all my fault!"

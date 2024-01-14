@@ -44,6 +44,7 @@ J: "Um."
 "I was turning around the corner delivering packages for this bakery..."
 "And I turned the corner too fast (I think)"
 "I think I hit something cute-looking and it went splat."
+/media("J", "slime_dead.png")
 "Could you let my date know that I'm going to be late?"
 "He's not answering for some reason.\n I hope he's okay."
 M: "Sure, I'll let him know." +sweat

@@ -32,6 +32,8 @@ H: "um ty!"
     /set_flag("herring_post", "tacky_2_post.png")
     "I studied long and hard for today!" *<after_choice_1>
 <after_choice_1>H: "thank you so much miss Mina!"
+H: "i should post it on penta.gram!"
+"i don't wear outfits like these very often"
 "oh!
 "last thing."
 "which of these do you think would look best?"
@@ -44,8 +46,13 @@ H: "My form!"
 /add_to_choice(<choice_2>, "Maybe tone it down a bit?")
 /add_to_choice(<choice_2>, "I think it's best to just be yourself.")
 /add_to_choice(<choice_2>, "Are you sure you want to do this?")
-/media("H", "oh_no.png")
+/media("H", "o_no.png")
+H:"How's this form look?"
 M?: "Wow..." +shaking
+<choice_3>/choice
+/add_to_choice(<choice_3>, "You look amazing.")
+/add_to_choice(<choice_3>, "That's c")
+/add_to_choice(<choice_3>, "Maybe don't...?")
 H: "oh, I think she'll be here soon."
 "I'm going to change!"
 "thank you miss Mina!"
