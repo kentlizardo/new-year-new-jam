@@ -256,13 +256,14 @@ theme_override_constants/separation = 16
 
 [node name="Resume" type="Button" parent="Pause/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme = ExtResource("5_fvnxm")
 text = "Resume
 "
 alignment = 0
 
 [node name="Button" type="Button" parent="Pause/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("5_fvnxm")
 text = "Back to Main Menu"

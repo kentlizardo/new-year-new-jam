@@ -81,7 +81,7 @@ R: "... 😭"
 M?: "What happened?"
 R:"There's good news and bad news."
 R: "...I uh, remembered I could use chaos magic."
-"So I may have... stored my hoard somewhere""
+"So I may have... stored my hoard somewhere"
 <choice_3>/choice
 /add_to_choice(<choice_3>, "What's the good news?", <choice_3_a>)
 /add_to_choice(<choice_3>, "Hit me with the bad news.", <post_3>)

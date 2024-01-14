@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7ti1tq0k3s4v"]
+[gd_scene load_steps=9 format=3 uid="uid://7ti1tq0k3s4v"]
 
 [ext_resource type="Script" path="res://scenes/game/messages/message_view.gd" id="1_8184h"]
 [ext_resource type="StyleBox" uid="uid://bm55ejd450ksc" path="res://scenes/game/messages/style_box.tres" id="2_f27y0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl0j6k1u14383" path="res://scenes/game/messages/user_messages.tscn" id="4_kijv5"]
 [ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="4_uq8t1"]
 [ext_resource type="Script" path="res://scenes/game/messages/exit_icon.gd" id="5_6hjyi"]
+[ext_resource type="Texture2D" uid="uid://csqeiw1q7747j" path="res://assets/textures/power_button.png" id="6_bcjxl"]
 [ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="6_rj53w"]
 
 [node name="MessageView" type="Control" node_paths=PackedStringArray("user_icons", "user_messages_root", "header_contact_name")]
@@ -52,6 +53,7 @@ visible = false
 layout_mode = 2
 
 [node name="ExitIcon" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/UserIcons"]
+clip_children = 2
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -59,6 +61,16 @@ size_flags_vertical = 10
 texture = ExtResource("4_uq8t1")
 expand_mode = 1
 script = ExtResource("5_6hjyi")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/UserIcons/ExitIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_bcjxl")
+expand_mode = 1
 
 [node name="UserTabs" type="VBoxContainer" parent="HBoxContainer"]
 show_behind_parent = true

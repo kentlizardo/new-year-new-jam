@@ -60,5 +60,6 @@ H: "this..."
 M: "Actually..."
 "Miss Ryo."
 "I think I found where your hoard was transported to."
-/media("R", "herring_squished")
+/media("M", "herring_squished")
+"[color=mediumslateblue][url]maps.ogle.com/XXXXXX[/url][/color]"
 /push_date("herring_ryo_3")

@@ -840,6 +840,7 @@ expand_mode = 1
 [node name="Halo" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(607, 289)
 stream = ExtResource("19_4kkjo")
+volume_db = 12.0
 
 [node name="Cofeee" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(607, 289)

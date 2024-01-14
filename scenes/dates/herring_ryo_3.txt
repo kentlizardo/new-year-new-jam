@@ -30,6 +30,7 @@ R: "have a good day Miss Mina!"
 "she also said something about 'the chaos magic being successful after all'?"
 "hm?"
 M: "Oh, don't worry about it.\n Just enjoy your day with Miss Ryo!"
+/media("R", "herring_ryo_date.png")
 G: "Congratulations (Mina, Cupid Specialist)"
 "You just received a review!"
 "⭐⭐⭐⭐⭐"

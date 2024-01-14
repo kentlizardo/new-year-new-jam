@@ -40,7 +40,7 @@ M: "Take him to the nearest healer A.S.A.P!"
 R: "Oh!!!" +shaking
 "Where is that?"
 ///media("M","gps_location.png")
-M: "[color=mediumslateblue][url]maps.oogle.com/XXXXXX[/url][/color]"
+M: "[color=mediumslateblue][url]maps.ogle.com/XXXXXX[/url][/color]"
 R: "But that's really far away!"
 "By then it will be too late…"
 "...It's all my fault!"

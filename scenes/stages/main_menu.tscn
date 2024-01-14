@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1p5gyq5add1o"]
+[gd_scene load_steps=7 format=3 uid="uid://c1p5gyq5add1o"]
 
+[ext_resource type="Texture2D" uid="uid://cgcvmo7bg5n6e" path="res://assets/textures/logo_cropped2.png" id="1_q1a2k"]
 [ext_resource type="Script" path="res://scenes/game/fade.gd" id="1_xbsyj"]
 [ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="2_7sjpl"]
 [ext_resource type="Script" path="res://scenes/stages/main_menu/new_game.gd" id="2_vgysh"]
@@ -23,6 +24,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.121569, 0.101961, 0.0862745, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+texture_filter = 3
+position = Vector2(512, 293)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_q1a2k")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
