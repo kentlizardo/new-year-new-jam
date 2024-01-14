@@ -5,6 +5,7 @@ var game_data : GameData = new_game_data.duplicate()
 
 const HISTORY_PATH := "user://history.dat"
 var user_history : Array
+var days := 0
 
 func _ready():
 	user_history = load_history()

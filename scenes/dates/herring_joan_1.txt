@@ -15,7 +15,7 @@ M: "👍"
 "I'll waive your Date Advice Package cost for now until you need it. 😊"
 H: "when will the packages arrive?"
 <choice_1>/choice
-/add_to_choice(<choice_1>, "In 24 business hours or less.\n Hopefully.", <post_1>)
+/add_to_choice(<choice_1>, "In 24 business hours or less.", <post_1>)
 /add_to_choice(<choice_1>, "You'll know.", <ominous>)
 <ominous>H: "ominous"
 "but I'll take it"

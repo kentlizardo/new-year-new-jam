@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd1hj0wwuvob0"]
+[gd_scene load_steps=4 format=3 uid="uid://bd1hj0wwuvob0"]
 
 [ext_resource type="Script" path="res://scenes/game/overlay.gd" id="1_h3rwx"]
-[ext_resource type="Script" path="res://scenes/game/fade.gd" id="3_juv21"]
-[ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="3_up5l6"]
 [ext_resource type="Texture2D" uid="uid://4rxk35vw5wyh" path="res://assets/textures/opening/1/frame.png" id="4_1iiqm"]
 [ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="5_aon5c"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7au0o"]
-shader = ExtResource("3_up5l6")
-shader_parameter/amount = 1.0
 
 [node name="Overlay" type="Control" node_paths=PackedStringArray("profile_sprite")]
 layout_mode = 3
@@ -22,14 +16,13 @@ script = ExtResource("1_h3rwx")
 profile_sprite = NodePath("Contents/Center/ProfileRoot/Sprite2D")
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_7au0o")
+modulate = Color(0.101961, 0.0705882, 0.0588235, 0.313726)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_juv21")
 
 [node name="Contents" type="CenterContainer" parent="."]
 layout_mode = 1

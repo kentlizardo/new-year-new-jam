@@ -101,29 +101,34 @@ func wait_until_open(contact : Contact):
 	while next_focus != contact:
 		next_focus = await contact_focused
 
-func send_message(contact : Contact, message : String, author : MessageAuthor) -> BubbleSay:
+func send_message(contact : Contact, message : String, author : MessageAuthor, ignore_notif : bool = false) -> BubbleSay:
 	check_contact(contact)
 	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.say(message, author)
-	if contact_shown != contact:
-		if author == MessageAuthor.PLAYER:
-			binding.tab_icon.clear_notifications()
-		else:
+	if !ignore_notif:
+		if contact_shown != contact:
 			binding.tab_icon.add_notification()
+	#if contact_shown != contact:
+		#if author == MessageAuthor.PLAYER:
+			#binding.tab_icon.clear_notifications()
+		#else:
+			#binding.tab_icon.add_notification()
 	App.message_events_added.emit()
 	return bubble
 
-func send_media(contact : Contact, media : Array[Texture2D], author : MessageAuthor) -> BubbleMedia:
+func send_media(contact : Contact, media : Array[Texture2D], author : MessageAuthor, ignore_notif := false) -> BubbleMedia:
 	check_contact(contact)
 	wait_until_open(contact)
 	var binding := contacts[contact] as UserBinding
 	var bubble := binding.messages.send_media(media, author)
-	if contact_shown != contact:
-		if author == MessageAuthor.PLAYER:
-			binding.tab_icon.clear_notifications()
-		else:
+	if !ignore_notif:
+		if contact_shown != contact:
 			binding.tab_icon.add_notification()
+		#if author == MessageAuthor.PLAYER:
+			#binding.tab_icon.clear_notifications()
+		#else:
+			#binding.tab_icon.add_notification()
 	App.message_events_added.emit()
 	return bubble
 

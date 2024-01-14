@@ -11,6 +11,9 @@ static var faux_save : Dictionary = {}
 
 var workday_load : Dictionary = {}
 func _ready():
+	DataManager.days += 1
+	for i in MessageView.current.contacts:
+		MessageView.current.send_message(i, "day " + str(DataManager.days), MessageView.MessageAuthor.GLOBAL, true)
 	if !faux_save.is_empty():
 		workday_load = faux_save
 		push_error("Should never reach here.")
@@ -47,6 +50,8 @@ var messages_queued := false:
 		check_progress()
 
 func check_progress():
+	if !finish_button.is_inside_tree():
+		return;
 	if !client_required and !messages_queued:
 		var tw := finish_button.create_tween()
 		finish_button.visible = true

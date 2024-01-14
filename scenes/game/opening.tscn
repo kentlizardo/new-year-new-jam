@@ -548,7 +548,7 @@ _data = {
 "open": SubResource("Animation_pb7c3")
 }
 
-[node name="Opening" type="Control"]
+[node name="Opening" type="Control" node_paths=PackedStringArray("color", "comic")]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 3
 anchors_preset = 15
@@ -557,11 +557,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i57sg")
+color = NodePath("ColorRect")
+comic = NodePath("Control")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_43ffq")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1212, 0.10276, 0.0849208, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

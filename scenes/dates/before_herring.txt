@@ -13,8 +13,8 @@ B: "Mina!!! <3" +skip
 A: "Did you make sure to calibrate your wings?\n  -Alex" +skip
 M: "Yes... I did!!! Twice" +skip
 A: "Oh. Here's the latest news on the trendiest date spots.\n  -Alex" +skip
-"[url]Latest date spots for this upcoming February season![/url]" +skip
-"[url]www.edit.com/c/dating_advice/cupid-breakdown[url]" +skip
+"[url][color=mediumslateblue]Latest date spots for this upcoming February season![/color][/url]" +skip
+"[url][color=mediumslateblue]www.edit.com/c/dating_advice/cupid-breakdown[/color][url]" +skip
 M: "TY!!!" +skip
 "IOU ^^" +skip
 A: "I also have a set of slides with a more detailed rundown of the article.\n  -Alex" +skip
@@ -29,6 +29,11 @@ A: "Ah. Yes."
 "I'm lost. Please take him.\n  -Alex"
 M: "..." +sweat
 "Sure thing."
+A: "Remember to stamp your client's confirmed partner with the Seal of Approval before you turn it into the cabinet."
+"Do you remember the last time we messed that up?"
+M: "Yup!"
+"...And yup."
+A: "If you ever put too many clients, just remember to hit it a couple times and they'll fall out."
 /set_main_contact("herring")
 /add_contact_alias("H")
 /add_player_alias("M")

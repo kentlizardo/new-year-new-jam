@@ -2,14 +2,14 @@
 /add_contact_alias("A")
 /add_player_alias("M")
 /add_global_alias("G")
-A: "Hey."
-"Did you see news lately?\n  -Alex" +skip
+A: "Hey Mina."
+"Have you seen the news lately?\n  -Alex" +skip
 M: "What's up?"
-A: "[url]Can a Goddess and Lich be bound in "Holy" Matrimony?[/url]"
+A: "[color=mediumslateblue][url]Can a Goddess and Lich be bound in "Holy" Matrimony?[/url][/color]"
 M: "Uh."
-A: "[url]Breaking News: Underworld is in an Uproar about Lich King's new girlfriend?[/url]"
+A: "[color=mediumslateblue][url]Breaking News: Underworld is in an Uproar about Lich King's new girlfriend?[/url][/color]"
 M: "Oh."
-A: "[url]Statement from Zeus on Lich King's new relationship![/url]"
+A: "[color=mediumslateblue][url]Statement from Zeus on Lich King's new relationship![/url][/color]"
 "[url]Is Lich King a Skeleton or Zombie? Or BOTH?[/url]"
 /set_main_contact("boss")
 /add_contact_alias("B")

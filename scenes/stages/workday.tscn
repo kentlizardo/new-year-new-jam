@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvlypir8qho1k"]
+[gd_scene load_steps=28 format=3 uid="uid://dvlypir8qho1k"]
 
 [ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
 [ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dpo24l4jygsv3" path="res://scenes/game/stamp.tscn" id="3_tx1l0"]
 [ext_resource type="Script" path="res://scenes/game/coffee_border.gd" id="4_tgcyr"]
 [ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="5_fvnxm"]
-[ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="5_jysak"]
 [ext_resource type="PackedScene" uid="uid://dcjwbs5jkdlnm" path="res://scenes/game/opening.tscn" id="5_uichr"]
 [ext_resource type="Script" path="res://scenes/game/phone.gd" id="7_dkvqk"]
 [ext_resource type="Script" path="res://scenes/game/draggable.gd" id="7_kgabt"]
@@ -50,14 +49,10 @@ radius = 200.0
 radius = 54.75
 height = 154.25
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3m3l"]
-shader = ExtResource("5_jysak")
-shader_parameter/amount = 2.0
-
 [node name="Workday" type="Node" node_paths=PackedStringArray("papers", "finish_button", "opening")]
 script = ExtResource("1_l7s8w")
-papers = NodePath("Papers")
-finish_button = NodePath("BG/TextEdit/MarginContainer/Button")
+papers = NodePath("Node2D/Papers")
+finish_button = NodePath("MarginContainer/Button")
 opening = NodePath("Opening")
 
 [node name="BG" type="Control" parent="."]
@@ -80,71 +75,53 @@ texture = ExtResource("2_h3d0c")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="BG/TextEdit"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -204.0
-offset_top = -59.0
-offset_right = 204.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 20
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="BG/TextEdit/MarginContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_br1ku")
-theme_override_font_sizes/font_size = 42
-text = "Go home for the day!"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_gavju")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 position = Vector2(1024, 0)
 shape = SubResource("WorldBoundaryShape2D_a6yow")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 position = Vector2(0, 768)
 shape = SubResource("WorldBoundaryShape2D_uv7rm")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_6sc3l")
 
-[node name="Coffee2" type="Area2D" parent="."]
+[node name="Coffee2" type="Area2D" parent="Node2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("4_tgcyr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coffee2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Coffee2"]
 position = Vector2(-60, 0)
 shape = SubResource("WorldBoundaryShape2D_f1ih8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Coffee2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Coffee2"]
 position = Vector2(1084, 0)
 shape = SubResource("WorldBoundaryShape2D_kgpqt")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Coffee2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/Coffee2"]
 position = Vector2(0, 828)
 shape = SubResource("WorldBoundaryShape2D_yb7vi")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Coffee2"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/Coffee2"]
 position = Vector2(0, -60)
 shape = SubResource("WorldBoundaryShape2D_vhg8x")
 
-[node name="Papers" type="Node2D" parent="."]
+[node name="Papers" type="Node2D" parent="Node2D"]
 position = Vector2(601, 301)
 
-[node name="Tray" parent="Papers" instance=ExtResource("2_nnhul")]
+[node name="Tray" parent="Node2D/Papers" instance=ExtResource("2_nnhul")]
 position = Vector2(287, -90)
 
-[node name="Phone" type="RigidBody2D" parent="." node_paths=PackedStringArray("notif_pivot", "notif", "sprite")]
+[node name="Phone" type="RigidBody2D" parent="Node2D" node_paths=PackedStringArray("notif_pivot", "notif", "sprite")]
 position = Vector2(128, 521)
 input_pickable = true
 linear_damp = 5.0
@@ -154,48 +131,48 @@ notif_pivot = NodePath("NodePivot")
 notif = NodePath("NodePivot/Sprite2D")
 sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="Phone"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Phone"]
 clip_children = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_mjxoy")
 
-[node name="NodePivot" type="Node2D" parent="Phone"]
+[node name="NodePivot" type="Node2D" parent="Node2D/Phone"]
 scale = Vector2(0.75, 0.75)
 
-[node name="Sprite2D" type="Sprite2D" parent="Phone/NodePivot"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Phone/NodePivot"]
 position = Vector2(113.333, -108)
 texture = ExtResource("9_wu34e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Phone"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_80cwv")
 
-[node name="A" type="Node2D" parent="."]
+[node name="A" type="Node2D" parent="Node2D"]
 position = Vector2(866, -378)
 scale = Vector2(0.75, 0.75)
 
-[node name="Hand" type="Sprite2D" parent="A" node_paths=PackedStringArray("idle", "prompt", "accept")]
+[node name="Hand" type="Sprite2D" parent="Node2D/A" node_paths=PackedStringArray("idle", "prompt", "accept")]
 texture = ExtResource("8_eey7c")
 script = ExtResource("9_d8c81")
 idle = NodePath("..")
 prompt = NodePath("../../B")
 accept = NodePath("../../C")
 
-[node name="Area2D" type="Area2D" parent="A/Hand"]
+[node name="Area2D" type="Area2D" parent="Node2D/A/Hand"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="A/Hand/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/A/Hand/Area2D"]
 position = Vector2(0, 110.667)
 shape = SubResource("CircleShape2D_i7m5a")
 
-[node name="B" type="Node2D" parent="."]
+[node name="B" type="Node2D" parent="Node2D"]
 position = Vector2(866, -27)
 scale = Vector2(0.75, 0.75)
 
-[node name="C" type="Node2D" parent="."]
+[node name="C" type="Node2D" parent="Node2D"]
 position = Vector2(866, 123)
 scale = Vector2(0.75, 0.75)
 
-[node name="Coaster" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
+[node name="Coaster" type="RigidBody2D" parent="Node2D" node_paths=PackedStringArray("sprite")]
 position = Vector2(897, 501)
 input_pickable = true
 linear_damp = 1.0
@@ -203,31 +180,60 @@ angular_damp = 1.0
 script = ExtResource("7_kgabt")
 sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="Coaster"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Coaster"]
 texture = ExtResource("11_02b2g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coaster"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Coaster"]
 position = Vector2(-2, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vxfgx")
 
-[node name="Coffee" parent="." instance=ExtResource("12_jtdu3")]
+[node name="Coffee" parent="Node2D" instance=ExtResource("12_jtdu3")]
 
-[node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
+[node name="Stamp" parent="Node2D" instance=ExtResource("3_tx1l0")]
 position = Vector2(706, 296)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -79.0
+offset_right = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_br1ku")
+theme_override_font_sizes/font_size = 42
+text = "Go home for the day!"
 
 [node name="Opening" parent="." instance=ExtResource("5_uichr")]
 
-[node name="Pause" type="ColorRect" parent="."]
+[node name="Pause" type="Control" parent="."]
 visible = false
-material = SubResource("ShaderMaterial_d3m3l")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.113725, 0.113725, 0.403922)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+top_level = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -256,8 +262,8 @@ theme = ExtResource("5_fvnxm")
 text = "Back to Main Menu"
 alignment = 0
 
-[connection signal="body_entered" from="Coffee2" to="Coffee2" method="_on_body_entered"]
-[connection signal="body_entered" from="A/Hand/Area2D" to="A/Hand" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="A/Hand/Area2D" to="A/Hand" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Node2D/Coffee2" to="Node2D/Coffee2" method="_on_body_entered"]
+[connection signal="body_entered" from="Node2D/A/Hand/Area2D" to="Node2D/A/Hand" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D/A/Hand/Area2D" to="Node2D/A/Hand" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="Pause" method="hide"]
 [connection signal="pressed" from="Pause/VBoxContainer/Button" to="." method="save_and_quit"]
