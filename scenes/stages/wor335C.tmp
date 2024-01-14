@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvlypir8qho1k"]
+
+[ext_resource type="Script" path="res://scenes/stages/workday.gd" id="1_l7s8w"]
+[ext_resource type="Texture2D" uid="uid://4x1haj8p4h61" path="res://assets/textures/desk/desk_floor.png" id="2_h3d0c"]
+[ext_resource type="PackedScene" uid="uid://dwg2yia8pjpea" path="res://scenes/game/tray.tscn" id="2_nnhul"]
+[ext_resource type="PackedScene" uid="uid://dpo24l4jygsv3" path="res://scenes/game/stamp.tscn" id="3_tx1l0"]
+[ext_resource type="Script" path="res://scenes/game/phone.gd" id="4_kda5t"]
+[ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="5_fvnxm"]
+[ext_resource type="Shader" path="res://scenes/game/blur.gdshader" id="5_jysak"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gavju"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a6yow"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uv7rm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6sc3l"]
+normal = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6t5o"]
+size = Vector2(100, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3m3l"]
+shader = ExtResource("5_jysak")
+shader_parameter/amount = 2.0
+
+[node name="Workday" type="Node" node_paths=PackedStringArray("papers")]
+script = ExtResource("1_l7s8w")
+papers = NodePath("Papers")
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextEdit" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h3d0c")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_gavju")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1024, 0)
+shape = SubResource("WorldBoundaryShape2D_a6yow")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 768)
+shape = SubResource("WorldBoundaryShape2D_uv7rm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_6sc3l")
+
+[node name="Papers" type="Node2D" parent="."]
+position = Vector2(601, 301)
+
+[node name="Tray" parent="Papers" instance=ExtResource("2_nnhul")]
+position = Vector2(287, -90)
+
+[node name="Stamp" parent="." instance=ExtResource("3_tx1l0")]
+position = Vector2(706, 296)
+
+[node name="Phone" type="Area2D" parent="."]
+position = Vector2(177, 557)
+script = ExtResource("4_kda5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phone"]
+shape = SubResource("RectangleShape2D_o6t5o")
+
+[node name="ColorRect" type="ColorRect" parent="Phone"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pause" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_d3m3l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -63.0
+offset_right = 144.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Resume" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_fvnxm")
+text = "Resume
+"
+alignment = 0
+
+[node name="Button" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_fvnxm")
+text = "Back to Main Menu"
+alignment = 0
+
+[connection signal="pressed" from="Pause/VBoxContainer/Resume" to="Pause" method="hide"]
+[connection signal="pressed" from="Pause/VBoxContainer/Button" to="." method="save_and_quit"]

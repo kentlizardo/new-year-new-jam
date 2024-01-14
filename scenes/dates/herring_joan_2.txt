@@ -1,0 +1,51 @@
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "miss Mina!"
+"I was wondering which of these places you'd like the most"
+/media("H", "boring_mall.png", "boring_cafe.png", "boring_park.png")
+<place>/choice
+/add_to_choice(<place>, "The mall.")
+/add_to_choice(<place>, "The cafe.")
+/add_to_choice(<place>, "The park.")
+/add_to_choice(<place>, "Somewhere else.", <other>)
+H: "oh really!"
+"I knew you had good taste miss Mina!"
+<other>H:"hm..."
+"maybe I could take her to..."
+"oh!!!"
+"miss Joan just responded to me"
+"she's off work the entire day!!"
+"I'll.."
+"I'll!" +shaking
+"I'll take her to all three!"
+M: "Good luck!" +sweat
+/random_encounter
+/set_main_contact("joan")
+/add_contact_alias("J")
+/add_player_alias("M")
+/add_global_alias("G")
+J: "Hello!"
+M: "Good afternoon!
+J:"Um. So me and Herring are on our first date.."
+"At a park. It was going well!"
+"We got some nice ice cream and,"
+"He tripped head first into the fountain..."
+"Along with our icecream."
+"His arm turned a little droopy."
+M: "Oh..."
+"That should be fine."
+"Slimes can dissolve a little in water,"
+J: "Oh no!"
+M: "But it'll reform in ~30 minutes."
+J: "Phew!"
+"It's probably better for him to head home and rest."
+"Huh?"
+"Apparently he wants to go to a cafe-mall?"
+"Oh! A cafe and a mall?"
+"I feel like he should rest..."
+"but I'll let you know how it goes!"
+M: "Have fun you two!"
+"And stay safe!"
+/push_date("herring_joan_3")

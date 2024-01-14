@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdwipjij58sq2"]
+
+[ext_resource type="PackedScene" uid="uid://b8qro7svwrof2" path="res://scenes/game/client_profile.tscn" id="1_3cbtf"]
+[ext_resource type="PackedScene" uid="uid://2x38parnkntw" path="res://scenes/game/suitor_profile.tscn" id="2_s61c8"]
+[ext_resource type="Script" path="res://scenes/game/messages/message_parser.gd" id="3_tpta0"]
+
+[node name="Boss" type="Node"]
+
+[node name="Boss" parent="." instance=ExtResource("1_3cbtf")]
+
+[node name="Lucian" parent="." instance=ExtResource("2_s61c8")]
+
+[node name="Lich King" parent="." instance=ExtResource("2_s61c8")]
+
+[node name="Rafael" parent="." instance=ExtResource("2_s61c8")]
+
+[node name="MessageParser" type="Node" parent="."]
+script = ExtResource("3_tpta0")
+source = "res://scenes/dates/before_boss.txt"
+
+[connection signal="ready" from="MessageParser" to="MessageParser" method="play"]

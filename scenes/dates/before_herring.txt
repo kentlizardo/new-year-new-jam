@@ -1,0 +1,67 @@
+/set_main_contact("boss")
+/add_contact_alias("B")
+/add_player_alias("M")
+/add_global_alias("G")
+B: "Mina!!! <3" +skip
+"I'm transferring a special case to be under your management!" +skip
+"Reach out to Alex for more details!" +skip
+"See you!" +skip
+/set_main_contact("alex")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+A: "Did you make sure to calibrate your wings?\n  -Alex" +skip
+M: "Yes... I did!!! Twice" +skip
+A: "Oh. Here's the latest news on the trendiest date spots.\n  -Alex" +skip
+"[url][color=mediumslateblue]Latest date spots for this upcoming February season![/color][/url]" +skip
+"[url][color=mediumslateblue]www.edit.com/c/dating_advice/cupid-breakdown[/color][url]" +skip
+M: "TY!!!" +skip
+"IOU ^^" +skip
+A: "I also have a set of slides with a more detailed rundown of the article.\n  -Alex" +skip
+M: "No.. I'm good! Thanks for asking." +skip
+A: "Make sure you don't forget to submit the quarter reviews to Ms. Ava by 8pm.\n  -Alex" +skip
+M: "I heard a case was getting transferred over?"
+A: "Ah. Yes."
+"It's Herring. I've tried setting him up with partners but they've all backed out."
+"I cross referenced each and every single profile"
+"I created a like/love/hate regression analysis with a supposed 85% confidence."
+"I found a partner with a 98% compatibility level and that partner was so unsatisfied they even left for another Cupid Agency."
+"I'm lost. Please take him.\n  -Alex"
+M: "..." +sweat
+"Sure thing."
+A: "Remember to stamp your client's confirmed partner with the Seal of Approval before you turn it into the cabinet."
+"Do you remember the last time we messed that up?"
+M: "Yup!"
+"...And yup."
+A: "If you ever put too many clients, just remember to hit it a couple times and they'll fall out."
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "hi!"
+"I heard you were the cupid that was assigned to me?"
+"my name is Herring. ^^"
+M: "Nice to meet you Herring! My name is Mina!"
+"Could you introduce yourself to me?"
+H: "yeah, um. I like...sports?"
+M: "Mhm."
+H: "uh... surfing?"
+"maybe shopping?"
+M: "Mhm mhm."
+"Are you sure that's what you really like?"
+H: "... yes?"
+M: "Tell me what you really like!"
+"I'm here to help you find someone who is a good match for you!"
+"[i]You[/i] and not whoever you think people want to be with."
+H: "okay"
+M: "Like for example,\n I see your profile pic is a gaming console?"
+H: "yes!"
+M: "What games do you play?"
+H: "oh! I love to play Crash Bros! its very fun, but i'm kind of bad at it"
+"also theres this new game called Hexagonal Adventure! you play as 6 characters travelling together on an adventure-"
+"also Beast Crossing! I think you'd really like it. it's really relaxing to play!"
+M: "Mhm. See, you have [i]plenty[/i] of things you really like."
+"You should share them with the next person you meet!"
+H: "oh. okay then!"
+"um, i'm looking forward to meeting whoever you think is the right fit!"
+M: "Leave it to me!"

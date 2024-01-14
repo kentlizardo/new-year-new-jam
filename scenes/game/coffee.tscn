@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://crnv5p4fwc4nw"]
+
+[ext_resource type="Script" path="res://scenes/game/coffee.gd" id="1_02bva"]
+[ext_resource type="Texture2D" uid="uid://dh6jcc5233tge" path="res://assets/textures/desk/mug_coffee.png" id="2_htcsp"]
+[ext_resource type="AudioStream" uid="uid://b156nmlwicv8v" path="res://assets/audio/mug_break.mp3" id="3_lsg8o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3un03"]
+radius = 60.0
+height = 160.0
+
+[node name="Coffee" type="RigidBody2D" node_paths=PackedStringArray("break_sound", "sprite")]
+position = Vector2(897, 501)
+collision_layer = 4
+collision_mask = 4
+input_pickable = true
+linear_damp = 0.4
+angular_damp = 1.0
+script = ExtResource("1_02bva")
+break_sound = NodePath("AudioStreamPlayer2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_htcsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.00006, -17)
+shape = SubResource("CapsuleShape2D_3un03")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lsg8o")

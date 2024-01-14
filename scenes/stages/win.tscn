@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0r4oxdln7rsj"]
+
+[ext_resource type="Script" path="res://scenes/stages/win.gd" id="1_3jgu5"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="1_t3uoh"]
+[ext_resource type="FontFile" uid="uid://crgwjttty26cx" path="res://assets/fonts/BadComic-Italic.ttf" id="2_4omd3"]
+[ext_resource type="Theme" uid="uid://branosegmvh65" path="res://scenes/theme.tres" id="3_frkh4"]
+[ext_resource type="Script" path="res://scenes/stages/win/main_menu.gd" id="4_lgel4"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jgu5")
+label = NodePath("VBoxContainer/RichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.101961, 0.0862745, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -52.0
+offset_right = 126.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_t3uoh")
+theme_override_fonts/italics_font = ExtResource("2_4omd3")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+bbcode_enabled = true
+text = "[center]Congratulations!
+You finished your job as a Cupid!
+Thank you for playing our game!
+You've completed the following routes.
+Herring
+Boss
+[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_frkh4")
+text = "Return to main menu"
+script = ExtResource("4_lgel4")
+
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="VBoxContainer/MainMenu" method="_on_pressed"]

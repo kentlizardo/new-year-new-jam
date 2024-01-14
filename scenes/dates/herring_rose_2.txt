@@ -1,0 +1,36 @@
+/set_main_contact("rose")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+R: "Hi! You're my assigned Cupid right?"
+M?: "Yes I am.\n How may I help you?"
+R: ",,,Was I stood up yesterday?"
+M: "Hm?"
+R: "I was waiting the entire day, and he didn't even show up!"
+"Do you think he changed his mind?"
+M: "...Hm???" +sweat
+"Let me check in with my supervisor."
+R: "Even a monster showed up while I was waiting at the meeting place!"
+M?: "Excuse me?" +hesitate
+R: "Yeah, a super scary looking monster! I managed to scare them off though thankfully."
+"Wait..."
+"...maybe I should have let my date save [i]me[/i] instead..."
+"Do you think that would've been more maiden-like?"
+M?: "Actually..."
+M: "I don't think that's the issue."
+M?: "Have you seen your date in person?"
+R: "Actually... No. \nHe's pretty mysterious."
+"Why?"
+M: "This is him."
+/media("M", %herring_post%)
+R: "Oh..."
+R?:"He's so..."
+R?:"He's so..." +shaking
+"HE'S SO COOL?!?"
+"AND FASHIONABLE??"
+"Wait."
+"He looks a little familiar..."
+"Oh no!"
+"I have to go! Thank you!"
+M: "Glad to be of service 👍"
+/push_date("herring_rose_3")

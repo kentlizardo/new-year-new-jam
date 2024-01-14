@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://83ou5u36w2y1"]
+
+[ext_resource type="Script" path="res://scenes/game/messages/choice_root.gd" id="1_b0rsu"]
+[ext_resource type="PackedScene" uid="uid://epbjd0q1mpys" path="res://scenes/game/bubble_choice.tscn" id="1_oad34"]
+
+[node name="ChoiceRoot" type="VBoxContainer"]
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("1_b0rsu")
+
+[node name="Choice" parent="." instance=ExtResource("1_oad34")]
+visible = false
+layout_mode = 2

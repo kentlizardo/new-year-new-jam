@@ -1,0 +1,10 @@
+/set_main_contact("boss")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+A: "Good job, Mina!"
+"I saw you got a full review!"
+"How was it this time?"
+M: "It wasn't too bad."
+A: "Take a good rest once you get home okay. 💖"
+M: "Sure thing."

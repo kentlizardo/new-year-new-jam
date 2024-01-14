@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://byloginwke4aw"]
+
+[ext_resource type="Texture2D" uid="uid://bpsikqn82kth3" path="res://assets/textures/pfp.png" id="1_248om"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="2_8sm6y"]
+[ext_resource type="Script" path="res://scenes/game/messages/user_icon.gd" id="2_perno"]
+[ext_resource type="Texture2D" uid="uid://do6sfidbq6hs" path="res://assets/textures/pfps/ryo.png" id="2_rya72"]
+
+[node name="UserIcon" type="Control" node_paths=PackedStringArray("notification_label", "icon", "mask")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_perno")
+notification_label = NodePath("Notifications")
+icon = NodePath("Mask/PFP")
+mask = NodePath("Mask")
+
+[node name="Mask" type="TextureRect" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_248om")
+expand_mode = 1
+
+[node name="PFP" type="TextureRect" parent="Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rya72")
+expand_mode = 1
+
+[node name="Notifications" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.988235, 0.988235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.505882, 0.443137, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_8sm6y")
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpo24l4jygsv3"]
+
+[ext_resource type="Script" path="res://scenes/game/stamp.gd" id="1_2eywq"]
+[ext_resource type="Texture2D" uid="uid://bes78g22ri86l" path="res://assets/textures/stamp_bottom.png" id="1_mj3mv"]
+[ext_resource type="Script" path="res://scenes/game/draggable.gd" id="1_nyrib"]
+[ext_resource type="Texture2D" uid="uid://xfxbspsiml75" path="res://assets/textures/stamp_top.png" id="2_ck1ip"]
+[ext_resource type="AudioStream" uid="uid://dx0okaretssaa" path="res://assets/audio/stamp.mp3" id="2_xif17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3o4a0"]
+size = Vector2(108, 87.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8se0"]
+size = Vector2(121, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdvi"]
+size = Vector2(112, 8.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7qct"]
+size = Vector2(105, 115)
+
+[node name="Stamp" type="RigidBody2D" node_paths=PackedStringArray("stamp_top", "spring", "stamp_threshold", "stamping_area", "stamp_sound", "sprite")]
+collision_layer = 6
+collision_mask = 2
+input_pickable = true
+lock_rotation = true
+linear_damp = 5.0
+script = ExtResource("1_2eywq")
+stamp_top = NodePath("TopBody")
+spring = NodePath("DampedSpringJoint2D")
+stamp_threshold = NodePath("StampThreshold")
+stamping_area = NodePath("StampingArea")
+stamp_sound = NodePath("AudioStreamPlayer2D")
+sprite = NodePath("Bottom")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xif17")
+volume_db = -6.0
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(0, -54.125)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_mj3mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.9375)
+shape = SubResource("RectangleShape2D_3o4a0")
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2(0, -98.125)
+node_a = NodePath("..")
+node_b = NodePath("../TopBody")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-1, -28)
+node_a = NodePath("../TopBody")
+node_b = NodePath("..")
+rest_length = 50.0
+stiffness = 40.0
+
+[node name="TopBody" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(0, -54)
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+lock_rotation = true
+script = ExtResource("1_nyrib")
+sprite = NodePath("Top")
+
+[node name="Top" type="Sprite2D" parent="TopBody"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ck1ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBody"]
+position = Vector2(-0.5, -21.5)
+shape = SubResource("RectangleShape2D_o8se0")
+debug_color = Color(0.196078, 0.643137, 0, 0.419608)
+
+[node name="StampThreshold" type="Area2D" parent="."]
+position = Vector2(-1, 17)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="Area2D" type="CollisionShape2D" parent="StampThreshold"]
+position = Vector2(1, 32)
+shape = SubResource("RectangleShape2D_kbdvi")
+
+[node name="StampingArea" type="Area2D" parent="."]
+position = Vector2(0, -37.125)
+input_pickable = false
+
+[node name="Area2D" type="CollisionShape2D" parent="StampingArea"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_x7qct")

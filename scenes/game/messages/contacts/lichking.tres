@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Contact" load_steps=2 format=3 uid="uid://f6ha8asa0h3y"]
+
+[ext_resource type="Script" path="res://scenes/game/messages/contact.gd" id="1_prcb0"]
+
+[resource]
+script = ExtResource("1_prcb0")
+name = "Lich King"

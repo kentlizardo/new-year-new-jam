@@ -1,0 +1,47 @@
+/set_main_contact("boss")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "How are things going with your new partners? 😇" +sweat
+A: "It's!"
+"..." +shaking
+"Perfect."
+/media("A", "boss_true_date.png")
+A: "You know,"
+"It really was the best choice to let you pick for me,"
+"Despite myself having been in the field,"
+"For quite longer than most people think."
+M: "I know you best, after all."
+A: "I think..."
+"After a *long* time of trying to date or even settle down,"
+"I never really felt satisfied."
+"Not really in the fact that there's now more than one."
+"Just in that I love "loving""
+"Falling at first sight, bumping into eachother around the corner..."
+"Having one to chase. Having one to confide in."
+"To just meeting new people and learning about them for the first time."
+M: "That's why you made this company."
+A: "Spot on!"
+"You really know me Mina. 💝"
+M: "I'm glad to hear that,"
+M: "Miss Aphrodite."
+A: "Jeez!" +shaking
+"You're so old-fashioned. I thought I told you to use my nickname!"
+M: "Not on company hours, boss."
+A: "😣"
+M: "I hope you have a great honeymoon."
+"*honeymoons."
+"🫣"
+A: "Haha." +sweat
+"It's the same one with all three of them dear."
+"I don't think I'll be getting over this honeymoon phase as quickly as I usually do."
+"But on that note, I [i]do[/i] think it's time to move on in regards to..."
+"The company ^^."
+M: "...Really? That wasn't a joke?"
+A:"It's about time for me to settle down, don't you think."
+"For once, I'd like to be hit by a cupid's arrow."
+"Plus I have [i]juuust[/i] the person in mind to take care of this place."
+G: "Congratulations (Mina, Executive Cupid)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
+/mark_history("true")

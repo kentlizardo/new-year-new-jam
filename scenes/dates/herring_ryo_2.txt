@@ -1,0 +1,65 @@
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "the date went terribly..."
+"what do I doo,,,"
+M: "What happened?"
+H: "she didn't enjoy the movie at all..."
+"she was so quiet..."
+"it was so awkward."
+"how do I fix this?"
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+R: "the date..." +skip
+"WAS INCREDIBLE!" +skip
+"He was so much cuter in person!" +skip
+"I couldn't stop looking at him the entire time!!!" +skip
+"How could you not want to squish him?" +skip
+R: "I wonder if he can transform?"
+"What does his slime form look like?"
+"I wonder if he feels the same too 😭"
+"How can a slime be filled with so much cuteness?!??"
+"HE LOOKS EXACTLY LIKE MY FAVORITE CHARACTER TOO"
+M: "Oh, really?"
+R: "Look at my profile pic!"
+"DOESN'T HE LOOK EXACTLY LIKE HIM?"
+M: "Uh."
+<sure>/choice
+/add_to_choice(<sure>, "Yep. Looks exactly like him.")
+/add_to_choice(<sure>, "I can sort of see it?")
+/add_to_choice(<sure>, "???")
+R: "I hope I can see him soon!"
+M: "I'm glad to hear it went well atleast..."
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "asjgahiaghrsaldkasfnojoge" +skip
+M?: "What's wrong, Herring!?"
+"Are you hurt?"
+H: "oh,,, sorry that was an accident."
+"a ton of gold and junk just fell on me out of nowhere."
+"thanks for worrying about me miss Mina!"
+"..."
+"no way."
+M?: "Do you need me to contact emergency services?"
+H: "this..."
+"this is a sealed limited edition Momo Magi-Girl figure!" +shaking
+"it even has the customizable cantrips!"
+"wait,"
+"this giant box crushing me to death??"
+"its a complete box set of seasons 1-8 of Dungeon Dinner!?" +shaking
+"NO WAY!???"
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Actually..."
+"Miss Ryo."
+"I think I found where your hoard was transported to."
+/media("M", "herring_squished")
+"[color=mediumslateblue][url]maps.ogle.com/XXXXXX[/url][/color]"
+/push_date("herring_ryo_3")

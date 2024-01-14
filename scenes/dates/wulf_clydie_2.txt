@@ -1,0 +1,73 @@
+/push_date("wulf_clydie_3")
+/set_main_contact("clydie")
+/add_contact_alias("C")
+/add_player_alias("M")
+/add_global_alias("G")
+C: "Hello, is this Mina?"
+M: "Hm, who's asking?"
+"Ah, I'm kidding of course,"
+"It's always a pleasure meeting one of my clients."
+"How are you doing, Clydie?"
+C: "Right!"
+"Things are going well with Wulf."
+"He's such a dearie."
+"Although,"
+"He's quite the funny technology user."
+"Miss Emma got him a copy of Terraformia to play with me."
+M: "Oh!"
+"Really?"
+"Hehe."
+"It's quite amusing to picture him playing a video game."
+C: "It's certainly entertaining."
+M: "Are you an avid enjoyer of games?"
+C: "Ah, yes."
+"There's not much else to do on the orchard."
+"So I got quite good at them."
+M: "I thought it was dangerous for Fey to be near certain metals in computers?"
+C: "Ah! You're very learned."
+"For my nameday, I asked my guardians to commission a specialist in runecraft to make a personal one."
+M: "That's incredible!"
+C: "Not as incredible as Wulf attempting to use a mouse and keyboard at the same time."
+"Who knew such a mettled warrior could fail at such an activity."
+M: "Haha"
+C: "Oh, while we're on that topic."
+"I actually wanted to ask you for some ideas on what to do."
+"Despite how much he's trying to learn for me,"
+"I want him to enjoy time with me as well."
+"How about it?"
+<a>/choice
+/add_to_choice(<a>, "Maybe try other kinds of games?", <a_1>)
+/add_to_choice(<a>, "Maybe video calling during activities?", <a_2>)
+/add_to_choice(<a>, "Watch shows and movies together?", <a_3>)
+<a_1>/group
+    C: "Oh, you're a fan of games too, Mina?"
+    M: "Not exactly... I mean theres more games like online versions of board games."
+    "Social and party games! Maybe you could introduce some of your orchard members and his family?"
+    C: "Ah, we might be a long ways away from that at this point,"
+    "But I'll keep those games in mind." *<post_a>
+<a_2>/group
+    C: "Oh we've already video called if that's what you're saying."
+    "What do you mean by activities?"
+    M: "You could, hmm, cook for example?"
+    "Have a cook-off? Or maybe see who can impress eachother's family more?"
+    C: "Ah, I'm not allowed to cook, or use fire in the orchard."
+    "I'm... might be banned from the eating area."
+    M: "Huh!"
+    "You could always ask those runecraft specialists to craft a special oven."
+    C: "Ah, I'm also banned from contacting them after I... requested more items with the orchard's budget."
+    M: "Hmm. You could try reading some books to eachother."
+<a_3>/group
+    C: "Ah!"
+    "Do you have any good recommendations?"
+    M: "Actually,"
+    "...maybe, Emma is better than me at this kind of thing 😅."
+    C: "Wow,"
+    "I think this is the first time I've heard another Cupid being better at a topic than you!"
+    M: "Hey!!!"
+    C: "I'm merely teasing. I wouldn't forget you, even if me and Wulfie don't last as long as I'd want us to."
+    "...I want us to last as long as possible."
+    M: "I really hope you do too."
+<post_a>C: "Thank you for the recommendations."
+"I'll keep them in mind next time I call Wulfie."
+"Speaking of-"
+M: "Keep me updated on how it goes! :D"

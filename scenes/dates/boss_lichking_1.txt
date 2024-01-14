@@ -1,0 +1,35 @@
+/set_main_contact("alex")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+A: "Hey Mina."
+"Have you seen the news lately?\n  -Alex" +skip
+M: "What's up?"
+A: "[color=mediumslateblue][url]Breaking News: Underworld is in an Uproar about Lich King's new girlfriend?[/url][/color]"
+M: "Uh."
+A: "[color=mediumslateblue][url]Statement from Zeus on Lich King's new relationship![/url][/color]"
+"[color=mediumslateblue][url]Is Lich King a Skeleton or Zombie? Or BOTH?[/url][/color]"
+/set_main_contact("boss")
+/add_contact_alias("B")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Ms. Ava?"
+"What, exactly happened?"
+B: "Hm?"
+"Oh you saw the news!"
+"Oopsies! ^^"
+"I just wanted to show off my lovely new boyfriend, hehe."
+"He's so incredibly studious outside of his work as a King"
+"It made me fell head over wings!"
+"So, I decided to show off..."
+"To everyone! Even my family who I haven't talked to in years!"
+M: "Right..." +sweat
+/set_main_contact("alex")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+A: "[color=mediumslateblue][url]Can a Goddess and Lich be bound in "Holy" Matrimony?[/url][/color]"
+/media("boss_lichking_date.png")
+A: "I have to say, this is certainly an interesting look for Ms. Ava."
+M: "Right..."
+/mark_history("lichking")

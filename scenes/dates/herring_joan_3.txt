@@ -1,0 +1,83 @@
+/set_main_contact("joan")
+/add_contact_alias("J")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Miss Joan, how was the date yesterday?"
+J: "Oh! Mina!"
+M: "Did you two get home safe?"
+J: "Uh, yeah we came home safe!"
+"I think he's a little sad right now..."
+"After we went to the mall,\n he wanted to go on those little mini trains with me"
+"We went on, and had a fun time!"
+"...for about 20 seconds."
+M: "Oh?"
+J: "The trolley broke down\n probably from our weight I think..."
+"And then when we went to the cafe..."
+"The waiter tripped and spilled drinks on the both of us..."
+M: "Oh dear..."
+J: "Don't worry! He was fine!"
+"They were iced drinks anyway!"
+"He smelt great after that!"
+M: "?"
+J: "Oh... Nevermind that!"
+"..."
+"Oh well would you look at the time!"
+"I gotta head off for work!"
+// gotta simulate time passing even though messages are instantly queued.
+// player will check herring's messages first.
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "miss mina!!!!" +skip
+"the dates were so bad 😭" +skip
+"why did I pick all three" +skip
+"she must totally hate me nowww" +skip
+"Joan was so cool... and i let her down with boring places..."
+<cheer_up>/choice
+/add_to_choice(<cheer_up>, "She enjoyed the dates!")
+/add_to_choice(<cheer_up>, "She doesn't hate you!")
+M: "I'm sure of it!"
+H: "...I'm gonna go wallow away now"
+M: "???"
+H: "-somewhere with no people..."
+M: "As long as you're safe!"
+H: "don't worry,,, its kind of my little hideout."
+"thank you anyways for all the help miss Mina..."
+/set_main_contact("joan")
+/add_contact_alias("J")
+/add_player_alias("M")
+/add_global_alias("G")
+J: "Ugh."
+"This is so annoying."
+"An express order was placed... to deliver some bread?!"
+"Right when it's starting to get dark out."
+"This job feels like more of a commitment than dating sometimes!"
+M: "Tell me about it. :O"
+J: "Huh, my GPS is telling me to go on a weird turn?"
+"Huh. I've never been on this road before."
+"I must've missed it whenever I drove past."
+"Wait someone is there!"
+M: "Are you okay? I'm right here if you need anything."
+J: "Who's that?"
+"It's..."
+"It's Herring!"
+M: "Why is he there?"
+J: "Huh..."
+"Apparently this is his secret base..."
+"Huh? He wants me to go through a bunch of foliage"
+"..."
+"Woah!"
+"That was super close!"
+"I bumped into him and almost lost my head!"
+"Thankfully he caught it!"
+"..."
+"It's really beautiful here!"
+"Mina! I think you should see this too ^^"
+/media("J", "herring_joan_date.png")
+M: "It really is a great view."
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
+/mark_history("joan")
+/message_parser("after_herring")

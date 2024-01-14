@@ -1,0 +1,59 @@
+// ? suffix to contact name requires prompts before sending
+/set_main_contact("herring")
+/add_contact_alias("H")
+/add_player_alias("M")
+/add_global_alias("G")
+H: "hi!"
+"I managed to set up a park date! :o"
+"the website I found had a list of recommendations"
+"the view of the fountain here is very nice."
+M?: "That's great to hear, Mr. Herring."
+H: "um ty!"
+"..."
+"so."
+"we're meeting for the first time soon,"
+"and I was wondering if you could help me with,"
+"which outfit I should wear?"
+/media("H", "tacky_1.png", "tacky_2.png")
+<choice_1>/choice
+/add_to_choice(<choice_1>, "The sunglasses one.", <sunglasses>)
+/add_to_choice(<choice_1>, "The patterned one.", <pattern>)
+<sunglasses>/group
+    M: "But I will advise you... that is in fact,\n a shoulder bag."
+    H: "?"
+    "but it said it was a waist bag on lamaz.in"
+    "the post said its super trendy"
+    M: "It's a shoulder bag.\n Don't trust [i]everything[/i] you see on the internet."
+    /set_flag("herring_post", "tacky_1_post.png")
+    H: "okay!" *<after_choice_1>
+<pattern>/group
+    M: "Your sense of fashion is unique!"
+    H: "tysm!"
+    /set_flag("herring_post", "tacky_2_post.png")
+    "I studied long and hard for today!" *<after_choice_1>
+<after_choice_1>H: "thank you so much miss Mina!"
+H: "i should post it on penta.gram!"
+"i don't wear outfits like these very often"
+"oh!
+"last thing."
+"which of these do you think would look best?"
+/media("H", "buff_1.png", "buff_2.png", "buff_3.png")
+M?: "...Um."
+M?"For what?" +sweat
+H: "My form!"
+"I was thinking, if there’s one thing that can impress a knight, it’s how strong I can be!" +shaking
+<choice_2>/choice
+/add_to_choice(<choice_2>, "Maybe tone it down a bit?")
+/add_to_choice(<choice_2>, "I think it's best to just be yourself.")
+/add_to_choice(<choice_2>, "Are you sure you want to do this?")
+/media("H", "o_no.png")
+H:"How's this form look?"
+M?: "Wow..." +shaking
+<choice_3>/choice
+/add_to_choice(<choice_3>, "You look amazing.")
+/add_to_choice(<choice_3>, "That's certainly something.")
+/add_to_choice(<choice_3>, "Maybe don't...?")
+H: "oh, I think she'll be here soon."
+"I'm going to change!"
+"thank you miss Mina!"
+/push_date("herring_rose_2")

@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1p5gyq5add1o"]
+
+[ext_resource type="Texture2D" uid="uid://cgcvmo7bg5n6e" path="res://assets/textures/logo_cropped2.png" id="1_q1a2k"]
+[ext_resource type="Script" path="res://scenes/game/fade.gd" id="1_xbsyj"]
+[ext_resource type="FontFile" uid="uid://chwxmpxjf4ej7" path="res://assets/fonts/BadComic-Regular.ttf" id="2_7sjpl"]
+[ext_resource type="Script" path="res://scenes/stages/main_menu/new_game.gd" id="2_vgysh"]
+[ext_resource type="PackedScene" uid="uid://dvlypir8qho1k" path="res://scenes/stages/workday.tscn" id="3_01mx5"]
+[ext_resource type="Script" path="res://scenes/stages/main_menu/load.gd" id="3_gwdrj"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.101961, 0.0862745, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+texture_filter = 3
+position = Vector2(512, 293)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_q1a2k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xbsyj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.5
+offset_top = -171.0
+offset_right = 84.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="New Game" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sjpl")
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+alignment = 0
+script = ExtResource("2_vgysh")
+scene = ExtResource("3_01mx5")
+
+[node name="Load" type="Button" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sjpl")
+theme_override_font_sizes/font_size = 32
+text = "Load From Password
+"
+alignment = 0
+script = ExtResource("3_gwdrj")
+
+[node name="Options" type="Button" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sjpl")
+theme_override_font_sizes/font_size = 32
+text = "Options
+"
+alignment = 0
+
+[node name="Credits" type="Button" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sjpl")
+theme_override_font_sizes/font_size = 32
+text = "Credits
+"
+alignment = 0
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sjpl")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+alignment = 0

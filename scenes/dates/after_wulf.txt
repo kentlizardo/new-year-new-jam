@@ -1,0 +1,20 @@
+/set_main_contact("boss")
+/add_contact_alias("A")
+/add_player_alias("M")
+/add_global_alias("G")
+A: "Great work again!"
+"Was it difficult?"
+M: "Nope."
+"You know I always got this."
+"😇"
+A: "I do, 🥺"
+"What would I do without you, Mina?"
+M: "😔"
+"Maybe soon you'll make do without me if you keep telling Emma I'd help her out without asking me."
+A: "😱"
+"Sorry!!!"
+"I thought you were the right person for the job..."
+"Nooooooo..."
+M: "I'm just kidding Ava ^^."
+"I would have agreed to do it anyway."
+A: "Don't scare me like that!"

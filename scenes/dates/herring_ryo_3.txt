@@ -1,0 +1,38 @@
+/set_main_contact("ryo")
+/add_contact_alias("R")
+/add_player_alias("M")
+/add_global_alias("G")
+M: "Miss Ryo, I haven't heard from you in a while?"
+"Did you want us to pair you with a different partner?"
+M?: "... Are you okay?"
+R: "yo!"
+"hey it's herring,"
+M?: "Um?"
+"This isn't your contact?"
+"What happened?"
+R: "yeah no shes just in the middle of soloing this boss"
+"she told me to answer her phone"
+M?: "I see."
+R: "i brought my stuff over to her house"
+"so i don't have to bike over so much anymore"
+R?: "so yeah"
+"turns out she's pretty cool!"
+"it was a shock that such a beautiful girl was into this kind of stuff"
+"don't tell her i said that 😳"
+"she's even cooler than i am"
+"i'm learning more things every day"
+"i just learned what a wavedash is"
+"do you wanna know what it is Miss Mina?"
+M?: "I gotta go back to work soon,"
+R: "have a good day Miss Mina!"
+"thank you for everything !!!"
+"Ryo is saying thanks too!"
+"she also said something about 'the chaos magic being successful after all'?"
+"hm?"
+M: "Oh, don't worry about it.\n Just enjoy your day with Miss Ryo!"
+/media("R", "herring_ryo_date.png")
+G: "Congratulations (Mina, Cupid Specialist)"
+"You just received a review!"
+"⭐⭐⭐⭐⭐"
+/mark_history("ryo")
+/message_parser("after_herring")

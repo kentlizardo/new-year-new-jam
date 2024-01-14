@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=7 format=3 uid="uid://dxuu0kyx3atwc"]
+
+[ext_resource type="Script" path="res://scenes/data/game_data.gd" id="1_2h1gp"]
+[ext_resource type="PackedScene" uid="uid://kxx03bkeuw0h" path="res://scenes/packs/herring.tscn" id="1_cjt1f"]
+[ext_resource type="Script" path="res://scenes/data/client_job.gd" id="1_s5qvb"]
+[ext_resource type="PackedScene" uid="uid://cdwipjij58sq2" path="res://scenes/packs/boss.tscn" id="3_n6wx2"]
+
+[sub_resource type="Resource" id="Resource_ef55x"]
+script = ExtResource("1_s5qvb")
+main_pack = ExtResource("1_cjt1f")
+
+[sub_resource type="Resource" id="Resource_g38co"]
+script = ExtResource("1_s5qvb")
+main_pack = ExtResource("3_n6wx2")
+
+[resource]
+script = ExtResource("1_2h1gp")
+clients_left = Array[ExtResource("1_s5qvb")]([SubResource("Resource_ef55x")])
+last_client = SubResource("Resource_g38co")
+dates_left = Array[String]([])
+pack_stack = Array[PackedScene]([])
