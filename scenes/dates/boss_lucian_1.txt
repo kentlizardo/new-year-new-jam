@@ -9,7 +9,7 @@ B: "How's work going?"
 /add_to_choice(<work>, "Work is going well.")
 /add_to_choice(<work>, "So and so, so far.")
 /add_to_choice(<work>, "I've had better days.")
-B: "I just wanted to share how me and lovely Ross here are having an amazing time."
+B: "I just wanted to share how me and lovely Lucian here are having an amazing time."
 "He invited me to a business party his company was holding,"
 "And introduced me to everyone!!!"
 "I absolutely love the mood in here."

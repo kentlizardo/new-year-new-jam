@@ -27,9 +27,9 @@ H?: "oh hey miss mina! it's nice to talk to you again 😊"
 H?:"it's a home/movie date!"
 "oh!"
 "the internet said the top home date activity was Cineflix and chill."
-/media("H", "herring_movies")
-"do you think she will like them?"
-M: "These don't look like movies that [i]you[/i] would typically watch?"
+/media("H", "herring_movies", "herring_movies", "herring_movies")
+"do you think she will like these movies?"
+M: "These don't look like ones that you would typically watch?"
 "Why these ones?"
 H: "..."
 "ig you know me well after all miss Mina,,,"
