@@ -9,7 +9,7 @@ A: "It's!"
 /media("A", "boss_true_date.png")
 A: "You know,"
 "It really was the best choice to let you pick for me,"
-"despite having been in our field for quite longer than you've worked."
+"Despite having been in our field for quite longer than you've worked."
 M: "I know you best."
 A: "I think..."
 "After a *long* time of trying to date or even settle down,"

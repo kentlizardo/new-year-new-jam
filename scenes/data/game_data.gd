@@ -28,7 +28,7 @@ func get_workday() -> Dictionary:
 		if clients_left.size() == 0 and dates_left.size() == 0: # extra assertions
 			if last_client:
 				result["packs"].append(last_client.main_pack)
-				last_client == null
+				last_client = null
 			else:
 				print("won the game!")
 				return {}

@@ -79,8 +79,6 @@ func submit():
 	if tray_cooldown > 0:
 		return
 	tray_cooldown += 1.0
-	# This condition is only usable if the only valid multiple ending
-	# is one where *all* suitors are chosen. aka this game.
 	if ClientProfile.current != null: # redundant assertion.
 		var recipe := try_recipe()
 		if !recipe.is_empty():
@@ -91,7 +89,7 @@ func try_recipe() -> String:
 	var suitor_ids := current_suitors
 	if suitor_ids.size() == 0:
 		return ""
-	if suitor_ids.size() > 1 and ClientProfile.current.recipes.has("true"):
+	if suitor_ids.size() == 3 and ClientProfile.current.recipes.has("true"):
 		return ClientProfile.current.recipes["true"]
 	elif suitor_ids.size() == 1:
 		if ClientProfile.current.recipes.has(suitor_ids[0]):

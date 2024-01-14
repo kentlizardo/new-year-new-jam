@@ -14,7 +14,6 @@ func _ready():
 	label.text = name
 	label.modulate.a = 0
 	profile_texture = ResourceLoader.load(MessageParser.PROFILES_PATH + get_profile_id() + ".png")
-	print(null)
 	double_clicked.connect(popup)
 
 func _process(delta):
